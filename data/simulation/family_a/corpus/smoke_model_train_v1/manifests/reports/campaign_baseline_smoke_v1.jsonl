@@ -1,0 +1,10 @@
+{"run_id":"A_BASE_001","completed":true,"encapsulation_success":false,"regime_label":"trapping","shell_thickness_mean_um":331.4,"capsule_eccentricity":0.355}
+{"run_id":"A_BASE_002","completed":true,"encapsulation_success":false,"regime_label":"trapping","shell_thickness_mean_um":298.2,"capsule_eccentricity":0.286}
+{"run_id":"A_BASE_003","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":273.0,"capsule_eccentricity":0.237}
+{"run_id":"A_BASE_004","completed":true,"encapsulation_success":false,"regime_label":"jet_breakup","shell_thickness_mean_um":158.3,"capsule_eccentricity":0.402}
+{"run_id":"A_BASE_005","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":267.1,"capsule_eccentricity":0.227}
+{"run_id":"A_BASE_006","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":262.8,"capsule_eccentricity":0.204}
+{"run_id":"A_BASE_007","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":241.6,"capsule_eccentricity":0.181}
+{"run_id":"A_BASE_008","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":236.3,"capsule_eccentricity":0.166}
+{"run_id":"A_BASE_009","completed":true,"encapsulation_success":false,"regime_label":"trapping","shell_thickness_mean_um":286.2,"capsule_eccentricity":0.241}
+{"run_id":"A_BASE_010","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":229.7,"capsule_eccentricity":0.172}

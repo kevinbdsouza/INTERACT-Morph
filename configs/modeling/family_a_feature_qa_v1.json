@@ -1,0 +1,18 @@
+{
+  "name": "family_a_feature_qa_v1",
+  "task": "MVP-013",
+  "tolerance": {
+    "penetration_depth_max_mm": 0.05,
+    "neck_radius_min_mm": 0.05,
+    "shell_thickness_mean_um": 15.0
+  },
+  "jump_detection": {
+    "factor": 8.0,
+    "absolute_min": {
+      "penetration_depth_mm": 0.25,
+      "neck_radius_mm": 0.25,
+      "shell_thickness_um": 40.0
+    }
+  },
+  "max_reported_worst_runs": 20
+}

@@ -1,0 +1,3 @@
+{"run_id": "A_SIM_A_000001", "derived_features_path": "by_run/A_SIM_A_000001.derived_features.json", "n_frames": 7, "events_source": "labels"}
+{"run_id": "A_SIM_A_000002", "derived_features_path": "by_run/A_SIM_A_000002.derived_features.json", "n_frames": 7, "events_source": "labels"}
+{"run_id": "A_SIM_A_000003", "derived_features_path": "by_run/A_SIM_A_000003.derived_features.json", "n_frames": 7, "events_source": "labels"}

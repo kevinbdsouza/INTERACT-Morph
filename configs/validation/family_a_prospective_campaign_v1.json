@@ -1,0 +1,67 @@
+{
+  "name": "family_a_prospective_campaign_v1",
+  "tasks": [
+    "MVP-032",
+    "MVP-033"
+  ],
+  "profiles": {
+    "model_guided_primary": {
+      "task_id": "MVP-032",
+      "description": "Primary model-guided prospective validation arm targeting first operating-window discovery.",
+      "arm": "model_guided",
+      "campaign_id_prefix": "C3_MODEL_GUIDED",
+      "run_id_prefix": "A_EXP_MG",
+      "selection_strategy": "ranked_top_k",
+      "default_max_runs": 12,
+      "holdout_filters": []
+    },
+    "baseline_primary": {
+      "task_id": "MVP-032",
+      "description": "Primary baseline arm with spread sampling for grid/heuristic comparison.",
+      "arm": "baseline",
+      "campaign_id_prefix": "C4_BASELINE",
+      "run_id_prefix": "A_EXP_BL",
+      "selection_strategy": "evenly_spaced_rank",
+      "default_max_runs": 12,
+      "holdout_filters": []
+    },
+    "model_guided_robustness": {
+      "task_id": "MVP-033",
+      "description": "Held-out robustness arm for model-guided selection in shifted parameter ranges.",
+      "arm": "model_guided",
+      "campaign_id_prefix": "C3_MODEL_GUIDED_HELDOUT",
+      "run_id_prefix": "A_EXP_MGH",
+      "selection_strategy": "ranked_top_k",
+      "default_max_runs": 10,
+      "holdout_filters": [
+        {
+          "path": "candidate_parameters.control_parameters.interfacial_layer_thickness_mm",
+          "max": 0.25
+        },
+        {
+          "path": "candidate_parameters.control_parameters.droplet_diameter_mm",
+          "min": 1.9
+        }
+      ]
+    },
+    "baseline_robustness": {
+      "task_id": "MVP-033",
+      "description": "Held-out robustness arm for baseline/grid-style comparison in shifted ranges.",
+      "arm": "baseline",
+      "campaign_id_prefix": "C4_BASELINE_HELDOUT",
+      "run_id_prefix": "A_EXP_BLH",
+      "selection_strategy": "evenly_spaced_rank",
+      "default_max_runs": 10,
+      "holdout_filters": [
+        {
+          "path": "candidate_parameters.control_parameters.interfacial_layer_thickness_mm",
+          "max": 0.25
+        },
+        {
+          "path": "candidate_parameters.control_parameters.droplet_diameter_mm",
+          "min": 1.9
+        }
+      ]
+    }
+  }
+}

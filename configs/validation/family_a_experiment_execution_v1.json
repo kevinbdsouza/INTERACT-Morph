@@ -1,0 +1,29 @@
+{
+  "name": "family_a_experiment_execution_v1",
+  "task": "MVP-031",
+  "objective_note": "Execute model-guided Family A experiments against target shell-thickness and capsule-shape windows with standardized capture and safety controls.",
+  "protocol": {
+    "campaign_id_prefix": "C3_MODEL_GUIDED",
+    "run_id_prefix": "A_EXP",
+    "default_top_k": 8
+  },
+  "global_checklist": [
+    "Confirm model artifact, calibration artifact, and recommendation report hashes are recorded.",
+    "Confirm fluid preparation lot IDs and instrument calibration records are attached for this campaign.",
+    "Confirm guardrail warnings in planned runs were reviewed and accepted by operator + reviewer."
+  ],
+  "per_run_measurements": [
+    "Record final executed control parameters and any operator overrides.",
+    "Record encapsulation success/failure and primary failure mode.",
+    "Record shell_thickness_mean_um and capsule_eccentricity with method provenance.",
+    "Record notable anomalies (drift, imaging occlusion, unstable jetting, delayed closure)."
+  ],
+  "stop_conditions": [
+    "Pause if three consecutive severe safety/process anomalies occur.",
+    "Pause if measured values repeatedly diverge from expected guardrail-safe envelope.",
+    "Pause if instrumentation calibration check fails during campaign."
+  ],
+  "output": {
+    "write_default_markdown": true
+  }
+}

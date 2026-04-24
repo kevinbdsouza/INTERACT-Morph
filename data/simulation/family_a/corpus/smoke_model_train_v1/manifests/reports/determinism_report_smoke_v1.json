@@ -1,0 +1,35 @@
+{
+  "name": "mvp_036_deterministic_training_check",
+  "created_at_utc": "2026-04-18T04:34:15.501100+00:00",
+  "started_at_utc": "2026-04-18T04:34:15.145588+00:00",
+  "inputs": {
+    "dataset_root": "data/simulation/family_a/corpus/smoke_model_train_v1",
+    "split": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/splits/smoke_v1.json",
+    "config": "configs/modeling/family_a_multimodal_v1.json",
+    "init_model": null,
+    "artifact_dir": "/var/folders/ry/czxxhh9x0tlfm9rt07jnbx200000gn/T/interact_determinism_xhddz_ta",
+    "model_id_prefix": "determinism_probe"
+  },
+  "runs": {
+    "a": {
+      "model_id": "determinism_probe_a",
+      "return_code": 0
+    },
+    "b": {
+      "model_id": "determinism_probe_b",
+      "return_code": 0
+    }
+  },
+  "determinism": {
+    "model_payload_match": true,
+    "eval_payload_match": true,
+    "predictions_match": true,
+    "model_hash_a": "c48211a32dde2b6c74706c231fbe7f796e57ae7f0adea186692bf5557fa11b31",
+    "model_hash_b": "c48211a32dde2b6c74706c231fbe7f796e57ae7f0adea186692bf5557fa11b31",
+    "eval_hash_a": "c6759498742117c37dbef7be63f608c0628d8f529acccc52987654ae2a29901b",
+    "eval_hash_b": "c6759498742117c37dbef7be63f608c0628d8f529acccc52987654ae2a29901b",
+    "predictions_hash_a": "cff11061777cc35931431bc3c8e4c52a5128426f927eaaddf527b83bd2ac0ff9",
+    "predictions_hash_b": "cff11061777cc35931431bc3c8e4c52a5128426f927eaaddf527b83bd2ac0ff9"
+  },
+  "passed": true
+}

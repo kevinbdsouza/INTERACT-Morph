@@ -1,0 +1,87 @@
+{
+  "created_at_utc": "2026-04-18T03:35:00.399914+00:00",
+  "task_id": "MVP-013",
+  "config": "configs/modeling/family_a_feature_qa_v1.json",
+  "derived_features_index": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/derived_features_index.jsonl",
+  "dataset_root": null,
+  "runs_scanned": 3,
+  "runs_with_issues": 0,
+  "issue_counts": {},
+  "thresholds": {
+    "summary_tolerance": {
+      "penetration_depth_max_mm": 0.05,
+      "neck_radius_min_mm": 0.05,
+      "shell_thickness_mean_um": 15.0
+    },
+    "jump_detection": {
+      "factor": 8.0,
+      "absolute_min": {
+        "penetration_depth_mm": 0.25,
+        "neck_radius_mm": 0.25,
+        "shell_thickness_um": 40.0
+      }
+    }
+  },
+  "summary_statistics": {
+    "penetration_depth_max_mm": {
+      "count": 3,
+      "min": 0.47,
+      "q25": 0.48,
+      "median": 0.49,
+      "q75": 0.495,
+      "max": 0.5,
+      "mean": 0.48666666666666664,
+      "std": 0.012472191289246483
+    },
+    "neck_radius_min_mm": {
+      "count": 3,
+      "min": 0.32,
+      "q25": 0.325,
+      "median": 0.33,
+      "q75": 0.33999999999999997,
+      "max": 0.35,
+      "mean": 0.3333333333333333,
+      "std": 0.012472191289246459
+    },
+    "shell_thickness_mean_um": {
+      "count": 3,
+      "min": 190.0,
+      "q25": 190.0,
+      "median": 190.0,
+      "q75": 195.0,
+      "max": 200.0,
+      "mean": 193.33333333333334,
+      "std": 4.714045207910316
+    },
+    "capsule_eccentricity": {
+      "count": 3,
+      "min": 0.047244,
+      "q25": 0.0474315,
+      "median": 0.047619,
+      "q75": 0.050527,
+      "max": 0.053435,
+      "mean": 0.04943266666666667,
+      "std": 0.0028342148040604756
+    }
+  },
+  "worst_runs": [
+    {
+      "run_id": "A_SIM_A_000001",
+      "path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/by_run/A_SIM_A_000001.derived_features.json",
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "run_id": "A_SIM_A_000002",
+      "path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/by_run/A_SIM_A_000002.derived_features.json",
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "run_id": "A_SIM_A_000003",
+      "path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/by_run/A_SIM_A_000003.derived_features.json",
+      "issue_count": 0,
+      "issues": []
+    }
+  ]
+}

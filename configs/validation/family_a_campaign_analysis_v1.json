@@ -1,0 +1,24 @@
+{
+  "name": "family_a_campaign_analysis_v1",
+  "tasks": [
+    "MVP-032",
+    "MVP-033",
+    "MVP-034"
+  ],
+  "targets": {
+    "require_success": true,
+    "allowed_regimes": [
+      "stable_wrapping"
+    ],
+    "shell_thickness_mean_um": {
+      "min": 180.0,
+      "max": 260.0
+    },
+    "capsule_eccentricity": {
+      "max": 0.2
+    }
+  },
+  "acceptance": {
+    "minimum_reduction_percent": 30.0
+  }
+}

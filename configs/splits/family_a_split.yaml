@@ -1,0 +1,18 @@
+split_name: family_a_v1
+seed: 42
+train_fraction: 0.70
+val_fraction: 0.15
+test_fraction: 0.15
+
+policy:
+  group_by_field: fluid_combination_id
+  stratify_by_field: outcomes.regime_label
+  enforce_non_overlap_groups: true
+
+held_out:
+  fluid_combination_ids: []
+
+filters:
+  family: A
+  require_video: true
+  require_annotation_complete: true

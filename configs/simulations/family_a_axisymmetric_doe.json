@@ -1,0 +1,21 @@
+{
+  "sweep_name": "family_a_axisymmetric_doe_v1",
+  "description": "Initial Family A parameter sweep for axisymmetric solver runs",
+  "parameters": {
+    "impact_velocity_m_s": { "values": [0.40, 0.80, 1.20, 1.60] },
+    "droplet_diameter_mm": { "values": [1.50, 2.00, 2.50] },
+    "shell_outer_diameter_mm": { "values": [2.20, 2.80, 3.40] },
+    "interfacial_layer_thickness_mm": { "values": [0.20, 0.50, 0.80] },
+    "core_density_kg_m3": { "values": [900, 1000, 1100] },
+    "core_viscosity_pa_s": { "values": [0.0010, 0.0030, 0.0100] },
+    "interfacial_tension_n_m": { "values": [0.015, 0.030, 0.050] }
+  },
+  "constraints": {
+    "shell_outer_minus_droplet_min_mm": 0.20,
+    "shell_outer_minus_droplet_max_mm": 2.20,
+    "weber_min": 3.0,
+    "weber_max": 250.0,
+    "ohnesorge_max": 2.0,
+    "bond_max": 3.0
+  }
+}

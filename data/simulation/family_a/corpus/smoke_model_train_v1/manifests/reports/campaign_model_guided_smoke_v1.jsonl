@@ -1,0 +1,8 @@
+{"run_id":"A_EXP_001","completed":true,"encapsulation_success":false,"regime_label":"trapping","shell_thickness_mean_um":310.2,"capsule_eccentricity":0.312}
+{"run_id":"A_EXP_002","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":271.8,"capsule_eccentricity":0.224}
+{"run_id":"A_EXP_003","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":264.5,"capsule_eccentricity":0.193}
+{"run_id":"A_EXP_004","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":232.1,"capsule_eccentricity":0.141}
+{"run_id":"A_EXP_005","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":219.7,"capsule_eccentricity":0.136}
+{"run_id":"A_EXP_006","completed":true,"encapsulation_success":false,"regime_label":"premature_closure","shell_thickness_mean_um":176.5,"capsule_eccentricity":0.256}
+{"run_id":"A_EXP_007","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":205.4,"capsule_eccentricity":0.118}
+{"run_id":"A_EXP_008","completed":true,"encapsulation_success":true,"regime_label":"stable_wrapping","shell_thickness_mean_um":244.8,"capsule_eccentricity":0.149}

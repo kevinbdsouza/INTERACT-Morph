@@ -1,0 +1,18 @@
+{
+  "run_id": "A_000001",
+  "encapsulation_success": true,
+  "regime_label": "stable_wrapping",
+  "failure_mode": "none",
+  "events_ms": {
+    "lamella_onset_ms": 1.2,
+    "first_contact_ms": 2.1,
+    "neck_formation_ms": 3.8,
+    "closure_time_ms": 7.4,
+    "detachment_time_ms": 12.0,
+    "rupture_time_ms": null
+  },
+  "confidence": "high",
+  "annotator": "annotator_name",
+  "annotation_timestamp": "2026-01-01T00:00:00Z",
+  "notes": ""
+}

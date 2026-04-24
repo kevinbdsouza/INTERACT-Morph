@@ -1,0 +1,68 @@
+{
+  "created_at_utc": "2026-04-18T03:34:13.329761+00:00",
+  "task_id": "MVP-011",
+  "model_id": "smoke_family_a_segmentation_v1",
+  "model_type": "global_intensity_threshold",
+  "dataset_root": "data/simulation/family_a/corpus/smoke_model_train_v1",
+  "annotations": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation/smoke_pixel_samples.jsonl",
+  "split": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/splits/smoke_v1.json",
+  "config": "configs/modeling/family_a_segmentation_v1.json",
+  "config_sha256": "3ed17f0e531764293cf0f568fc32e4eff9c5a24400f9e2d10e9576cb1f390dd3",
+  "annotations_sha256": "04b5f8f5adc8a07bc30e86807a1263edef5f976fcf35674e17e4249897243d06",
+  "threshold": 109.125,
+  "decision_rule": "less_than_or_equal",
+  "class_statistics": {
+    "positive_mean_intensity": 49.833333333333336,
+    "negative_mean_intensity": 168.41666666666666,
+    "n_positive_pixels_train": 12,
+    "n_negative_pixels_train": 12
+  },
+  "evaluation": {
+    "by_split": {
+      "train": {
+        "n_pixels": 24,
+        "tp": 12,
+        "fp": 0,
+        "tn": 12,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "iou": 1.0,
+        "accuracy": 1.0,
+        "true_positive_rate": 0.5,
+        "predicted_positive_rate": 0.5
+      },
+      "val": {
+        "n_pixels": 16,
+        "tp": 8,
+        "fp": 1,
+        "tn": 7,
+        "fn": 0,
+        "precision": 0.8888888888888888,
+        "recall": 1.0,
+        "f1": 0.9411764705882353,
+        "iou": 0.8888888888888888,
+        "accuracy": 0.9375,
+        "true_positive_rate": 0.5,
+        "predicted_positive_rate": 0.5625
+      },
+      "test": {
+        "n_pixels": 16,
+        "tp": 8,
+        "fp": 1,
+        "tn": 7,
+        "fn": 0,
+        "precision": 0.8888888888888888,
+        "recall": 1.0,
+        "f1": 0.9411764705882353,
+        "iou": 0.8888888888888888,
+        "accuracy": 0.9375,
+        "true_positive_rate": 0.5,
+        "predicted_positive_rate": 0.5625
+      }
+    },
+    "n_frames": 7,
+    "n_runs": 4
+  }
+}

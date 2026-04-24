@@ -1,0 +1,12 @@
+{
+  "created_at_utc": "2026-04-18T03:34:55.995465+00:00",
+  "task_id": "MVP-012",
+  "dataset_root": "data/simulation/family_a/corpus/smoke_model_train_v1",
+  "contours": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation/smoke_contour_observations.jsonl",
+  "config": "configs/modeling/family_a_contour_extraction_v1.json",
+  "model_version": "smoke_family_a_segmentation_v1",
+  "runs_written": 3,
+  "runs_failed": 0,
+  "failures": [],
+  "index": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/derived_features_index.jsonl"
+}

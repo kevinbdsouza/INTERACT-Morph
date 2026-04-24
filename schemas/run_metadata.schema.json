@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interact-capsules/schemas/run_metadata.schema.json",
+  "title": "INTERACT-Capsules Run Metadata",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "family",
+    "capture_timestamp",
+    "fluid_combination_id",
+    "fluid_system",
+    "control_parameters",
+    "outcomes",
+    "quality_flags",
+    "asset_paths"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.0\\.[0-9]+$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "source_run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "family": {
+      "type": "string",
+      "enum": ["A", "B", "C"]
+    },
+    "capture_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "fluid_combination_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operator": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lab": { "type": "string" },
+        "apparatus": { "type": "string" },
+        "camera_model": { "type": "string" }
+      }
+    },
+    "fluid_system": {
+      "type": "object",
+      "required": ["core", "shell", "interfacial_tension_n_m"],
+      "additionalProperties": false,
+      "properties": {
+        "core": {
+          "$ref": "#/$defs/fluid"
+        },
+        "shell": {
+          "$ref": "#/$defs/fluid"
+        },
+        "interfacial_layer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["material_id", "thickness_mm"],
+          "properties": {
+            "material_id": { "type": "string", "minLength": 1 },
+            "thickness_mm": { "type": "number", "exclusiveMinimum": 0 },
+            "density_kg_m3": { "type": "number", "exclusiveMinimum": 0 },
+            "viscosity_pa_s": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        },
+        "interfacial_tension_n_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "control_parameters": {
+      "type": "object",
+      "required": ["droplet_diameter_mm", "shell_outer_diameter_mm"],
+      "additionalProperties": false,
+      "properties": {
+        "impact_height_mm": { "type": "number", "minimum": 0 },
+        "impact_velocity_m_s": { "type": "number", "minimum": 0 },
+        "droplet_diameter_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "shell_outer_diameter_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "ambient_temperature_c": { "type": "number" }
+      },
+      "anyOf": [
+        { "required": ["impact_height_mm"] },
+        { "required": ["impact_velocity_m_s"] }
+      ]
+    },
+    "outcomes": {
+      "type": "object",
+      "required": ["encapsulation_success", "regime_label", "failure_mode"],
+      "additionalProperties": false,
+      "properties": {
+        "encapsulation_success": { "type": "boolean" },
+        "regime_label": {
+          "type": "string",
+          "enum": [
+            "stable_wrapping",
+            "trapping",
+            "penetration_no_wrap",
+            "partial_wrapping",
+            "rupture_after_wrap"
+          ]
+        },
+        "failure_mode": {
+          "type": "string",
+          "enum": [
+            "none",
+            "trapping",
+            "partial_wrapping",
+            "premature_rupture",
+            "lateral_spreading",
+            "asymmetry",
+            "other"
+          ]
+        },
+        "shell_thickness_mean_um": { "type": "number", "minimum": 0 },
+        "capsule_eccentricity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "notes": { "type": "string" }
+      }
+    },
+    "quality_flags": {
+      "type": "object",
+      "required": ["video_complete", "annotation_complete", "sensors_calibrated"],
+      "additionalProperties": false,
+      "properties": {
+        "video_complete": { "type": "boolean" },
+        "annotation_complete": { "type": "boolean" },
+        "sensors_calibrated": { "type": "boolean" }
+      }
+    },
+    "asset_paths": {
+      "type": "object",
+      "required": ["video_relpath"],
+      "additionalProperties": false,
+      "properties": {
+        "video_relpath": { "type": "string", "minLength": 1 },
+        "labels_relpath": { "type": "string" },
+        "derived_features_relpath": { "type": "string" }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "fluid": {
+      "type": "object",
+      "required": ["material_id", "density_kg_m3", "viscosity_pa_s"],
+      "additionalProperties": false,
+      "properties": {
+        "material_id": { "type": "string", "minLength": 1 },
+        "density_kg_m3": { "type": "number", "exclusiveMinimum": 0 },
+        "viscosity_pa_s": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    }
+  }
+}

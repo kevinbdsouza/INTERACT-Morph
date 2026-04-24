@@ -1,0 +1,95 @@
+{
+  "name": "family_a_mvp_governance_v1",
+  "tasks": [
+    "MVP-038",
+    "MVP-039",
+    "MVP-040"
+  ],
+  "handoff": {
+    "session_title": "INTERACT-Capsules Family A Internal Handoff",
+    "objective": "Run an internal walkthrough with operators and reviewers to verify end-to-end workflow usability before external handoff.",
+    "max_in_progress_items": 12,
+    "agenda": [
+      "Artifact readiness review (model, calibration, recommendations, execution templates)",
+      "Live CLI walkthrough from recommendation generation to campaign analysis",
+      "Operator Q&A and risk/assumption review",
+      "Action assignment and signoff checklist"
+    ],
+    "required_artifacts": [
+      "Latest model card and calibration report",
+      "Recommendation report + UI export",
+      "Execution template and campaign logs",
+      "Campaign analysis and failure-mode analysis reports",
+      "Determinism report and environment lock snapshot"
+    ],
+    "checklist": [
+      "Nominate owner + backup operator for every critical workflow stage",
+      "Capture unresolved usability issues and classify by severity",
+      "Record decision on readiness for independent lab operation",
+      "Schedule follow-up remediation sprint for unresolved blockers"
+    ]
+  },
+  "go_no_go": {
+    "gate_requirements": {
+      "G1 Data + Baseline Ready": "Done",
+      "G2 Model Usable": "Done",
+      "G3 Planning Value": "Done",
+      "G4 Tool Usable": "Done"
+    },
+    "max_blocked_tasks": 0,
+    "max_active_blockers": 0,
+    "max_at_risk_tasks": 1
+  },
+  "roadmap": {
+    "max_carryover_tasks": 20,
+    "phases_if_no_go": [
+      {
+        "phase": "Phase 1 (0-4 weeks)",
+        "objective": "Close MVP evidence gaps for data readiness and model usability.",
+        "focus": [
+          "Run first production Family A ingestion + validation pass",
+          "Execute first production model/fine-tune/calibration cycle",
+          "Triage top failure clusters and close correction loop"
+        ]
+      },
+      {
+        "phase": "Phase 2 (5-8 weeks)",
+        "objective": "Complete prospective validation and operator usability proof.",
+        "focus": [
+          "Run model-guided vs baseline campaigns with real logs",
+          "Quantify experiment reduction versus baseline",
+          "Run internal handoff and record independent operator results"
+        ]
+      },
+      {
+        "phase": "Phase 3 (Post-MVP start)",
+        "objective": "Prepare Family B/C extension once MVP gates are satisfied.",
+        "focus": [
+          "Define Family B/C schema deltas and simulation requirements",
+          "Prioritize instrumentation and data needs for multi-layer behaviors",
+          "Draft staged release plan for broader internal deployment"
+        ]
+      }
+    ],
+    "phases_if_go": [
+      {
+        "phase": "Phase 1 (0-6 weeks)",
+        "objective": "Start controlled Family B/C extension with preserved Family A reliability.",
+        "focus": [
+          "Scope Family B/C dataset contracts and ingestion pathways",
+          "Add extension-safe recommendation guardrails",
+          "Run pilot cross-family transfer experiments"
+        ]
+      },
+      {
+        "phase": "Phase 2 (7-12 weeks)",
+        "objective": "Scale broader capability and harden release workflow.",
+        "focus": [
+          "Expand simulation coverage and calibration evaluation",
+          "Harden operator UX and training materials",
+          "Prepare internal release checklist for multi-family rollout"
+        ]
+      }
+    ]
+  }
+}

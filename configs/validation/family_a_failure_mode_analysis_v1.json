@@ -1,0 +1,21 @@
+{
+  "name": "family_a_failure_mode_analysis_v1",
+  "task": "MVP-035",
+  "regression_abs_error_thresholds": {
+    "shell_thickness_mean_um": 35.0,
+    "capsule_eccentricity": 0.02
+  },
+  "confidence": {
+    "success_margin_warn": 1.5,
+    "regime_margin_warn": 1.5
+  },
+  "scoring": {
+    "success_misclassification": 4.0,
+    "regime_misclassification": 3.0,
+    "regression_error": 2.0,
+    "low_margin": 1.0
+  },
+  "output": {
+    "max_worst_runs": 40
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "A_SIM_A_000007",
+  "source_video": "video.mp4",
+  "frame_rate_fps": 5000.0,
+  "segmentation_model_version": "family_a_axisymmetric_surrogate_v1:direct_features",
+  "extraction_timestamp": "2026-04-18T02:30:27.249646+00:00",
+  "events_ms": {
+    "lamella_onset_ms": 1.933333,
+    "first_contact_ms": 2.733333,
+    "neck_formation_ms": 3.759824,
+    "closure_time_ms": 7.058438,
+    "detachment_time_ms": 9.121683,
+    "rupture_time_ms": null
+  },
+  "summary": {
+    "penetration_depth_max_mm": 0.687,
+    "neck_radius_min_mm": 0.301418,
+    "shell_thickness_mean_um": 198.68,
+    "capsule_eccentricity": 0.138541
+  },
+  "trajectories": {
+    "penetration_depth_mm": [
+      {
+        "t_ms": 0.0,
+        "value": 0.0
+      },
+      {
+        "t_ms": 1.0,
+        "value": 0.250418
+      },
+      {
+        "t_ms": 2.0,
+        "value": 0.409556
+      },
+      {
+        "t_ms": 3.0,
+        "value": 0.510687
+      },
+      {
+        "t_ms": 4.0,
+        "value": 0.574955
+      },
+      {
+        "t_ms": 5.0,
+        "value": 0.615796
+      },
+      {
+        "t_ms": 6.0,
+        "value": 0.641751
+      },
+      {
+        "t_ms": 7.0,
+        "value": 0.658245
+      },
+      {
+        "t_ms": 8.0,
+        "value": 0.668726
+      },
+      {
+        "t_ms": 9.0,
+        "value": 0.675387
+      },
+      {
+        "t_ms": 10.0,
+        "value": 0.67962
+      },
+      {
+        "t_ms": 11.0,
+        "value": 0.68231
+      },
+      {
+        "t_ms": 12.0,
+        "value": 0.68402
+      },
+      {
+        "t_ms": 13.0,
+        "value": 0.685106
+      },
+      {
+        "t_ms": 14.0,
+        "value": 0.685796
+      },
+      {
+        "t_ms": 15.0,
+        "value": 0.686235
+      },
+      {
+        "t_ms": 16.0,
+        "value": 0.686514
+      },
+      {
+        "t_ms": 17.0,
+        "value": 0.686691
+      },
+      {
+        "t_ms": 18.0,
+        "value": 0.686804
+      },
+      {
+        "t_ms": 19.0,
+        "value": 0.686875
+      },
+      {
+        "t_ms": 20.0,
+        "value": 0.686921
+      }
+    ],
+    "neck_radius_mm": [
+      {
+        "t_ms": 0.0,
+        "value": 0.518766
+      },
+      {
+        "t_ms": 1.0,
+        "value": 0.473327
+      },
+      {
+        "t_ms": 2.0,
+        "value": 0.397382
+      },
+      {
+        "t_ms": 3.0,
+        "value": 0.323183
+      },
+      {
+        "t_ms": 4.0,
+        "value": 0.303687
+      },
+      {
+        "t_ms": 5.0,
+        "value": 0.355134
+      },
+      {
+        "t_ms": 6.0,
+        "value": 0.43659
+      },
+      {
+        "t_ms": 7.0,
+        "value": 0.499383
+      },
+      {
+        "t_ms": 8.0,
+        "value": 0.558127
+      },
+      {
+        "t_ms": 9.0,
+        "value": 0.598119
+      },
+      {
+        "t_ms": 10.0,
+        "value": 0.630391
+      },
+      {
+        "t_ms": 11.0,
+        "value": 0.660755
+      },
+      {
+        "t_ms": 12.0,
+        "value": 0.690796
+      },
+      {
+        "t_ms": 13.0,
+        "value": 0.7208
+      },
+      {
+        "t_ms": 14.0,
+        "value": 0.7508
+      },
+      {
+        "t_ms": 15.0,
+        "value": 0.7808
+      },
+      {
+        "t_ms": 16.0,
+        "value": 0.8108
+      },
+      {
+        "t_ms": 17.0,
+        "value": 0.8408
+      },
+      {
+        "t_ms": 18.0,
+        "value": 0.8708
+      },
+      {
+        "t_ms": 19.0,
+        "value": 0.9008
+      },
+      {
+        "t_ms": 20.0,
+        "value": 0.9308
+      }
+    ],
+    "shell_thickness_um": [
+      {
+        "t_ms": 0.0,
+        "value": 214.5744
+      },
+      {
+        "t_ms": 1.0,
+        "value": 210.764149
+      },
+      {
+        "t_ms": 2.0,
+        "value": 207.867303
+      },
+      {
+        "t_ms": 3.0,
+        "value": 205.664896
+      },
+      {
+        "t_ms": 4.0,
+        "value": 203.990457
+      },
+      {
+        "t_ms": 5.0,
+        "value": 202.717419
+      },
+      {
+        "t_ms": 6.0,
+        "value": 201.749558
+      },
+      {
+        "t_ms": 7.0,
+        "value": 201.013715
+      },
+      {
+        "t_ms": 8.0,
+        "value": 200.45427
+      },
+      {
+        "t_ms": 9.0,
+        "value": 200.028937
+      },
+      {
+        "t_ms": 10.0,
+        "value": 199.705566
+      },
+      {
+        "t_ms": 11.0,
+        "value": 199.459714
+      },
+      {
+        "t_ms": 12.0,
+        "value": 199.272799
+      },
+      {
+        "t_ms": 13.0,
+        "value": 199.130692
+      },
+      {
+        "t_ms": 14.0,
+        "value": 199.02265
+      },
+      {
+        "t_ms": 15.0,
+        "value": 198.940509
+      },
+      {
+        "t_ms": 16.0,
+        "value": 198.878059
+      },
+      {
+        "t_ms": 17.0,
+        "value": 198.83058
+      },
+      {
+        "t_ms": 18.0,
+        "value": 198.794483
+      },
+      {
+        "t_ms": 19.0,
+        "value": 198.767038
+      },
+      {
+        "t_ms": 20.0,
+        "value": 198.746173
+      }
+    ]
+  }
+}

@@ -1,0 +1,611 @@
+{
+  "task_id": "MVP-035",
+  "name": "family_a_failure_mode_analysis_v1",
+  "created_at_utc": "2026-04-18T04:48:27.027447+00:00",
+  "inputs": {
+    "predictions": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.predictions.jsonl",
+    "config": "configs/validation/family_a_failure_mode_analysis_v1.json"
+  },
+  "summary": {
+    "runs_scanned": 120,
+    "runs_with_failures": 27,
+    "failure_rate": 0.225,
+    "issue_counts": {
+      "high_abs_error:shell_thickness_mean_um": 27
+    },
+    "failures_by_true_regime": {
+      "stable_wrapping": 10,
+      "trapping": 17
+    },
+    "split_breakdown": {
+      "test": {
+        "high_abs_error:shell_thickness_mean_um": 13
+      },
+      "val": {
+        "high_abs_error:shell_thickness_mean_um": 14
+      }
+    }
+  },
+  "thresholds": {
+    "regression_abs_error_thresholds": {
+      "shell_thickness_mean_um": 35.0,
+      "capsule_eccentricity": 0.02
+    },
+    "confidence": {
+      "success_margin_warn": 1.5,
+      "regime_margin_warn": 1.5
+    }
+  },
+  "worst_runs": [
+    {
+      "run_id": "A_SIM_A_000001",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 76.00946921937555,
+          "threshold": 35.0,
+          "true": 198.68,
+          "pred": 274.68946921937555
+        }
+      ],
+      "success_true": true,
+      "success_pred": true,
+      "regime_true": "stable_wrapping",
+      "regime_pred": "stable_wrapping",
+      "success_margin": 5.494525961117008,
+      "regime_margin": 5.494525961117008
+    },
+    {
+      "run_id": "A_SIM_A_000003",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 73.88549286124487,
+          "threshold": 35.0,
+          "true": 200.0,
+          "pred": 273.88549286124487
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 21.77759683184055,
+      "regime_margin": 21.77759683184055
+    },
+    {
+      "run_id": "A_SIM_A_000009",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 76.27549776198168,
+          "threshold": 35.0,
+          "true": 200.0,
+          "pred": 276.2754977619817
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 16.509911006013375,
+      "regime_margin": 16.509911006013375
+    },
+    {
+      "run_id": "A_SIM_A_000010",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 84.26251057507704,
+          "threshold": 35.0,
+          "true": 198.2,
+          "pred": 282.46251057507703
+        }
+      ],
+      "success_true": true,
+      "success_pred": true,
+      "regime_true": "stable_wrapping",
+      "regime_pred": "stable_wrapping",
+      "success_margin": 7.713776481406818,
+      "regime_margin": 7.713776481406818
+    },
+    {
+      "run_id": "A_SIM_A_000011",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 59.6397051226553,
+          "threshold": 35.0,
+          "true": 200.0,
+          "pred": 259.6397051226553
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 8.82686514352137,
+      "regime_margin": 8.82686514352137
+    },
+    {
+      "run_id": "A_SIM_A_000014",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 83.85258436529136,
+          "threshold": 35.0,
+          "true": 200.0,
+          "pred": 283.85258436529136
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 7.4456148116309295,
+      "regime_margin": 7.4456148116309295
+    },
+    {
+      "run_id": "A_SIM_A_000015",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 67.86137362863252,
+          "threshold": 35.0,
+          "true": 200.0,
+          "pred": 267.8613736286325
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 19.50364755284756,
+      "regime_margin": 19.50364755284756
+    },
+    {
+      "run_id": "A_SIM_A_000016",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 94.56150458573899,
+          "threshold": 35.0,
+          "true": 198.2,
+          "pred": 292.761504585739
+        }
+      ],
+      "success_true": true,
+      "success_pred": true,
+      "regime_true": "stable_wrapping",
+      "regime_pred": "stable_wrapping",
+      "success_margin": 16.09252220739289,
+      "regime_margin": 16.09252220739289
+    },
+    {
+      "run_id": "A_SIM_A_000055",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 76.30765903016925,
+          "threshold": 35.0,
+          "true": 794.72,
+          "pred": 718.4123409698308
+        }
+      ],
+      "success_true": true,
+      "success_pred": true,
+      "regime_true": "stable_wrapping",
+      "regime_pred": "stable_wrapping",
+      "success_margin": 5.47750647171404,
+      "regime_margin": 5.47750647171404
+    },
+    {
+      "run_id": "A_SIM_A_000057",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 73.88549286124521,
+          "threshold": 35.0,
+          "true": 800.0,
+          "pred": 726.1145071387548
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 21.794616321243517,
+      "regime_margin": 21.794616321243517
+    },
+    {
+      "run_id": "A_SIM_A_000063",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 76.94699303542188,
+          "threshold": 35.0,
+          "true": 800.0,
+          "pred": 723.0530069645781
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 16.526930495416345,
+      "regime_margin": 16.526930495416345
+    },
+    {
+      "run_id": "A_SIM_A_000064",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 85.20288826937008,
+          "threshold": 35.0,
+          "true": 792.8,
+          "pred": 707.5971117306299
+        }
+      ],
+      "success_true": true,
+      "success_pred": true,
+      "regime_true": "stable_wrapping",
+      "regime_pred": "stable_wrapping",
+      "success_margin": 7.696756992003852,
+      "regime_margin": 7.696756992003852
+    },
+    {
+      "run_id": "A_SIM_A_000065",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 59.63970512265519,
+          "threshold": 35.0,
+          "true": 800.0,
+          "pred": 740.3602948773448
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 8.84388463292434,
+      "regime_margin": 8.84388463292434
+    },
+    {
+      "run_id": "A_SIM_A_000068",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 83.85258436529148,
+          "threshold": 35.0,
+          "true": 800.0,
+          "pred": 716.1474156347085
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 7.462634301033897,
+      "regime_margin": 7.462634301033897
+    },
+    {
+      "run_id": "A_SIM_A_000069",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 67.86137362863246,
+          "threshold": 35.0,
+          "true": 800.0,
+          "pred": 732.1386263713675
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 19.520667042250526,
+      "regime_margin": 19.520667042250526
+    },
+    {
+      "run_id": "A_SIM_A_000070",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 160.80742098316819,
+          "threshold": 35.0,
+          "true": 792.8,
+          "pred": 631.9925790168318
+        }
+      ],
+      "success_true": true,
+      "success_pred": true,
+      "regime_true": "stable_wrapping",
+      "regime_pred": "stable_wrapping",
+      "success_margin": 16.075502717989924,
+      "regime_margin": 16.075502717989924
+    },
+    {
+      "run_id": "A_SIM_A_000082",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 47.033649025101255,
+          "threshold": 35.0,
+          "true": 198.68,
+          "pred": 245.71364902510126
+        }
+      ],
+      "success_true": true,
+      "success_pred": true,
+      "regime_true": "stable_wrapping",
+      "regime_pred": "stable_wrapping",
+      "success_margin": 5.419247450296197,
+      "regime_margin": 5.419247450296197
+    },
+    {
+      "run_id": "A_SIM_A_000084",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 73.88549286124487,
+          "threshold": 35.0,
+          "true": 200.0,
+          "pred": 273.88549286124487
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 21.852875342661363,
+      "regime_margin": 21.852875342661363
+    },
+    {
+      "run_id": "A_SIM_A_000092",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 54.70645653314472,
+          "threshold": 35.0,
+          "true": 200.0,
+          "pred": 254.70645653314472
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 8.902143654342181,
+      "regime_margin": 8.902143654342181
+    },
+    {
+      "run_id": "A_SIM_A_000095",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 55.86021238907145,
+          "threshold": 35.0,
+          "true": 200.0,
+          "pred": 255.86021238907145
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 7.520893322451738,
+      "regime_margin": 7.520893322451738
+    },
+    {
+      "run_id": "A_SIM_A_000096",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 48.83975080470225,
+          "threshold": 35.0,
+          "true": 200.0,
+          "pred": 248.83975080470225
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 19.578926063668373,
+      "regime_margin": 19.578926063668373
+    },
+    {
+      "run_id": "A_SIM_A_000097",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 76.90221847329252,
+          "threshold": 35.0,
+          "true": 198.2,
+          "pred": 275.1022184732925
+        }
+      ],
+      "success_true": true,
+      "success_pred": true,
+      "regime_true": "stable_wrapping",
+      "regime_pred": "stable_wrapping",
+      "success_margin": 16.01724369657208,
+      "regime_margin": 16.01724369657208
+    },
+    {
+      "run_id": "A_SIM_A_000109",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 85.47956582101114,
+          "threshold": 35.0,
+          "true": 496.7,
+          "pred": 411.22043417898885
+        }
+      ],
+      "success_true": true,
+      "success_pred": true,
+      "regime_true": "stable_wrapping",
+      "regime_pred": "stable_wrapping",
+      "success_margin": 5.410737705594714,
+      "regime_margin": 5.410737705594714
+    },
+    {
+      "run_id": "A_SIM_A_000111",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 73.88549286124498,
+          "threshold": 35.0,
+          "true": 500.0,
+          "pred": 426.114507138755
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 21.861385087362848,
+      "regime_margin": 21.861385087362848
+    },
+    {
+      "run_id": "A_SIM_A_000117",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 176.38442654347142,
+          "threshold": 35.0,
+          "true": 500.0,
+          "pred": 323.6155734565286
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 16.59369926153567,
+      "regime_margin": 16.59369926153567
+    },
+    {
+      "run_id": "A_SIM_A_000118",
+      "split": "test",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 185.68547355463255,
+          "threshold": 35.0,
+          "true": 495.5,
+          "pred": 309.81452644536745
+        }
+      ],
+      "success_true": true,
+      "success_pred": true,
+      "regime_true": "stable_wrapping",
+      "regime_pred": "stable_wrapping",
+      "success_margin": 7.629988225884526,
+      "regime_margin": 7.629988225884526
+    },
+    {
+      "run_id": "A_SIM_A_000119",
+      "split": "val",
+      "severity_score": 2.0,
+      "reason_count": 1,
+      "reasons": [
+        {
+          "code": "high_abs_error:shell_thickness_mean_um",
+          "absolute_error": 135.36020624989612,
+          "threshold": 35.0,
+          "true": 500.0,
+          "pred": 364.6397937501039
+        }
+      ],
+      "success_true": false,
+      "success_pred": false,
+      "regime_true": "trapping",
+      "regime_pred": "trapping",
+      "success_margin": 8.910653399043667,
+      "regime_margin": 8.910653399043667
+    }
+  ],
+  "recommended_actions": [
+    "Prioritize shell-thickness feature quality checks and retrain with updated regression weighting."
+  ]
+}

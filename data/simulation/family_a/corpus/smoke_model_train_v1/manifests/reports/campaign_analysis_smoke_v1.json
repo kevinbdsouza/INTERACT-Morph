@@ -1,0 +1,55 @@
+{
+  "task_id": "MVP-034",
+  "name": "family_a_campaign_analysis_v1",
+  "created_at_utc": "2026-04-18T04:48:27.025734+00:00",
+  "inputs": {
+    "model_guided_log": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_model_guided_smoke_v1.jsonl",
+    "baseline_log": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_baseline_smoke_v1.jsonl",
+    "config": "configs/validation/family_a_campaign_analysis_v1.json"
+  },
+  "targets": {
+    "require_success": true,
+    "allowed_regimes": [
+      "stable_wrapping"
+    ],
+    "shell_thickness_mean_um": {
+      "min": 180.0,
+      "max": 260.0
+    },
+    "capsule_eccentricity": {
+      "max": 0.2
+    }
+  },
+  "campaigns": {
+    "model_guided": {
+      "total_rows": 8,
+      "completed_runs": 8,
+      "success_count": 6,
+      "success_rate": 0.75,
+      "target_hit_count": 4,
+      "target_hit_rate": 0.5,
+      "runs_to_first_target_hit": 4
+    },
+    "baseline": {
+      "total_rows": 10,
+      "completed_runs": 10,
+      "success_count": 6,
+      "success_rate": 0.6,
+      "target_hit_count": 3,
+      "target_hit_rate": 0.3,
+      "runs_to_first_target_hit": 7
+    }
+  },
+  "comparison": {
+    "runs_to_first_target_hit": {
+      "model_guided": 4,
+      "baseline": 7
+    },
+    "experiment_reduction": {
+      "absolute_runs": 3,
+      "percent": 42.857142857142854,
+      "target_percent": 30.0,
+      "meets_target": true
+    }
+  }
+}

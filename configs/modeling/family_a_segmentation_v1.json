@@ -1,0 +1,17 @@
+{
+  "name": "family_a_interface_segmentation_v1",
+  "task": "MVP-011",
+  "model": {
+    "type": "global_intensity_threshold",
+    "notes": "Lightweight baseline used before deploying heavier segmentation architectures"
+  },
+  "data": {
+    "sample_key": "pixel_samples",
+    "intensity_key": "intensity",
+    "label_key": "is_interface"
+  },
+  "quality_report": {
+    "min_iou_warn": 0.65,
+    "min_f1_warn": 0.75
+  }
+}

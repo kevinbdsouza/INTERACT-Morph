@@ -1,0 +1,15 @@
+{
+  "name": "family_a_dimensionless_baseline_v1",
+  "global_thresholds": {
+    "weber_success_min": 8.0,
+    "weber_success_max": 180.0,
+    "ohnesorge_max": 1.2,
+    "bond_max": 2.0
+  },
+  "regime_rules": {
+    "trapping_if_weber_below": 8.0,
+    "rupture_if_weber_above": 180.0,
+    "partial_wrap_if_ohnesorge_above": 1.2,
+    "stable_wrap_default": "stable_wrapping"
+  }
+}

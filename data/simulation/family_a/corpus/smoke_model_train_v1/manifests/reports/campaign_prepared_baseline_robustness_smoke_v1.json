@@ -1,0 +1,133 @@
+{
+  "name": "family_a_prospective_campaign_v1",
+  "task_id": "MVP-033",
+  "task_ids": [
+    "MVP-032",
+    "MVP-033"
+  ],
+  "created_at_utc": "2026-04-18T05:10:54.198174+00:00",
+  "campaign_id": "C4_BASELINE_HELDOUT_20260418",
+  "campaign_profile": "baseline_robustness",
+  "campaign_arm": "baseline",
+  "description": "Held-out robustness arm for baseline/grid-style comparison in shifted ranges.",
+  "source_runs_input": "INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/experiment_execution_template_smoke_v1.json",
+  "selection": {
+    "strategy": "evenly_spaced_rank",
+    "source_rows": 5,
+    "rows_after_filters": 2,
+    "selected_rows": 2,
+    "requested_max_runs": 10,
+    "holdout_filters": [
+      {
+        "path": "candidate_parameters.control_parameters.interfacial_layer_thickness_mm",
+        "max": 0.25
+      },
+      {
+        "path": "candidate_parameters.control_parameters.droplet_diameter_mm",
+        "min": 1.9
+      }
+    ]
+  },
+  "acceptance_targets": {
+    "targets": {
+      "require_success": true,
+      "allowed_regimes": [
+        "stable_wrapping"
+      ],
+      "shell_thickness_mean_um": {
+        "min": 180.0,
+        "max": 260.0
+      },
+      "capsule_eccentricity": {
+        "max": 0.2
+      }
+    },
+    "acceptance": {
+      "minimum_reduction_percent": 30.0
+    }
+  },
+  "planned_runs": [
+    {
+      "plan_index": 1,
+      "rank": 3,
+      "planned_run_id": "A_EXP_BLH_001",
+      "candidate_id": "SIM_A_000421",
+      "ranking_score": 0.006301711206223403,
+      "predicted_success_probability": 0.999999999999,
+      "predicted_regime": "trapping",
+      "predicted_geometry": {
+        "shell_thickness_mean_um": 199.60462781138523,
+        "capsule_eccentricity": 0.14876964049534366
+      },
+      "candidate_parameters": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 2.0,
+          "shell_outer_diameter_mm": 3.4,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1000.0,
+          "core_viscosity_pa_s": 0.01,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 21.333333333333336,
+          "ohnesorge": 0.057735026918962574,
+          "bond": 2.6151066666666667
+        }
+      },
+      "execution_status": "planned",
+      "operator_notes": ""
+    },
+    {
+      "plan_index": 2,
+      "rank": 5,
+      "planned_run_id": "A_EXP_BLH_002",
+      "candidate_id": "SIM_A_000430",
+      "ranking_score": 0.006134566456130166,
+      "predicted_success_probability": 0.999999999999,
+      "predicted_regime": "trapping",
+      "predicted_geometry": {
+        "shell_thickness_mean_um": 199.51270622133669,
+        "capsule_eccentricity": 0.1482461001367979
+      },
+      "candidate_parameters": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 2.0,
+          "shell_outer_diameter_mm": 3.4,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1100.0,
+          "core_viscosity_pa_s": 0.01,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 23.466666666666665,
+          "ohnesorge": 0.05504818825631803,
+          "bond": 2.8766173333333334
+        }
+      },
+      "execution_status": "planned",
+      "operator_notes": ""
+    }
+  ],
+  "log_template": {
+    "campaign_log_output": "INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_baseline_robustness_smoke_v1.jsonl",
+    "required_fields": [
+      "run_id",
+      "status",
+      "completed",
+      "encapsulation_success",
+      "regime_label",
+      "shell_thickness_mean_um",
+      "capsule_eccentricity"
+    ]
+  }
+}

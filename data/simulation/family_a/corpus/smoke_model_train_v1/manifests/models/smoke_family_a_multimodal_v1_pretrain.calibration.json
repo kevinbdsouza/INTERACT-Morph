@@ -1,0 +1,2647 @@
+{
+  "name": "family_a_uncertainty_calibration_v1",
+  "model_id": "smoke_family_a_multimodal_v1_pretrain",
+  "created_at_utc": "2026-04-18T02:42:23.843343+00:00",
+  "inputs": {
+    "predictions_path": "INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.predictions.jsonl",
+    "config_path": "INTERACT-Capsules/configs/modeling/family_a_uncertainty_calibration_v1.json",
+    "prediction_count": 120
+  },
+  "outputs": {
+    "calibration_report_path": "INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.calibration.json",
+    "calibrated_predictions_path": "INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.calibration.calibrated_predictions.jsonl"
+  },
+  "heads": {
+    "success_probability": {
+      "head_name": "encapsulation_success_probability",
+      "status": "ok",
+      "fit": {
+        "preferred_split": "val",
+        "used_split": "train",
+        "row_count": 83,
+        "positive_rate": 0.3132530120481928,
+        "note": "preferred fit split 'val' did not have enough rows with both classes; used 'train'"
+      },
+      "temperature_scaling": {
+        "temperature": 0.05000000000000001,
+        "fit_log_loss_before": 0.014297643756736299,
+        "fit_log_loss_after": 9.999778782803791e-13,
+        "grid": {
+          "min": 0.05,
+          "max": 20.0,
+          "steps": 200,
+          "candidate_count": 200
+        }
+      },
+      "isotonic": {
+        "applied": true,
+        "note": null,
+        "model": {
+          "thresholds": [
+            1.6883991599128935e-180,
+            2.0016577883497192e-180,
+            2.0236462863965577e-180,
+            2.3991052863587274e-180,
+            6.418318450197254e-180,
+            7.609146829123103e-180,
+            7.69273439896982e-180,
+            9.020916602443038e-180,
+            9.12001266584113e-180,
+            1.0812102265776293e-179,
+            8.474644382936487e-171,
+            2.7173958864718506e-170,
+            3.221570330837223e-170,
+            3.819287225758291e-170,
+            1.2315638746590413e-161,
+            3.949011257232696e-161,
+            4.681694546524384e-161,
+            5.550316876613393e-161,
+            3.7818178435387216e-137,
+            1.212640411450238e-136,
+            1.4376287205521968e-136,
+            1.704360434174135e-136,
+            1.2042737527490774e-129,
+            3.861505443810501e-129,
+            4.577953264769464e-129,
+            5.4273278645794994e-129,
+            4.200701522046285e-91,
+            4.980082386779645e-91,
+            1.5968641019764742e-90,
+            1.8931396926435414e-90,
+            2.2443850365391227e-90,
+            2.0801473429426668e-78,
+            2.4660893163028697e-78,
+            7.907518783073637e-78,
+            9.374647260235599e-78,
+            1.1113980714400207e-77,
+            1.2568705701126848e-65,
+            4.03015721099613e-65,
+            4.7778959864445645e-65,
+            5.6643671356036205e-65,
+            3.171851505213466e-54,
+            1.0170546212088707e-53,
+            1.2057547480802775e-53,
+            1.4294655195511098e-53,
+            4.087564497024572e-34,
+            4.845954383957744e-34,
+            1.553855939431769e-33,
+            1.842151972699118e-33,
+            2.1839372649694516e-33,
+            3.554736788287868e-24,
+            1.1398268398653321e-23,
+            1.3513056186927006e-23,
+            1.6020212994161833e-23,
+            2.0246840126415783e-14,
+            6.492152070045066e-14,
+            7.696679234800573e-14,
+            9.12468941027084e-14,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "x_min": 1.6883991599128935e-180,
+          "x_max": 1.0
+        }
+      },
+      "metrics": {
+        "uncalibrated": {
+          "overall": {
+            "count": 120,
+            "positive_rate": 0.3333333333333333,
+            "log_loss": 0.010110796447583384,
+            "brier": 0.0012298590208236796,
+            "ece": 0.009419052438280655,
+            "reliability_bins": [
+              {
+                "bin_index": 0,
+                "bin_start": 0.0,
+                "bin_end": 0.1,
+                "count": 76,
+                "mean_probability": 0.005118663073808583,
+                "empirical_rate": 0.0,
+                "abs_gap": 0.005118663073808583
+              },
+              {
+                "bin_index": 1,
+                "bin_start": 0.1,
+                "bin_end": 0.2,
+                "count": 4,
+                "mean_probability": 0.17855291521997457,
+                "empirical_rate": 0.0,
+                "abs_gap": 0.17855291521997457
+              },
+              {
+                "bin_index": 2,
+                "bin_start": 0.2,
+                "bin_end": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 3,
+                "bin_start": 0.3,
+                "bin_end": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 4,
+                "bin_start": 0.4,
+                "bin_end": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 5,
+                "bin_start": 0.5,
+                "bin_end": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 6,
+                "bin_start": 0.6,
+                "bin_end": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 7,
+                "bin_start": 0.7,
+                "bin_end": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 8,
+                "bin_start": 0.8,
+                "bin_end": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 9,
+                "bin_start": 0.9,
+                "bin_end": 1.0,
+                "count": 40,
+                "mean_probability": 0.9993235940473918,
+                "empirical_rate": 1.0,
+                "abs_gap": 0.0006764059526082056
+              }
+            ]
+          },
+          "by_split": {
+            "test": {
+              "count": 19,
+              "positive_rate": 0.47368421052631576,
+              "log_loss": 0.00012204244579151328,
+              "brier": 5.660704310277534e-08,
+              "ece": 0.00012201413349888996,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 10,
+                  "mean_probability": 3.275486084946002e-08,
+                  "empirical_rate": 0.0,
+                  "abs_gap": 3.275486084946002e-08
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 9,
+                  "mean_probability": 0.9997424510013477,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.0002575489986522683
+                }
+              ]
+            },
+            "train": {
+              "count": 83,
+              "positive_rate": 0.3132530120481928,
+              "log_loss": 0.014297643756736299,
+              "brier": 0.0017769910483028054,
+              "ece": 0.013298092681151655,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 53,
+                  "mean_probability": 0.007283643071870502,
+                  "empirical_rate": 0.0,
+                  "abs_gap": 0.007283643071870502
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 4,
+                  "mean_probability": 0.17855291521997457,
+                  "empirical_rate": 0.0,
+                  "abs_gap": 0.17855291521997457
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 26,
+                  "mean_probability": 0.9998655019674403,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.0001344980325597156
+                }
+              ]
+            },
+            "val": {
+              "count": 18,
+              "positive_rate": 0.2777777777777778,
+              "log_loss": 0.0013484630794918869,
+              "brier": 5.097219771653072e-06,
+              "ece": 0.0013459073067560942,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 13,
+                  "mean_probability": 0.00022961409628516598,
+                  "empirical_rate": 0.0,
+                  "abs_gap": 0.00022961409628516598
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 5,
+                  "mean_probability": 0.9957517303460195,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.004248269653980508
+                }
+              ]
+            }
+          }
+        },
+        "temperature_scaled": {
+          "overall": {
+            "count": 120,
+            "positive_rate": 0.3333333333333333,
+            "log_loss": 9.999778782803797e-13,
+            "brier": 1.5728850994079665e-28,
+            "ece": 2.1115170610172233e-15,
+            "reliability_bins": [
+              {
+                "bin_index": 0,
+                "bin_start": 0.0,
+                "bin_end": 0.1,
+                "count": 80,
+                "mean_probability": 3.1672755915258353e-15,
+                "empirical_rate": 0.0,
+                "abs_gap": 3.1672755915258353e-15
+              },
+              {
+                "bin_index": 1,
+                "bin_start": 0.1,
+                "bin_end": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 2,
+                "bin_start": 0.2,
+                "bin_end": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 3,
+                "bin_start": 0.3,
+                "bin_end": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 4,
+                "bin_start": 0.4,
+                "bin_end": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 5,
+                "bin_start": 0.5,
+                "bin_end": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 6,
+                "bin_start": 0.6,
+                "bin_end": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 7,
+                "bin_start": 0.7,
+                "bin_end": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 8,
+                "bin_start": 0.8,
+                "bin_end": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 9,
+                "bin_start": 0.9,
+                "bin_end": 1.0,
+                "count": 40,
+                "mean_probability": 1.0,
+                "empirical_rate": 1.0,
+                "abs_gap": 0.0
+              }
+            ]
+          },
+          "by_split": {
+            "test": {
+              "count": 19,
+              "positive_rate": 0.47368421052631576,
+              "log_loss": 9.99977878280379e-13,
+              "brier": 1.8915522113609182e-288,
+              "ece": 6.1640598286076516e-145,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 10,
+                  "mean_probability": 1.1711713674354538e-144,
+                  "empirical_rate": 0.0,
+                  "abs_gap": 1.1711713674354538e-144
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 9,
+                  "mean_probability": 1.0,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.0
+                }
+              ]
+            },
+            "train": {
+              "count": 83,
+              "positive_rate": 0.3132530120481928,
+              "log_loss": 9.999778782803791e-13,
+              "brier": 2.2740507461319996e-28,
+              "ece": 3.052795750868275e-15,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 57,
+                  "mean_probability": 4.445299075825734e-15,
+                  "empirical_rate": 0.0,
+                  "abs_gap": 4.445299075825734e-15
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 26,
+                  "mean_probability": 1.0,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.0
+                }
+              ]
+            },
+            "val": {
+              "count": 18,
+              "positive_rate": 0.2777777777777778,
+              "log_loss": 9.99977878280379e-13,
+              "brier": 5.709426349563316e-131,
+              "ece": 3.2847075117463675e-66,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 13,
+                  "mean_probability": 4.5480565547257397e-66,
+                  "empirical_rate": 0.0,
+                  "abs_gap": 4.5480565547257397e-66
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 5,
+                  "mean_probability": 1.0,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.0
+                }
+              ]
+            }
+          }
+        },
+        "final": {
+          "overall": {
+            "count": 120,
+            "positive_rate": 0.3333333333333333,
+            "log_loss": 9.999778782803797e-13,
+            "brier": 0.0,
+            "ece": 0.0,
+            "reliability_bins": [
+              {
+                "bin_index": 0,
+                "bin_start": 0.0,
+                "bin_end": 0.1,
+                "count": 80,
+                "mean_probability": 0.0,
+                "empirical_rate": 0.0,
+                "abs_gap": 0.0
+              },
+              {
+                "bin_index": 1,
+                "bin_start": 0.1,
+                "bin_end": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 2,
+                "bin_start": 0.2,
+                "bin_end": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 3,
+                "bin_start": 0.3,
+                "bin_end": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 4,
+                "bin_start": 0.4,
+                "bin_end": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 5,
+                "bin_start": 0.5,
+                "bin_end": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 6,
+                "bin_start": 0.6,
+                "bin_end": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 7,
+                "bin_start": 0.7,
+                "bin_end": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 8,
+                "bin_start": 0.8,
+                "bin_end": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 9,
+                "bin_start": 0.9,
+                "bin_end": 1.0,
+                "count": 40,
+                "mean_probability": 1.0,
+                "empirical_rate": 1.0,
+                "abs_gap": 0.0
+              }
+            ]
+          },
+          "by_split": {
+            "test": {
+              "count": 19,
+              "positive_rate": 0.47368421052631576,
+              "log_loss": 9.99977878280379e-13,
+              "brier": 0.0,
+              "ece": 0.0,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 10,
+                  "mean_probability": 0.0,
+                  "empirical_rate": 0.0,
+                  "abs_gap": 0.0
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 9,
+                  "mean_probability": 1.0,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.0
+                }
+              ]
+            },
+            "train": {
+              "count": 83,
+              "positive_rate": 0.3132530120481928,
+              "log_loss": 9.999778782803791e-13,
+              "brier": 0.0,
+              "ece": 0.0,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 57,
+                  "mean_probability": 0.0,
+                  "empirical_rate": 0.0,
+                  "abs_gap": 0.0
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 26,
+                  "mean_probability": 1.0,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.0
+                }
+              ]
+            },
+            "val": {
+              "count": 18,
+              "positive_rate": 0.2777777777777778,
+              "log_loss": 9.99977878280379e-13,
+              "brier": 0.0,
+              "ece": 0.0,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 13,
+                  "mean_probability": 0.0,
+                  "empirical_rate": 0.0,
+                  "abs_gap": 0.0
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 5,
+                  "mean_probability": 1.0,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.0
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "regime_top1_correctness_probability": {
+      "head_name": "regime_top1_correctness_probability",
+      "status": "ok",
+      "fit": {
+        "preferred_split": "val",
+        "used_split": "all",
+        "row_count": 120,
+        "positive_rate": 1.0,
+        "note": "insufficient class diversity for robust temperature fit; falling back to split 'all' with 120 rows"
+      },
+      "temperature_scaling": {
+        "temperature": 1.0,
+        "fit_log_loss_before": 0.010110796447583375,
+        "fit_log_loss_after": 0.010110796447583375,
+        "grid": {
+          "min": 0.05,
+          "max": 20.0,
+          "steps": 200,
+          "candidate_count": 1
+        }
+      },
+      "isotonic": {
+        "applied": false,
+        "note": "isotonic skipped (requires >= 40 rows and both classes in fit split)",
+        "model": null
+      },
+      "metrics": {
+        "uncalibrated": {
+          "overall": {
+            "count": 120,
+            "positive_rate": 1.0,
+            "log_loss": 0.010110796447583375,
+            "brier": 0.0012298590208236796,
+            "ece": 0.00941905243828088,
+            "reliability_bins": [
+              {
+                "bin_index": 0,
+                "bin_start": 0.0,
+                "bin_end": 0.1,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 1,
+                "bin_start": 0.1,
+                "bin_end": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 2,
+                "bin_start": 0.2,
+                "bin_end": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 3,
+                "bin_start": 0.3,
+                "bin_end": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 4,
+                "bin_start": 0.4,
+                "bin_end": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 5,
+                "bin_start": 0.5,
+                "bin_end": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 6,
+                "bin_start": 0.6,
+                "bin_end": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 7,
+                "bin_start": 0.7,
+                "bin_end": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 8,
+                "bin_start": 0.8,
+                "bin_end": 0.9,
+                "count": 4,
+                "mean_probability": 0.8214470847800255,
+                "empirical_rate": 1.0,
+                "abs_gap": 0.17855291521997452
+              },
+              {
+                "bin_index": 9,
+                "bin_start": 0.9,
+                "bin_end": 1.0,
+                "count": 116,
+                "mean_probability": 0.9964131497266051,
+                "empirical_rate": 1.0,
+                "abs_gap": 0.0035868502733948926
+              }
+            ]
+          },
+          "by_split": {
+            "test": {
+              "count": 19,
+              "positive_rate": 1.0,
+              "log_loss": 0.00012204244579150744,
+              "brier": 5.660704310277534e-08,
+              "ece": 0.00012201413349877122,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 19,
+                  "mean_probability": 0.9998779858665012,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.00012201413349877122
+                }
+              ]
+            },
+            "train": {
+              "count": 83,
+              "positive_rate": 1.0,
+              "log_loss": 0.014297643756736297,
+              "brier": 0.0017769910483028054,
+              "ece": 0.013298092681151908,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 4,
+                  "mean_probability": 0.8214470847800255,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.17855291521997452
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 79,
+                  "mean_probability": 0.9950692401056239,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.00493075989437608
+                }
+              ]
+            },
+            "val": {
+              "count": 18,
+              "positive_rate": 1.0,
+              "log_loss": 0.0013484630794918992,
+              "brier": 5.097219771653064e-06,
+              "ece": 0.001345907306755989,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 18,
+                  "mean_probability": 0.998654092693244,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.001345907306755989
+                }
+              ]
+            }
+          }
+        },
+        "temperature_scaled": {
+          "overall": {
+            "count": 120,
+            "positive_rate": 1.0,
+            "log_loss": 0.010110796447583375,
+            "brier": 0.0012298590208236796,
+            "ece": 0.00941905243828088,
+            "reliability_bins": [
+              {
+                "bin_index": 0,
+                "bin_start": 0.0,
+                "bin_end": 0.1,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 1,
+                "bin_start": 0.1,
+                "bin_end": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 2,
+                "bin_start": 0.2,
+                "bin_end": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 3,
+                "bin_start": 0.3,
+                "bin_end": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 4,
+                "bin_start": 0.4,
+                "bin_end": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 5,
+                "bin_start": 0.5,
+                "bin_end": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 6,
+                "bin_start": 0.6,
+                "bin_end": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 7,
+                "bin_start": 0.7,
+                "bin_end": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 8,
+                "bin_start": 0.8,
+                "bin_end": 0.9,
+                "count": 4,
+                "mean_probability": 0.8214470847800255,
+                "empirical_rate": 1.0,
+                "abs_gap": 0.17855291521997452
+              },
+              {
+                "bin_index": 9,
+                "bin_start": 0.9,
+                "bin_end": 1.0,
+                "count": 116,
+                "mean_probability": 0.9964131497266051,
+                "empirical_rate": 1.0,
+                "abs_gap": 0.0035868502733948926
+              }
+            ]
+          },
+          "by_split": {
+            "test": {
+              "count": 19,
+              "positive_rate": 1.0,
+              "log_loss": 0.00012204244579150744,
+              "brier": 5.660704310277534e-08,
+              "ece": 0.00012201413349877122,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 19,
+                  "mean_probability": 0.9998779858665012,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.00012201413349877122
+                }
+              ]
+            },
+            "train": {
+              "count": 83,
+              "positive_rate": 1.0,
+              "log_loss": 0.014297643756736297,
+              "brier": 0.0017769910483028054,
+              "ece": 0.013298092681151908,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 4,
+                  "mean_probability": 0.8214470847800255,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.17855291521997452
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 79,
+                  "mean_probability": 0.9950692401056239,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.00493075989437608
+                }
+              ]
+            },
+            "val": {
+              "count": 18,
+              "positive_rate": 1.0,
+              "log_loss": 0.0013484630794918992,
+              "brier": 5.097219771653064e-06,
+              "ece": 0.001345907306755989,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 18,
+                  "mean_probability": 0.998654092693244,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.001345907306755989
+                }
+              ]
+            }
+          }
+        },
+        "final": {
+          "overall": {
+            "count": 120,
+            "positive_rate": 1.0,
+            "log_loss": 0.010110796447583375,
+            "brier": 0.0012298590208236796,
+            "ece": 0.00941905243828088,
+            "reliability_bins": [
+              {
+                "bin_index": 0,
+                "bin_start": 0.0,
+                "bin_end": 0.1,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 1,
+                "bin_start": 0.1,
+                "bin_end": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 2,
+                "bin_start": 0.2,
+                "bin_end": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 3,
+                "bin_start": 0.3,
+                "bin_end": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 4,
+                "bin_start": 0.4,
+                "bin_end": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 5,
+                "bin_start": 0.5,
+                "bin_end": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 6,
+                "bin_start": 0.6,
+                "bin_end": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 7,
+                "bin_start": 0.7,
+                "bin_end": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "empirical_rate": null,
+                "abs_gap": null
+              },
+              {
+                "bin_index": 8,
+                "bin_start": 0.8,
+                "bin_end": 0.9,
+                "count": 4,
+                "mean_probability": 0.8214470847800255,
+                "empirical_rate": 1.0,
+                "abs_gap": 0.17855291521997452
+              },
+              {
+                "bin_index": 9,
+                "bin_start": 0.9,
+                "bin_end": 1.0,
+                "count": 116,
+                "mean_probability": 0.9964131497266051,
+                "empirical_rate": 1.0,
+                "abs_gap": 0.0035868502733948926
+              }
+            ]
+          },
+          "by_split": {
+            "test": {
+              "count": 19,
+              "positive_rate": 1.0,
+              "log_loss": 0.00012204244579150744,
+              "brier": 5.660704310277534e-08,
+              "ece": 0.00012201413349877122,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 19,
+                  "mean_probability": 0.9998779858665012,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.00012201413349877122
+                }
+              ]
+            },
+            "train": {
+              "count": 83,
+              "positive_rate": 1.0,
+              "log_loss": 0.014297643756736297,
+              "brier": 0.0017769910483028054,
+              "ece": 0.013298092681151908,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 4,
+                  "mean_probability": 0.8214470847800255,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.17855291521997452
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 79,
+                  "mean_probability": 0.9950692401056239,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.00493075989437608
+                }
+              ]
+            },
+            "val": {
+              "count": 18,
+              "positive_rate": 1.0,
+              "log_loss": 0.0013484630794918992,
+              "brier": 5.097219771653064e-06,
+              "ece": 0.001345907306755989,
+              "reliability_bins": [
+                {
+                  "bin_index": 0,
+                  "bin_start": 0.0,
+                  "bin_end": 0.1,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 1,
+                  "bin_start": 0.1,
+                  "bin_end": 0.2,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 2,
+                  "bin_start": 0.2,
+                  "bin_end": 0.3,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 3,
+                  "bin_start": 0.3,
+                  "bin_end": 0.4,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 4,
+                  "bin_start": 0.4,
+                  "bin_end": 0.5,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 5,
+                  "bin_start": 0.5,
+                  "bin_end": 0.6,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 6,
+                  "bin_start": 0.6,
+                  "bin_end": 0.7,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 7,
+                  "bin_start": 0.7,
+                  "bin_end": 0.8,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 8,
+                  "bin_start": 0.8,
+                  "bin_end": 0.9,
+                  "count": 0,
+                  "mean_probability": null,
+                  "empirical_rate": null,
+                  "abs_gap": null
+                },
+                {
+                  "bin_index": 9,
+                  "bin_start": 0.9,
+                  "bin_end": 1.0,
+                  "count": 18,
+                  "mean_probability": 0.998654092693244,
+                  "empirical_rate": 1.0,
+                  "abs_gap": 0.001345907306755989
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

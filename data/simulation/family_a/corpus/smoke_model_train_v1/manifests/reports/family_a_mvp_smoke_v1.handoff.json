@@ -1,0 +1,124 @@
+{
+  "task_id": "MVP-038",
+  "name": "family_a_mvp_governance_v1",
+  "created_at_utc": "2026-04-18T05:10:54.198029+00:00",
+  "session_title": "INTERACT-Capsules Family A Internal Handoff",
+  "objective": "Run an internal walkthrough with operators and reviewers to verify end-to-end workflow usability before external handoff.",
+  "agenda": [
+    "Artifact readiness review (model, calibration, recommendations, execution templates)",
+    "Live CLI walkthrough from recommendation generation to campaign analysis",
+    "Operator Q&A and risk/assumption review",
+    "Action assignment and signoff checklist"
+  ],
+  "required_artifacts": [
+    "Latest model card and calibration report",
+    "Recommendation report + UI export",
+    "Execution template and campaign logs",
+    "Campaign analysis and failure-mode analysis reports",
+    "Determinism report and environment lock snapshot"
+  ],
+  "checklist": [
+    "Nominate owner + backup operator for every critical workflow stage",
+    "Capture unresolved usability issues and classify by severity",
+    "Record decision on readiness for independent lab operation",
+    "Schedule follow-up remediation sprint for unresolved blockers"
+  ],
+  "in_progress_tasks_snapshot": [
+    {
+      "task_id": "MVP-004",
+      "task_name": "Build raw data inventory",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-19",
+      "notes": "Inventory now emits `source_run_id` + deterministic `canonical_run_id`; awaiting real data run"
+    },
+    {
+      "task_id": "MVP-005",
+      "task_name": "Build ingestion pipeline",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-20",
+      "notes": "Ingestion supports `--run-id-mode`, writes `manifests/run_id_map.jsonl`, and now hardens missing/partial `asset_paths`; awaiting real data run"
+    },
+    {
+      "task_id": "MVP-006",
+      "task_name": "Implement data validation checks",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-20",
+      "notes": "Validation now checks canonical run-ID shape and run directory/metadata ID consistency"
+    },
+    {
+      "task_id": "MVP-007",
+      "task_name": "Implement dataset versioning",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-21",
+      "notes": "`scripts/snapshot_dataset.py` built and smoke-tested"
+    },
+    {
+      "task_id": "MVP-008",
+      "task_name": "Define train/val/test policy",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-21",
+      "notes": "Split script now enforces config fractions, respects `require_video`, validates `group_by_field`, and records dataset-manifest fingerprint"
+    },
+    {
+      "task_id": "MVP-009",
+      "task_name": "Build baseline heuristic benchmark",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-21",
+      "notes": "`scripts/baseline_regime_map.py` + heuristic config built and smoke-tested"
+    },
+    {
+      "task_id": "MVP-011",
+      "task_name": "Train/validate interface segmentation model",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-30",
+      "notes": "Added `scripts/train_interface_segmentation.py`, config `configs/modeling/family_a_segmentation_v1.json`, CLI `interact-capsules segment-train`, and smoke QC artifact `smoke_family_a_segmentation_v1.qc.json`"
+    },
+    {
+      "task_id": "MVP-012",
+      "task_name": "Build contour and trajectory extractor",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-05-01",
+      "notes": "Added `scripts/extract_contours_trajectories.py`, config `configs/modeling/family_a_contour_extraction_v1.json`, CLI `interact-capsules extract-trajectories`, and smoke extraction report (`runs_written=3`)"
+    },
+    {
+      "task_id": "MVP-013",
+      "task_name": "Build feature QA dashboards",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-05-01",
+      "notes": "Added `scripts/build_feature_qa_dashboard.py`, config `configs/modeling/family_a_feature_qa_v1.json`, CLI `interact-capsules feature-qa`, and smoke QA report (`runs_scanned=3`, `runs_with_issues=0`)"
+    },
+    {
+      "task_id": "MVP-014",
+      "task_name": "Active error-correction loop for labels",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-05-03",
+      "notes": "Added `scripts/build_label_correction_queue.py`, config `configs/modeling/family_a_label_correction_v1.json`, docs `docs/modeling/LABEL_CORRECTION_WORKFLOW.md`, and CLI `interact-capsules label-correction`; smoke queue artifact generated"
+    },
+    {
+      "task_id": "MVP-015",
+      "task_name": "Stand up axisymmetric simulation workflow",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-23",
+      "notes": "Axisymmetric sweep planner now wired into executable corpus generation workflow (`scripts/plan_axisymmetric_sweep.py`)"
+    },
+    {
+      "task_id": "MVP-016",
+      "task_name": "Define simulation parameter ranges",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-23",
+      "notes": "DOE range config now exercised by planner plus surrogate execution path (`configs/simulations/family_a_axisymmetric_doe.json`)"
+    }
+  ]
+}

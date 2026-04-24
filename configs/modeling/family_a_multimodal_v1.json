@@ -1,0 +1,117 @@
+{
+  "name": "family_a_multimodal_v1",
+  "seed": 42,
+  "features": [
+    {
+      "name": "impact_velocity_m_s",
+      "source": "metadata",
+      "path": "control_parameters.impact_velocity_m_s",
+      "fallback": [
+        {
+          "source": "metadata",
+          "path": "control_parameters.impact_height_mm",
+          "transform": "height_mm_to_velocity_m_s"
+        }
+      ],
+      "required": true
+    },
+    {
+      "name": "droplet_diameter_mm",
+      "source": "metadata",
+      "path": "control_parameters.droplet_diameter_mm",
+      "required": true
+    },
+    {
+      "name": "shell_outer_diameter_mm",
+      "source": "metadata",
+      "path": "control_parameters.shell_outer_diameter_mm",
+      "required": true
+    },
+    {
+      "name": "interfacial_layer_thickness_mm",
+      "source": "metadata",
+      "path": "fluid_system.interfacial_layer.thickness_mm",
+      "required": false
+    },
+    {
+      "name": "core_density_kg_m3",
+      "source": "metadata",
+      "path": "fluid_system.core.density_kg_m3",
+      "required": true
+    },
+    {
+      "name": "core_viscosity_pa_s",
+      "source": "metadata",
+      "path": "fluid_system.core.viscosity_pa_s",
+      "required": true
+    },
+    {
+      "name": "interfacial_tension_n_m",
+      "source": "metadata",
+      "path": "fluid_system.interfacial_tension_n_m",
+      "required": true
+    },
+    {
+      "name": "penetration_depth_max_mm",
+      "source": "derived",
+      "path": "summary.penetration_depth_max_mm",
+      "required": false
+    },
+    {
+      "name": "neck_radius_min_mm",
+      "source": "derived",
+      "path": "summary.neck_radius_min_mm",
+      "required": false
+    },
+    {
+      "name": "closure_time_ms",
+      "source": "derived",
+      "path": "events_ms.closure_time_ms",
+      "required": false
+    },
+    {
+      "name": "detachment_time_ms",
+      "source": "derived",
+      "path": "events_ms.detachment_time_ms",
+      "required": false
+    }
+  ],
+  "heads": {
+    "success_classification": {
+      "source": "metadata",
+      "path": "outcomes.encapsulation_success"
+    },
+    "regime_classification": {
+      "source": "metadata",
+      "path": "outcomes.regime_label"
+    },
+    "regression": [
+      {
+        "name": "shell_thickness_mean_um",
+        "source": "metadata",
+        "path": "outcomes.shell_thickness_mean_um",
+        "fallback": [
+          {
+            "source": "derived",
+            "path": "summary.shell_thickness_mean_um"
+          }
+        ]
+      },
+      {
+        "name": "capsule_eccentricity",
+        "source": "metadata",
+        "path": "outcomes.capsule_eccentricity",
+        "fallback": [
+          {
+            "source": "derived",
+            "path": "summary.capsule_eccentricity"
+          }
+        ]
+      }
+    ]
+  },
+  "training": {
+    "k_neighbors": 7,
+    "distance_epsilon": 1e-06
+  }
+}

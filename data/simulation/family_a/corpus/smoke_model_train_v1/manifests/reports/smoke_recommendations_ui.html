@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>INTERACT-Capsules Recommendation Review</title>
+  <style>
+    :root {
+      --bg: #f3f4ef;
+      --panel: #fbfbf7;
+      --ink: #101410;
+      --muted: #4e5b4e;
+      --border: #d1d6c9;
+      --accent: #1f6f5f;
+      --warn: #9f5300;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 15% -10%, #dbe7d4 0%, transparent 60%),
+        radial-gradient(1100px 500px at 95% -20%, #d7ece6 0%, transparent 58%),
+        var(--bg);
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 18px 44px;
+    }
+    h1 { margin: 0; font-size: 1.7rem; }
+    .sub { margin-top: 6px; color: var(--muted); }
+    .cards {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+    .card label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .card strong { display: block; margin-top: 3px; font-size: 1.18rem; }
+    .controls {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: end;
+    }
+    .controls .field {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      min-width: 220px;
+    }
+    .field label { display: block; font-size: 0.82rem; color: var(--muted); margin-bottom: 5px; }
+    .field input {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 8px;
+      padding: 8px 9px;
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: block;
+      max-height: 520px;
+      overflow: auto;
+    }
+    thead {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #e9eee4;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px 10px;
+      border-bottom: 1px solid #e2e6da;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+    tbody tr:nth-child(even) { background: #f7f8f3; }
+    .muted { color: var(--muted); }
+    .section-title {
+      margin: 22px 0 8px;
+      font-size: 1.15rem;
+    }
+    .warn { color: var(--warn); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>INTERACT-Capsules Recommendation Review</h1>
+    <p class="sub">Interactive review view for recommendation ranking and guardrail filtering.</p>
+
+    <section class="cards" id="summary-cards"></section>
+
+    <section class="controls">
+      <div class="field">
+        <label for="min-success">Min Success Probability</label>
+        <input id="min-success" type="number" min="0" max="1" step="0.01" placeholder="0.00">
+      </div>
+      <div class="field">
+        <label for="max-uncertainty">Max Uncertainty Proxy</label>
+        <input id="max-uncertainty" type="number" min="0" step="0.01" placeholder="no max">
+      </div>
+      <div class="field">
+        <label for="search-id">Candidate ID Contains</label>
+        <input id="search-id" type="text" placeholder="e.g. SIM_A_0012">
+      </div>
+    </section>
+
+    <h2 class="section-title">Accepted Recommendations</h2>
+    <p class="muted" id="accepted-count"></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th><th>Candidate</th><th>Score</th><th>Success P</th><th>Objective</th>
+          <th>Geometry</th><th>Uncertainty</th><th>Regime</th><th>Velocity (m/s)</th>
+          <th>Drop Dia (mm)</th><th>Shell Dia (mm)</th><th>Notes</th>
+        </tr>
+      </thead>
+      <tbody id="accepted-body"></tbody>
+    </table>
+
+    <h2 class="section-title warn">Rejected Candidates</h2>
+    <p class="muted" id="rejected-count"></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Candidate</th><th>Score</th><th>Success P</th><th>Uncertainty</th><th>Rejection Reasons</th>
+        </tr>
+      </thead>
+      <tbody id="rejected-body"></tbody>
+    </table>
+  </main>
+
+  <script id="payload" type="application/json">{"title":"INTERACT-Capsules Recommendation Review","summary":{"candidate_count":2241,"accepted_count":594,"rejected_count":1647,"ranking_method":"ei","top_k":5,"incumbent_objective":0.899999990003066,"guardrails_enabled":true,"model_id":"smoke_family_a_multimodal_v1_pretrain"},"accepted":[{"rank":1,"candidate_id":"SIM_A_000214","ranking_score":0.0065,"mean_objective":0.8612,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.3885,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":3.4,"guardrail_reasons":""},{"rank":2,"candidate_id":"SIM_A_000457","ranking_score":0.0065,"mean_objective":0.8612,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.3885,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":2.0,"shell_outer_diameter_mm":3.4,"guardrail_reasons":""},{"rank":3,"candidate_id":"SIM_A_000421","ranking_score":0.0063,"mean_objective":0.8623,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.3774,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":2.0,"shell_outer_diameter_mm":3.4,"guardrail_reasons":""},{"rank":4,"candidate_id":"SIM_A_000178","ranking_score":0.0062,"mean_objective":0.8627,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.3731,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":3.4,"guardrail_reasons":""},{"rank":5,"candidate_id":"SIM_A_000430","ranking_score":0.0061,"mean_objective":0.863,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.3698,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":2.0,"shell_outer_diameter_mm":3.4,"guardrail_reasons":""}],"rejected":[{"candidate_id":"SIM_A_000595","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000596","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000597","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000598","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000599","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000600","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000601","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000602","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000603","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000604","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000605","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000606","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000607","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000608","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000609","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000610","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000611","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000612","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000613","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000614","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000615","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000616","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000617","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000618","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000619","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000620","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000621","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000622","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000623","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000624","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000625","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000626","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000627","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000628","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000629","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000630","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000631","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000632","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000633","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000634","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000635","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000636","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000637","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000638","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000639","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000640","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000641","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000642","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000643","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000644","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000645","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000646","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000647","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000648","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000649","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000650","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000651","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000652","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000653","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000654","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000655","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000656","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000657","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000658","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000659","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000660","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000661","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000662","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000663","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000664","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000665","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000666","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000667","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000668","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000669","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000670","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000671","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000672","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000673","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000674","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000675","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000676","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000677","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000678","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000679","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000680","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000681","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000682","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000683","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000684","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000685","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000686","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000687","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000688","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000689","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000690","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000691","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000692","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000693","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000694","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000695","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000696","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000697","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000698","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000699","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000700","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000701","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000702","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000703","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000704","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000705","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000706","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000707","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000708","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000709","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000710","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000711","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000712","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000713","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000714","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000715","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000716","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000717","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000718","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000719","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000720","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000721","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000722","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000723","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000724","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000725","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000726","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000727","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000728","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000729","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000730","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000731","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000732","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000733","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000734","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000735","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000736","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000737","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000738","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000739","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000740","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000741","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000742","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000743","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000744","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000745","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000746","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000747","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000748","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000749","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000750","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000751","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000752","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000753","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000754","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000755","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000756","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000757","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000758","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000759","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000760","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000761","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000762","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000763","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000764","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000765","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000766","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000767","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000768","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000769","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000770","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000771","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000772","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000773","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000774","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000775","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000776","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000777","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000778","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000779","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000780","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000781","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000782","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000783","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000784","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000785","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000786","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000787","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000788","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000789","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000790","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000791","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000792","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000793","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000794","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000795","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000796","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000797","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000798","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000799","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000800","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000801","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000802","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000803","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000804","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000805","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000806","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000807","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000808","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000809","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000810","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000811","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000812","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000813","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000814","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000815","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000816","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000817","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000818","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000819","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000820","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000821","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000822","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000823","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000824","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000825","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000826","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000827","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000828","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000829","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000830","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000831","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000832","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000833","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000834","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000835","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000836","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000837","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000838","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000839","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000840","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000841","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000842","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000843","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"},{"candidate_id":"SIM_A_000844","ranking_score":0.0068,"success_probability":1.0,"uncertainty_proxy":0.4,"reasons":"Rejected by guardrail"}]}</script>
+  <script>
+    const payload = JSON.parse(document.getElementById("payload").textContent);
+
+    const summaryCards = document.getElementById("summary-cards");
+    const acceptedBody = document.getElementById("accepted-body");
+    const rejectedBody = document.getElementById("rejected-body");
+    const acceptedCount = document.getElementById("accepted-count");
+    const rejectedCount = document.getElementById("rejected-count");
+    const minSuccessInput = document.getElementById("min-success");
+    const maxUncertaintyInput = document.getElementById("max-uncertainty");
+    const searchIdInput = document.getElementById("search-id");
+
+    const summary = payload.summary || {};
+    const summaryItems = [
+      ["Model", summary.model_id || "n/a"],
+      ["Candidates", summary.candidate_count ?? "n/a"],
+      ["Accepted", summary.accepted_count ?? "n/a"],
+      ["Rejected", summary.rejected_count ?? "n/a"],
+      ["Method", summary.ranking_method || "n/a"],
+      ["Top K", summary.top_k ?? "n/a"],
+    ];
+    summaryItems.forEach(([label, value]) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `<label>${label}</label><strong>${value}</strong>`;
+      summaryCards.appendChild(card);
+    });
+
+    function fmt(value) {
+      return value === null || value === undefined || Number.isNaN(value) ? "n/a" : String(value);
+    }
+
+    function renderAccepted() {
+      acceptedBody.innerHTML = "";
+      const minSuccess = parseFloat(minSuccessInput.value);
+      const maxUncertainty = parseFloat(maxUncertaintyInput.value);
+      const query = (searchIdInput.value || "").trim().toLowerCase();
+
+      const rows = (payload.accepted || []).filter((row) => {
+        const passSuccess = Number.isNaN(minSuccess) || (row.success_probability ?? -1) >= minSuccess;
+        const passUncertainty = Number.isNaN(maxUncertainty) || (row.uncertainty_proxy ?? 1e9) <= maxUncertainty;
+        const passQuery = !query || String(row.candidate_id || "").toLowerCase().includes(query);
+        return passSuccess && passUncertainty && passQuery;
+      });
+
+      rows.forEach((row) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${fmt(row.rank)}</td>
+          <td>${fmt(row.candidate_id)}</td>
+          <td>${fmt(row.ranking_score)}</td>
+          <td>${fmt(row.success_probability)}</td>
+          <td>${fmt(row.mean_objective)}</td>
+          <td>${fmt(row.geometry_score)}</td>
+          <td>${fmt(row.uncertainty_proxy)}</td>
+          <td>${fmt(row.predicted_regime)}</td>
+          <td>${fmt(row.impact_velocity_m_s)}</td>
+          <td>${fmt(row.droplet_diameter_mm)}</td>
+          <td>${fmt(row.shell_outer_diameter_mm)}</td>
+          <td>${fmt(row.guardrail_reasons)}</td>
+        `;
+        acceptedBody.appendChild(tr);
+      });
+      acceptedCount.textContent = `${rows.length} shown / ${(payload.accepted || []).length} total accepted`;
+    }
+
+    function renderRejected() {
+      rejectedBody.innerHTML = "";
+      (payload.rejected || []).forEach((row) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${fmt(row.candidate_id)}</td>
+          <td>${fmt(row.ranking_score)}</td>
+          <td>${fmt(row.success_probability)}</td>
+          <td>${fmt(row.uncertainty_proxy)}</td>
+          <td>${fmt(row.reasons)}</td>
+        `;
+        rejectedBody.appendChild(tr);
+      });
+      rejectedCount.textContent = `${(payload.rejected || []).length} rejected rows rendered`;
+    }
+
+    [minSuccessInput, maxUncertaintyInput, searchIdInput].forEach((el) => {
+      el.addEventListener("input", renderAccepted);
+    });
+
+    renderAccepted();
+    renderRejected();
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "family_a_contour_extraction_v1",
+  "task": "MVP-012",
+  "schema_version": "1.0.1",
+  "pixel_to_mm": 0.01,
+  "default_frame_rate_fps": 5000.0,
+  "heuristic_events": {
+    "lamella_onset_penetration_mm": 0.05,
+    "closure_neck_radius_mm": 0.55,
+    "closure_min_increase_mm": 0.05
+  }
+}

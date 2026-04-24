@@ -1,0 +1,25 @@
+{
+  "name": "family_a_label_correction_v1",
+  "task": "MVP-014",
+  "scoring": {
+    "segmentation_flagged_run": 30.0,
+    "segmentation_low_iou": 20.0,
+    "segmentation_low_f1": 20.0,
+    "feature_issue": 8.0,
+    "extraction_failure": 25.0
+  },
+  "thresholds": {
+    "iou_warn": null,
+    "f1_warn": null
+  },
+  "priority_bands": {
+    "critical": 70.0,
+    "high": 40.0,
+    "medium": 20.0
+  },
+  "output": {
+    "max_queue_size": 200,
+    "max_reasons_per_run": 20,
+    "max_actions_per_run": 4
+  }
+}

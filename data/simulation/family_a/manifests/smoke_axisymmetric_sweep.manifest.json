@@ -1,0 +1,55 @@
+{
+  "sweep_name": "family_a_axisymmetric_doe_v1",
+  "created_at_utc": "2026-04-18T02:30:19.549363+00:00",
+  "family": "A",
+  "source_config": "configs/simulations/family_a_axisymmetric_doe.json",
+  "parameters": {
+    "impact_velocity_m_s": [
+      0.4,
+      0.8,
+      1.2,
+      1.6
+    ],
+    "droplet_diameter_mm": [
+      1.5,
+      2.0,
+      2.5
+    ],
+    "shell_outer_diameter_mm": [
+      2.2,
+      2.8,
+      3.4
+    ],
+    "interfacial_layer_thickness_mm": [
+      0.2,
+      0.5,
+      0.8
+    ],
+    "core_density_kg_m3": [
+      900.0,
+      1000.0,
+      1100.0
+    ],
+    "core_viscosity_pa_s": [
+      0.001,
+      0.003,
+      0.01
+    ],
+    "interfacial_tension_n_m": [
+      0.015,
+      0.03,
+      0.05
+    ]
+  },
+  "constraints": {
+    "shell_outer_minus_droplet_min_mm": 0.2,
+    "shell_outer_minus_droplet_max_mm": 2.2,
+    "weber_min": 3.0,
+    "weber_max": 250.0,
+    "ohnesorge_max": 2.0,
+    "bond_max": 3.0
+  },
+  "candidate_count": 2916,
+  "planned_count": 2241,
+  "output_jsonl": "data/simulation/family_a/manifests/smoke_axisymmetric_sweep.jsonl"
+}

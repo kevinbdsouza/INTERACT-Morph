@@ -1,0 +1,15 @@
+{
+  "created_at_utc": "2026-04-18T02:30:27.435194+00:00",
+  "family": "A",
+  "surrogate_name": "family_a_axisymmetric_surrogate_v1",
+  "source_plan_jsonl": "data/simulation/family_a/manifests/smoke_axisymmetric_sweep.jsonl",
+  "surrogate_config": "configs/simulations/family_a_axisymmetric_surrogate.json",
+  "output_root": "data/simulation/family_a/corpus/smoke_model_train_v1",
+  "planned_case_count": 120,
+  "generated_case_count": 120,
+  "error_count": 0,
+  "artifact_notes": "video.mp4 files are placeholders for MVP-017 corpus bootstrapping",
+  "run_index_sha256": "5b6328725f7bcc89641f9b2d5fc665c15f779f9c9e2a52f0fbd899df3a7ab853",
+  "run_id_map_sha256": "2bcc598dcf613a8989471606ef1195ff92a4b637d596bc3231cb491ec433ea8f",
+  "simulation_index_sha256": "06f6946e1477d73c067ad954867a8bb4282e7a61c691006b11f9a4f3966ce284"
+}

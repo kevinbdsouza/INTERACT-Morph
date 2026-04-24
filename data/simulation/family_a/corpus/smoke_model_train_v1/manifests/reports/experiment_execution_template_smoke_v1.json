@@ -1,0 +1,244 @@
+{
+  "task_id": "MVP-031",
+  "name": "family_a_experiment_execution_v1",
+  "created_at_utc": "2026-04-18T04:48:17.220041+00:00",
+  "campaign_id": "C3_SMOKE_20260418",
+  "source_recommendation_report": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.recommendations.cli.json",
+  "objective_note": "Execute model-guided Family A experiments against target shell-thickness and capsule-shape windows with standardized capture and safety controls.",
+  "recommendation_summary": {
+    "candidate_count": 2241,
+    "accepted_count": 594,
+    "rejected_count": 1647,
+    "ranking_method": "ei",
+    "top_k": 5,
+    "incumbent_objective": 0.899999990003066,
+    "guardrails_enabled": true
+  },
+  "protocol": {
+    "top_k_selected": 5,
+    "global_checklist": [
+      "Confirm model artifact, calibration artifact, and recommendation report hashes are recorded.",
+      "Confirm fluid preparation lot IDs and instrument calibration records are attached for this campaign.",
+      "Confirm guardrail warnings in planned runs were reviewed and accepted by operator + reviewer."
+    ],
+    "per_run_measurements": [
+      "Record final executed control parameters and any operator overrides.",
+      "Record encapsulation success/failure and primary failure mode.",
+      "Record shell_thickness_mean_um and capsule_eccentricity with method provenance.",
+      "Record notable anomalies (drift, imaging occlusion, unstable jetting, delayed closure)."
+    ],
+    "stop_conditions": [
+      "Pause if three consecutive severe safety/process anomalies occur.",
+      "Pause if measured values repeatedly diverge from expected guardrail-safe envelope.",
+      "Pause if instrumentation calibration check fails during campaign."
+    ]
+  },
+  "planned_runs": [
+    {
+      "rank": 1,
+      "planned_run_id": "A_EXP_001",
+      "candidate_id": "SIM_A_000214",
+      "ranking_score": 0.006544301738962491,
+      "predicted_success_probability": 0.999999999999,
+      "predicted_regime": "trapping",
+      "predicted_geometry": {
+        "shell_thickness_mean_um": 237.6533255620975,
+        "capsule_eccentricity": 0.14904260372894362
+      },
+      "uncertainty_proxy": 0.3884739741781736,
+      "guardrail_status": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 3.0363532291518993
+      },
+      "candidate_parameters": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 3.4,
+          "interfacial_layer_thickness_mm": 0.5
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1100.0,
+          "core_viscosity_pa_s": 0.01,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 17.6,
+          "ohnesorge": 0.06356417261637283,
+          "bond": 1.61809725
+        }
+      },
+      "execution_status": "planned",
+      "operator_notes": ""
+    },
+    {
+      "rank": 2,
+      "planned_run_id": "A_EXP_002",
+      "candidate_id": "SIM_A_000457",
+      "ranking_score": 0.006544301738962491,
+      "predicted_success_probability": 0.999999999999,
+      "predicted_regime": "trapping",
+      "predicted_geometry": {
+        "shell_thickness_mean_um": 237.7582848641206,
+        "capsule_eccentricity": 0.1490395836815459
+      },
+      "uncertainty_proxy": 0.3884739741781736,
+      "guardrail_status": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 3.077245673029888
+      },
+      "candidate_parameters": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 2.0,
+          "shell_outer_diameter_mm": 3.4,
+          "interfacial_layer_thickness_mm": 0.5
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1100.0,
+          "core_viscosity_pa_s": 0.01,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 23.466666666666665,
+          "ohnesorge": 0.05504818825631803,
+          "bond": 2.8766173333333334
+        }
+      },
+      "execution_status": "planned",
+      "operator_notes": ""
+    },
+    {
+      "rank": 3,
+      "planned_run_id": "A_EXP_003",
+      "candidate_id": "SIM_A_000421",
+      "ranking_score": 0.006301711206223403,
+      "predicted_success_probability": 0.999999999999,
+      "predicted_regime": "trapping",
+      "predicted_geometry": {
+        "shell_thickness_mean_um": 199.60462781138523,
+        "capsule_eccentricity": 0.14876964049534366
+      },
+      "uncertainty_proxy": 0.37744741194990533,
+      "guardrail_status": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 2.8939622397822835
+      },
+      "candidate_parameters": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 2.0,
+          "shell_outer_diameter_mm": 3.4,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1000.0,
+          "core_viscosity_pa_s": 0.01,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 21.333333333333336,
+          "ohnesorge": 0.057735026918962574,
+          "bond": 2.6151066666666667
+        }
+      },
+      "execution_status": "planned",
+      "operator_notes": ""
+    },
+    {
+      "rank": 4,
+      "planned_run_id": "A_EXP_004",
+      "candidate_id": "SIM_A_000178",
+      "ranking_score": 0.006206077520045221,
+      "predicted_success_probability": 0.999999999999,
+      "predicted_regime": "trapping",
+      "predicted_geometry": {
+        "shell_thickness_mean_um": 199.60589139222617,
+        "capsule_eccentricity": 0.14877594703223387
+      },
+      "uncertainty_proxy": 0.37309535025685187,
+      "guardrail_status": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 2.8504416228517453
+      },
+      "candidate_parameters": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 3.4,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1000.0,
+          "core_viscosity_pa_s": 0.01,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 16.0,
+          "ohnesorge": 0.06666666666666667,
+          "bond": 1.4709975
+        }
+      },
+      "execution_status": "planned",
+      "operator_notes": ""
+    },
+    {
+      "rank": 5,
+      "planned_run_id": "A_EXP_005",
+      "candidate_id": "SIM_A_000430",
+      "ranking_score": 0.006134566456130166,
+      "predicted_success_probability": 0.999999999999,
+      "predicted_regime": "trapping",
+      "predicted_geometry": {
+        "shell_thickness_mean_um": 199.51270622133669,
+        "capsule_eccentricity": 0.1482461001367979
+      },
+      "uncertainty_proxy": 0.36983903764394366,
+      "guardrail_status": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 2.809450253382592
+      },
+      "candidate_parameters": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 2.0,
+          "shell_outer_diameter_mm": 3.4,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1100.0,
+          "core_viscosity_pa_s": 0.01,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 23.466666666666665,
+          "ohnesorge": 0.05504818825631803,
+          "bond": 2.8766173333333334
+        }
+      },
+      "execution_status": "planned",
+      "operator_notes": ""
+    }
+  ],
+  "signoff": {
+    "prepared_by": "",
+    "prepared_at_utc": "2026-04-18T04:48:17.220041+00:00",
+    "approved_by": "",
+    "approval_notes": ""
+  }
+}

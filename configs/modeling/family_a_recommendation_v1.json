@@ -1,0 +1,47 @@
+{
+  "name": "family_a_recommendation_v1",
+  "objective": {
+    "weights": {
+      "success_probability": 0.55,
+      "geometry_target": 0.35,
+      "uncertainty_penalty": 0.10
+    },
+    "geometry_targets": {
+      "shell_thickness_mean_um": {
+        "target_min": 180.0,
+        "target_max": 260.0,
+        "soft_tolerance": 80.0
+      },
+      "capsule_eccentricity": {
+        "target_max": 0.20,
+        "soft_tolerance": 0.20
+      }
+    },
+    "uncertainty": {
+      "weights": {
+        "success_probability": 0.5,
+        "regime_correctness_probability": 0.2,
+        "distance": 0.3
+      },
+      "distance_scale": 3.0
+    }
+  },
+  "acquisition": {
+    "method": "ei",
+    "top_k": 10,
+    "ei": {
+      "xi": 0.01,
+      "uncertainty_scale": 0.15
+    },
+    "ucb": {
+      "beta": 0.40
+    }
+  },
+  "guardrails": {
+    "enabled": true,
+    "max_nearest_train_distance": 4.5,
+    "max_feature_extrapolation_z": 0.50,
+    "max_extrapolated_features": 2,
+    "min_success_probability": 0.55
+  }
+}

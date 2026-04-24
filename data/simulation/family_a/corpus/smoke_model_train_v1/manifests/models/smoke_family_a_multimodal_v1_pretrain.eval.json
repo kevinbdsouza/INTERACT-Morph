@@ -1,0 +1,112 @@
+{
+  "model_id": "smoke_family_a_multimodal_v1_pretrain",
+  "created_at_utc": "2026-04-18T02:42:18.281050+00:00",
+  "evaluation": {
+    "train": {
+      "run_count": 83,
+      "success_metrics": {
+        "count": 83,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "regime_metrics": {
+        "count": 83,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "true_distribution": {
+          "trapping": 57,
+          "stable_wrapping": 26
+        },
+        "pred_distribution": {
+          "trapping": 57,
+          "stable_wrapping": 26
+        }
+      },
+      "regression_metrics": {
+        "shell_thickness_mean_um": {
+          "count": 83,
+          "mae": 0.0,
+          "rmse": 0.0
+        },
+        "capsule_eccentricity": {
+          "count": 83,
+          "mae": 0.0,
+          "rmse": 0.0
+        }
+      }
+    },
+    "val": {
+      "run_count": 18,
+      "success_metrics": {
+        "count": 18,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "regime_metrics": {
+        "count": 18,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "true_distribution": {
+          "stable_wrapping": 5,
+          "trapping": 13
+        },
+        "pred_distribution": {
+          "stable_wrapping": 5,
+          "trapping": 13
+        }
+      },
+      "regression_metrics": {
+        "shell_thickness_mean_um": {
+          "count": 18,
+          "mae": 60.03271547112243,
+          "rmse": 66.84227510664265
+        },
+        "capsule_eccentricity": {
+          "count": 18,
+          "mae": 0.0007970193979777795,
+          "rmse": 0.0010248850361114635
+        }
+      }
+    },
+    "test": {
+      "run_count": 19,
+      "success_metrics": {
+        "count": 19,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "regime_metrics": {
+        "count": 19,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "true_distribution": {
+          "trapping": 10,
+          "stable_wrapping": 9
+        },
+        "pred_distribution": {
+          "trapping": 10,
+          "stable_wrapping": 9
+        }
+      },
+      "regression_metrics": {
+        "shell_thickness_mean_um": {
+          "count": 19,
+          "mae": 73.34723845353722,
+          "rmse": 90.74042278850855
+        },
+        "capsule_eccentricity": {
+          "count": 19,
+          "mae": 0.0012452769345497766,
+          "rmse": 0.001549103155373498
+        }
+      }
+    }
+  },
+  "data_loading_errors": []
+}

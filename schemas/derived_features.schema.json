@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interact-capsules/schemas/derived_features.schema.json",
+  "title": "INTERACT-Capsules Derived Features",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "source_video",
+    "frame_rate_fps",
+    "segmentation_model_version",
+    "events_ms",
+    "summary",
+    "trajectories"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.0\\.[0-9]+$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "source_video": {
+      "type": "string",
+      "minLength": 1
+    },
+    "frame_rate_fps": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "segmentation_model_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "extraction_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "events_ms": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lamella_onset_ms": { "type": ["number", "null"], "minimum": 0 },
+        "first_contact_ms": { "type": ["number", "null"], "minimum": 0 },
+        "neck_formation_ms": { "type": ["number", "null"], "minimum": 0 },
+        "closure_time_ms": { "type": ["number", "null"], "minimum": 0 },
+        "detachment_time_ms": { "type": ["number", "null"], "minimum": 0 },
+        "rupture_time_ms": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "penetration_depth_max_mm",
+        "neck_radius_min_mm",
+        "shell_thickness_mean_um",
+        "capsule_eccentricity"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "penetration_depth_max_mm": { "type": "number", "minimum": 0 },
+        "neck_radius_min_mm": { "type": "number", "minimum": 0 },
+        "shell_thickness_mean_um": { "type": "number", "minimum": 0 },
+        "capsule_eccentricity": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "trajectories": {
+      "type": "object",
+      "required": [
+        "penetration_depth_mm",
+        "neck_radius_mm",
+        "shell_thickness_um"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "penetration_depth_mm": { "$ref": "#/$defs/series" },
+        "neck_radius_mm": { "$ref": "#/$defs/series" },
+        "shell_thickness_um": { "$ref": "#/$defs/series" }
+      }
+    }
+  },
+  "$defs": {
+    "series": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["t_ms", "value"],
+        "additionalProperties": false,
+        "properties": {
+          "t_ms": { "type": "number", "minimum": 0 },
+          "value": { "type": "number" }
+        }
+      }
+    }
+  }
+}
