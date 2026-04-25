@@ -1,329 +1,427 @@
 # INTERACT-Capsules
-AI for Interfacial Matter through Multiscale Prediction of Liquid-Liquid Encapsulation and Release.
 
-## What is implemented now
-This repository now includes the **MVP foundation layer** for the first task set:
-- MVP spec and scope (`docs/mvp/MVP_SPEC.md`)
-- Data contracts and annotation protocol (`docs/data/`)
-- Versioned schemas (`schemas/`)
-- Data ingestion, validation, inventory, split generation, and dataset snapshot scripts (`scripts/`)
-- Baseline dimensionless-number benchmark scaffold (`scripts/baseline_regime_map.py`)
-- Axisymmetric simulation sweep planning + synthetic corpus generation (`scripts/plan_axisymmetric_sweep.py`, `scripts/generate_simulation_corpus.py`)
-- Config-driven multimodal model training/evaluation baseline (`scripts/train_multimodal_model.py`)
-- Uncertainty calibration workflow (`scripts/calibrate_multimodal_uncertainty.py`)
-- Standardized model-card generation (`scripts/generate_model_card.py`, `templates/model_card.template.md`)
-- Recommendation ranking workflow with objective/acquisition/guardrails (`scripts/recommend_next_experiments.py`)
-- Experiment execution template generation from recommendations (`scripts/build_experiment_execution_template.py`)
-- Prospective campaign preparation workflow for primary and held-out robustness arms (`scripts/prepare_prospective_campaign.py`)
-- Prospective campaign comparison and reduction analysis (`scripts/analyze_campaign_outcomes.py`)
-- Failure-mode taxonomy reporting from prediction artifacts (`scripts/build_failure_mode_analysis.py`)
-- Lightweight recommendation review UI builder (`scripts/build_recommendation_ui.py`)
-- Interface segmentation starter workflow (`scripts/train_interface_segmentation.py`)
-- Contour-to-trajectory feature extraction workflow (`scripts/extract_contours_trajectories.py`)
-- Derived-feature QA dashboard generation (`scripts/build_feature_qa_dashboard.py`)
-- Active correction queue generation for label/error triage (`scripts/build_label_correction_queue.py`)
-- Experimental fine-tuning path with pretrained model warm-start (`scripts/train_multimodal_model.py --init-model`)
-- Reproducibility hardening helpers for lockfiles + deterministic checks (`scripts/export_environment_lockfile.py`, `scripts/check_deterministic_training.py`)
-- Governance pack generation for handoff/go-no-go/roadmap (`scripts/build_mvp_governance_pack.py`)
-- MVP operator documentation bundle (`docs/mvp/SETUP_GUIDE.md`, `docs/mvp/RUNBOOK.md`, `docs/mvp/OPERATOR_QUICKSTART.md`, `docs/mvp/TROUBLESHOOTING.md`)
+INTERACT-Capsules is a data, simulation, modeling, and recommendation toolkit for liquid-liquid encapsulation experiments. The initial project scope is Family A encapsulation: baseline single-shell behavior and constrained interfacial-layer encapsulation.
 
-## Project structure
+Project website: [interactcapsuleswebsite.pages.dev](https://interactcapsuleswebsite.pages.dev/)
+
+The repository is organized around a reproducible lab workflow:
+
+1. Curate raw high-speed-video experiments into a canonical dataset.
+2. Validate metadata, labels, derived features, units, and run identifiers.
+3. Generate or compare axisymmetric simulation corpora.
+4. Train multimodal predictors from controls, fluid properties, and early-time observables.
+5. Calibrate uncertainty and publish model cards.
+6. Rank next experiments with acquisition scoring and domain guardrails.
+7. Produce operator-facing execution templates, campaign analysis, failure analysis, and handoff reports.
+
+Implementation status, open work, and sprint notes live in [docs/mvp/Progress_Tracking.md](docs/mvp/Progress_Tracking.md) and [docs/mvp/ToDo.md](docs/mvp/ToDo.md). This README is intended as the functional overview and entry point.
+
+## Core Functionality
+
+### Data Ingestion And Validation
+
+The data layer turns raw run folders into canonical Family A datasets.
+
+- Raw handoff preflight checks for metadata, video files, label files, derived-feature files, schema readiness, and run-ID mode recommendations.
+- Raw inventory generation for run discovery and source traceability.
+- Canonical ingestion with `source_run_id` preservation and deterministic run-ID canonicalization when needed.
+- Dataset validation against versioned run metadata and derived-feature schemas.
+- Train/validation/test split generation with grouped held-out fluid-combination policies.
+- Dataset snapshot manifests for reproducible model and analysis runs.
+
+Primary commands:
+
+```bash
+interact-capsules handoff-check
+interact-capsules inventory
+interact-capsules ingest
+interact-capsules validate
+interact-capsules split
+interact-capsules snapshot
+interact-capsules pipeline
+```
+
+Key references:
+
+- [Data architecture](docs/data/DATA_ARCHITECTURE.md)
+- [Run ID conventions](docs/data/RUN_ID_CONVENTIONS.md)
+- [Split policy](docs/data/SPLIT_POLICY.md)
+- [Run metadata schema](schemas/run_metadata.schema.json)
+- [Derived features schema](schemas/derived_features.schema.json)
+
+### Segmentation, Trajectories, And Label QA
+
+The segmentation and QA workflows convert interface observations into structured time-series features and correction queues.
+
+- Lightweight interface segmentation baseline from frame-level pixel samples.
+- Contour and trajectory extraction from mask or contour observations.
+- Derived-feature QA reports for sanity checks, missingness, and outlier detection.
+- Active correction queue generation for label, mask, and feature triage.
+- Annotation guidance for regime labels, failure modes, and key event landmarks.
+
+Primary commands:
+
+```bash
+interact-capsules segment-train
+interact-capsules extract-trajectories
+interact-capsules feature-qa
+interact-capsules label-correction
+```
+
+Key references:
+
+- [Annotation guidelines](docs/data/ANNOTATION_GUIDELINES.md)
+- [Segmentation and trajectory workflow](docs/modeling/SEGMENTATION_TRAJECTORY_WORKFLOW.md)
+- [Label correction workflow](docs/modeling/LABEL_CORRECTION_WORKFLOW.md)
+
+### Simulation Workflows
+
+The simulation layer supports Family A design-of-experiments planning, synthetic corpus generation, and realism comparison.
+
+- Axisymmetric sweep planning over impact velocity, geometry, density, viscosity, interfacial tension, and layer thickness.
+- Synthetic corpus generation with metadata parity to experimental runs.
+- Simulation-vs-experiment realism reports for observable distribution comparison.
+- Config-driven simulation ranges and surrogate generation settings.
+
+Primary commands:
+
+```bash
+interact-capsules sim-plan
+interact-capsules sim-generate
+interact-capsules sim-realism
+```
+
+Key references:
+
+- [Axisymmetric simulation workflow](docs/modeling/AXISYMMETRIC_SIM_WORKFLOW.md)
+- [Simulation DOE config](configs/simulations/family_a_axisymmetric_doe.json)
+- [Surrogate config](configs/simulations/family_a_axisymmetric_surrogate.json)
+
+### Baseline And Multimodal Modeling
+
+The modeling layer trains and evaluates predictors for encapsulation outcomes, failure modes, and geometry targets.
+
+- Dimensionless-number baseline benchmark for regime and success prediction.
+- Config-driven multimodal model training from run metadata and derived features.
+- Warm-start fine-tuning from synthetic pretraining artifacts into experimental Family A data.
+- Held-out evaluation with classification and regression metrics.
+- Standardized model-card generation for scope, data, metrics, calibration, and limitations.
+
+Primary commands:
+
+```bash
+interact-capsules baseline
+interact-capsules model-train
+interact-capsules model-finetune
+interact-capsules model-card
+```
+
+Key references:
+
+- [Baseline benchmark](docs/modeling/BASELINE_BENCHMARK.md)
+- [Multimodal model architecture](docs/modeling/MULTIMODAL_MODEL_ARCHITECTURE.md)
+- [Model training workflow](docs/modeling/MODEL_TRAINING_WORKFLOW.md)
+- [Fine-tuning workflow](docs/modeling/FINETUNING_WORKFLOW.md)
+- [Model card workflow](docs/modeling/MODEL_CARD_WORKFLOW.md)
+- [Model card template](templates/model_card.template.md)
+
+### Uncertainty Calibration
+
+The calibration workflow converts model scores into reviewable confidence evidence.
+
+- Temperature scaling for success probability and regime top-1 correctness.
+- Optional isotonic calibration when enough fit rows are available.
+- Reliability metrics and calibrated prediction artifacts.
+- Calibration outputs that feed recommendations and model cards.
+
+Primary command:
+
+```bash
+interact-capsules model-calibrate
+```
+
+Key reference:
+
+- [Uncertainty calibration workflow](docs/modeling/UNCERTAINTY_CALIBRATION_WORKFLOW.md)
+
+### Recommendation Engine
+
+The recommendation workflow ranks candidate experiments for lab review.
+
+- Multi-objective scoring over success probability, geometry targets, and uncertainty penalties.
+- Expected-improvement and upper-confidence-bound acquisition options.
+- Guardrails for extrapolation, distance from training support, and minimum success probability.
+- Accepted and rejected candidate reporting with nearest-support diagnostics.
+- Standalone HTML recommendation review UI for operators.
+
+Primary commands:
+
+```bash
+interact-capsules recommend
+interact-capsules recommend-ui
+```
+
+Key references:
+
+- [Recommendation workflow](docs/modeling/RECOMMENDATION_WORKFLOW.md)
+- [Recommendation config](configs/modeling/family_a_recommendation_v1.json)
+- [UI prototype workflow](docs/mvp/UI_PROTOTYPE_WORKFLOW.md)
+
+### Experiment Execution And Prospective Validation
+
+The validation layer turns ranked recommendations into campaign plans and post-run analysis.
+
+- Experiment execution templates with run conditions, operator checklist fields, and logging structure.
+- Prospective campaign preparation for model-guided and baseline arms.
+- Campaign comparison for hit rate, target-window discovery, and experimental-load reduction.
+- Failure-mode analysis for prediction errors, confidence behavior, and recurring issue clusters.
+
+Primary commands:
+
+```bash
+interact-capsules experiment-template
+interact-capsules campaign-prepare
+interact-capsules campaign-analyze
+interact-capsules failure-analysis
+```
+
+Key references:
+
+- [Experiment execution workflow](docs/modeling/EXPERIMENT_EXECUTION_WORKFLOW.md)
+- [Campaign preparation workflow](docs/modeling/CAMPAIGN_PREPARATION_WORKFLOW.md)
+- [Prospective validation workflow](docs/modeling/PROSPECTIVE_VALIDATION_WORKFLOW.md)
+- [Failure-mode analysis workflow](docs/modeling/FAILURE_MODE_ANALYSIS_WORKFLOW.md)
+
+### Reproducibility And Governance
+
+The operational layer is designed for repeatable runs and internal handoff.
+
+- Environment lockfile export from project dependencies and optional validation extras.
+- Deterministic training checks for repeated model runs.
+- Smoke-check bundles for tests, syntax compilation, CLI help, and optional raw handoff preflight.
+- Internal governance pack generation for handoff materials, go/no-go memos, and roadmap drafts.
+
+Primary commands:
+
+```bash
+interact-capsules repro-lock
+interact-capsules repro-check
+interact-capsules smoke-check
+interact-capsules mvp-governance
+```
+
+Key references:
+
+- [Reproducibility workflow](docs/mvp/REPRODUCIBILITY_WORKFLOW.md)
+- [Governance workflow](docs/mvp/GOVERNANCE_WORKFLOW.md)
+- [Runbook](docs/mvp/RUNBOOK.md)
+- [Operator quickstart](docs/mvp/OPERATOR_QUICKSTART.md)
+- [Troubleshooting guide](docs/mvp/TROUBLESHOOTING.md)
+
+## Repository Layout
+
 ```text
 configs/
-  baselines/
-  validation/
-  simulations/
-  splits/
+  baselines/      Baseline benchmark settings
+  modeling/       Model, segmentation, calibration, and recommendation configs
+  mvp/            Governance pack config
+  simulations/    Axisymmetric DOE and surrogate configs
+  splits/         Dataset split policy configs
+  validation/     Campaign, execution-template, and failure-analysis configs
 data/
-  raw/
-  canonical/
-  manifests/
-  simulation/
+  raw/            Local raw data handoff location
+  canonical/      Canonical datasets, manifests, reports, and model artifacts
+  simulation/     Simulation corpora and smoke artifacts
 docs/
-  data/
-  modeling/
-  mvp/
-schemas/
-scripts/
-src/interact_capsules/
-templates/
+  data/           Data contracts, annotation policy, and run-ID guidance
+  modeling/       Modeling, simulation, recommendation, and validation workflows
+  mvp/            Operator docs, runbooks, tracking, and governance workflow
+schemas/          JSON schemas for canonical records
+scripts/          Workflow scripts used by the CLI
+src/              Python package and CLI entrypoint
+templates/        Metadata, label, and model-card templates
+tests/            Local smoke and workflow tests
 ```
 
 ## Setup
+
+Create a local environment and install the CLI:
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e .
-# Optional full validation stack (jsonschema + yaml configs)
+```
+
+Install optional schema and YAML validation dependencies:
+
+```bash
 pip install -e ".[validation]"
 ```
 
-## Unified CLI (MVP-028/029)
-After installation, use `interact-capsules` for a single command surface over all current MVP scripts.
+Show the available command surface:
 
-Show command groups:
 ```bash
 interact-capsules --help
 ```
 
-Run the canonical Family A data workflow end-to-end:
+If the package is not installed yet, the CLI can also be invoked directly:
+
+```bash
+python3 src/interact_capsules/cli.py --help
+```
+
+## Typical End-To-End Flow
+
+### 1. Check A Raw Handoff
+
+```bash
+interact-capsules handoff-check \
+  --source-dir data/raw \
+  --family A \
+  --output data/canonical/family_a/manifests/reports/data_handoff_check.json \
+  --require-labels \
+  --require-derived
+```
+
+Review the generated report before ingesting. It includes readiness counts, example issues, a recommended run-ID mode, and the exact next command to run when the handoff is ready.
+
+### 2. Run The Canonical Data Pipeline
+
 ```bash
 interact-capsules pipeline \
   --source-dir data/raw \
   --dataset-root data/canonical/family_a \
   --family A \
   --run-id-mode canonicalize \
-  --snapshot-name family_a_v1
+  --snapshot-name family_a_v1 \
+  --require-labels \
+  --require-derived
 ```
 
-Run individual steps (example):
-```bash
-interact-capsules inventory \
-  --source-dir data/raw \
-  --output data/manifests/inventory_family_a.csv \
-  --family A
-```
+The pipeline runs ingestion, validation, split generation, baseline benchmarking, and dataset snapshotting.
 
-## Quickstart (first pipeline pass)
-1. Build raw inventory:
-```bash
-python3 scripts/build_inventory.py \
-  --source-dir data/raw \
-  --family A \
-  --output data/manifests/inventory_family_a.csv
-```
+### 3. Train, Calibrate, And Document A Model
 
-2. Ingest Family A runs into canonical structure:
 ```bash
-python3 scripts/ingest_runs.py \
-  --source-dir data/raw \
-  --dest-root data/canonical/family_a \
-  --family A \
-  --run-id-mode canonicalize
-```
-
-3. Validate canonical dataset:
-```bash
-python3 scripts/validate_dataset.py \
-  --dataset-root data/canonical/family_a
-```
-
-4. Create split artifact:
-```bash
-python3 scripts/create_split.py \
-  --dataset-root data/canonical/family_a \
-  --config configs/splits/family_a_split.json \
-  --output data/canonical/family_a/manifests/splits/family_a_v1.json
-```
-
-5. Run baseline heuristic benchmark:
-```bash
-python3 scripts/baseline_regime_map.py \
+interact-capsules model-train \
   --dataset-root data/canonical/family_a \
   --split data/canonical/family_a/manifests/splits/family_a_v1.json \
-  --output data/canonical/family_a/manifests/reports/baseline_family_a_v1.json
+  --output-dir data/canonical/family_a/manifests/models \
+  --model-id family_a_multimodal_v1
+
+interact-capsules model-calibrate \
+  --predictions data/canonical/family_a/manifests/models/family_a_multimodal_v1.predictions.jsonl \
+  --output data/canonical/family_a/manifests/models/family_a_multimodal_v1.calibration.json \
+  --calibrated-predictions-output data/canonical/family_a/manifests/models/family_a_multimodal_v1.calibrated_predictions.jsonl
+
+interact-capsules model-card \
+  --model-artifact data/canonical/family_a/manifests/models/family_a_multimodal_v1.model.json \
+  --eval-artifact data/canonical/family_a/manifests/models/family_a_multimodal_v1.eval.json \
+  --calibration-artifact data/canonical/family_a/manifests/models/family_a_multimodal_v1.calibration.json \
+  --output data/canonical/family_a/manifests/model_cards/family_a_multimodal_v1.md
 ```
 
-6. Snapshot dataset version:
-```bash
-python3 scripts/snapshot_dataset.py \
-  --dataset-root data/canonical/family_a \
-  --name family_a_v1
-```
+### 4. Rank Candidate Experiments
 
-7. Plan the first Family A axisymmetric simulation sweep:
 ```bash
-python3 scripts/plan_axisymmetric_sweep.py \
-  --config configs/simulations/family_a_axisymmetric_doe.json \
-  --output data/simulation/family_a/manifests/axisymmetric_sweep_v1.jsonl \
-  --family A
-```
-
-8. Generate first synthetic simulation corpus from the sweep plan:
-```bash
-python3 scripts/generate_simulation_corpus.py \
-  --plan-jsonl data/simulation/family_a/manifests/axisymmetric_sweep_v1.jsonl \
-  --surrogate-config configs/simulations/family_a_axisymmetric_surrogate.json \
-  --output-root data/simulation/family_a/corpus/family_a_axisymmetric_doe_v1 \
-  --family A
-```
-
-9. (Optional) Compare simulation corpus against canonical experimental data:
-```bash
-python3 scripts/report_simulation_realism.py \
-  --simulation-dataset-root data/simulation/family_a/corpus/family_a_axisymmetric_doe_v1 \
-  --experimental-dataset-root data/canonical/family_a \
-  --output data/simulation/family_a/manifests/reports/realism_family_a_v1.json
-```
-
-10. Train/evaluate multimodal v1 baseline model:
-```bash
-python3 scripts/train_multimodal_model.py \
-  --dataset-root data/canonical/family_a \
-  --split data/canonical/family_a/manifests/splits/family_a_v1.json \
-  --config configs/modeling/family_a_multimodal_v1.json \
-  --output-dir data/canonical/family_a/manifests/models
-```
-
-11. Calibrate uncertainty from prediction artifacts:
-```bash
-python3 scripts/calibrate_multimodal_uncertainty.py \
-  --predictions data/canonical/family_a/manifests/models/<model_id>.predictions.jsonl \
-  --config configs/modeling/family_a_uncertainty_calibration_v1.json \
-  --output data/canonical/family_a/manifests/models/<model_id>.calibration.json
-```
-
-12. Generate model card:
-```bash
-python3 scripts/generate_model_card.py \
-  --model-artifact data/canonical/family_a/manifests/models/<model_id>.model.json \
-  --eval-artifact data/canonical/family_a/manifests/models/<model_id>.eval.json \
-  --calibration-artifact data/canonical/family_a/manifests/models/<model_id>.calibration.json \
-  --template templates/model_card.template.md \
-  --output data/canonical/family_a/manifests/model_cards/<model_id>.md
-```
-
-13. Rank next experiments with acquisition + guardrails:
-```bash
-python3 scripts/recommend_next_experiments.py \
-  --model-artifact data/canonical/family_a/manifests/models/<model_id>.model.json \
+interact-capsules recommend \
+  --model-artifact data/canonical/family_a/manifests/models/family_a_multimodal_v1.model.json \
+  --calibration-artifact data/canonical/family_a/manifests/models/family_a_multimodal_v1.calibration.json \
   --candidates data/simulation/family_a/manifests/axisymmetric_sweep_v1.jsonl \
-  --config configs/modeling/family_a_recommendation_v1.json \
-  --calibration-artifact data/canonical/family_a/manifests/models/<model_id>.calibration.json \
-  --output data/canonical/family_a/manifests/recommendations/<model_id>.recommendations.json
+  --output data/canonical/family_a/manifests/recommendations/family_a_multimodal_v1.recommendations.json
+
+interact-capsules recommend-ui \
+  --recommendation-report data/canonical/family_a/manifests/recommendations/family_a_multimodal_v1.recommendations.json \
+  --output-html data/canonical/family_a/manifests/recommendations/family_a_multimodal_v1.recommendations.html
 ```
 
-14. Train segmentation baseline on frame-level pixel samples:
-```bash
-python3 scripts/train_interface_segmentation.py \
-  --dataset-root data/simulation/family_a/corpus/smoke_model_train_v1 \
-  --annotations data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation/smoke_pixel_samples.jsonl \
-  --split data/simulation/family_a/corpus/smoke_model_train_v1/manifests/splits/smoke_v1.json \
-  --config configs/modeling/family_a_segmentation_v1.json \
-  --output-dir data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_models
-```
+### 5. Prepare And Analyze Validation Campaigns
 
-15. Extract contour-derived trajectories into derived-features artifacts:
 ```bash
-python3 scripts/extract_contours_trajectories.py \
-  --dataset-root data/simulation/family_a/corpus/smoke_model_train_v1 \
-  --contours data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation/smoke_contour_observations.jsonl \
-  --config configs/modeling/family_a_contour_extraction_v1.json \
-  --output-dir data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features
-```
+interact-capsules experiment-template \
+  --recommendation-report data/canonical/family_a/manifests/recommendations/family_a_multimodal_v1.recommendations.json \
+  --output data/canonical/family_a/manifests/reports/experiment_execution_template.json \
+  --markdown-output data/canonical/family_a/manifests/reports/experiment_execution_template.md
 
-16. Build feature QA dashboard:
-```bash
-python3 scripts/build_feature_qa_dashboard.py \
-  --derived-features-index data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/derived_features_index.jsonl \
-  --config configs/modeling/family_a_feature_qa_v1.json \
-  --output data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/feature_qa_smoke_v1.json \
-  --markdown-output data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/feature_qa_smoke_v1.md
-```
-
-17. Build active correction queue:
-```bash
-python3 scripts/build_label_correction_queue.py \
-  --segmentation-qc data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_models/smoke_family_a_segmentation_v1.qc.json \
-  --feature-qa data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/feature_qa_smoke_v1.json \
-  --extraction-report data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/extraction_report.json \
-  --config configs/modeling/family_a_label_correction_v1.json \
-  --output data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/label_correction_smoke_v1.json
-```
-
-18. Fine-tune multimodal model from synthetic pretraining:
-```bash
-python3 scripts/train_multimodal_model.py \
-  --dataset-root data/canonical/family_a \
-  --split data/canonical/family_a/manifests/splits/family_a_v1.json \
-  --config configs/modeling/family_a_multimodal_v1_finetune.json \
-  --init-model data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.model.json \
-  --output-dir data/canonical/family_a/manifests/models
-```
-
-19. Build lightweight HTML UI for recommendation review:
-```bash
-python3 scripts/build_recommendation_ui.py \
-  --recommendation-report data/canonical/family_a/manifests/recommendations/<model_id>.recommendations.json \
-  --output-html data/canonical/family_a/manifests/recommendations/<model_id>.recommendations.html
-```
-
-20. Export environment lockfile and run deterministic training check:
-```bash
-python3 scripts/export_environment_lockfile.py \
-  --pyproject pyproject.toml \
-  --include-optional validation \
-  --output locks/environment.lock.txt
-
-python3 scripts/check_deterministic_training.py \
-  --dataset-root data/simulation/family_a/corpus/smoke_model_train_v1 \
-  --split data/simulation/family_a/corpus/smoke_model_train_v1/manifests/splits/smoke_v1.json \
-  --config configs/modeling/family_a_multimodal_v1.json \
-  --output data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/determinism_report.json
-```
-
-21. Convert ranked recommendations into an execution template:
-```bash
-python3 scripts/build_experiment_execution_template.py \
-  --recommendation-report data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.recommendations.cli.json \
-  --config configs/validation/family_a_experiment_execution_v1.json \
-  --output data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/experiment_execution_template_smoke_v1.json \
-  --markdown-output data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/experiment_execution_template_smoke_v1.md
-```
-
-22. Compare model-guided vs baseline campaign logs:
-```bash
-python3 scripts/analyze_campaign_outcomes.py \
-  --model-guided-log data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_model_guided_smoke_v1.jsonl \
-  --baseline-log data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_baseline_smoke_v1.jsonl \
-  --config configs/validation/family_a_campaign_analysis_v1.json \
-  --output data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_analysis_smoke_v1.json
-```
-
-23. Build failure-mode analysis report:
-```bash
-python3 scripts/build_failure_mode_analysis.py \
-  --predictions data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.predictions.jsonl \
-  --config configs/validation/family_a_failure_mode_analysis_v1.json \
-  --output data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/failure_mode_analysis_smoke_v1.json
-```
-
-24. Prepare prospective campaign plans/log templates for primary or robustness profiles:
-```bash
-python3 scripts/prepare_prospective_campaign.py \
-  --runs-input data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/experiment_execution_template_smoke_v1.json \
-  --config configs/validation/family_a_prospective_campaign_v1.json \
-  --analysis-config configs/validation/family_a_campaign_analysis_v1.json \
+interact-capsules campaign-prepare \
+  --runs-input data/canonical/family_a/manifests/reports/experiment_execution_template.json \
   --campaign-profile model_guided_primary \
-  --output data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_prepared_model_guided_primary_smoke_v1.json \
-  --campaign-log-output data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_model_guided_primary_smoke_v1.jsonl
+  --output data/canonical/family_a/manifests/reports/campaign_prepared_model_guided_primary.json \
+  --campaign-log-output data/canonical/family_a/manifests/reports/campaign_model_guided_primary.jsonl
+
+interact-capsules campaign-analyze \
+  --model-guided-log data/canonical/family_a/manifests/reports/campaign_model_guided_primary.jsonl \
+  --baseline-log data/canonical/family_a/manifests/reports/campaign_baseline_primary.jsonl \
+  --output data/canonical/family_a/manifests/reports/campaign_analysis.json \
+  --markdown-output data/canonical/family_a/manifests/reports/campaign_analysis.md
 ```
 
-25. Build governance pack (handoff + go/no-go + roadmap):
+## Data Contracts
+
+Canonical run folders are expected to contain:
+
+```text
+runs/<run_id>/
+  metadata.json
+  labels.json
+  derived_features.json
+  video.mp4
+```
+
+The metadata schema captures experiment setup, fluid properties, controls, outcomes, asset paths, and quality flags. The derived-feature schema captures trajectory summaries, geometry metrics, and event timings.
+
+Template files:
+
+- [run_metadata.template.json](templates/run_metadata.template.json)
+- [labels.template.json](templates/labels.template.json)
+
+## Local Verification
+
+Run unit tests and syntax checks:
+
 ```bash
-python3 scripts/build_mvp_governance_pack.py \
-  --progress-tracker ../Progress_Tracking.md \
-  --todo ../ToDo.md \
-  --config configs/mvp/family_a_mvp_governance_v1.json \
-  --output-dir data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports \
-  --prefix family_a_mvp_smoke_v1
+python3 -m unittest discover -s tests
+python3 -m compileall src scripts tests
 ```
 
-## Data templates
-- `templates/run_metadata.template.json`
-- `templates/labels.template.json`
+Generate a single smoke-check report:
 
-## Run ID policy
-- Canonicalization rules and traceability details: `docs/data/RUN_ID_CONVENTIONS.md`
+```bash
+interact-capsules smoke-check \
+  --output data/canonical/family_a/manifests/reports/smoke_check_report.json
+```
 
-## Next build phase
-Prospective campaign execution on production Family A data and governance closure (handoff + go/no-go) are the immediate next focus areas once real run logs are available.
+Include handoff readiness in the smoke bundle when raw data is available:
 
-## Operator docs
-- `docs/mvp/SETUP_GUIDE.md`
-- `docs/mvp/RUNBOOK.md`
-- `docs/mvp/OPERATOR_QUICKSTART.md`
-- `docs/mvp/TROUBLESHOOTING.md`
-- `docs/mvp/REPRODUCIBILITY_WORKFLOW.md`
-- `docs/mvp/UI_PROTOTYPE_WORKFLOW.md`
-- `docs/mvp/GOVERNANCE_WORKFLOW.md`
+```bash
+interact-capsules smoke-check \
+  --output data/canonical/family_a/manifests/reports/smoke_check_report.json \
+  --handoff-source-dir data/raw \
+  --handoff-output data/canonical/family_a/manifests/reports/data_handoff_check.json \
+  --handoff-require-labels \
+  --handoff-require-derived
+```
+
+## Documentation Index
+
+Start here for operators:
+
+- [Setup guide](docs/mvp/SETUP_GUIDE.md)
+- [Runbook](docs/mvp/RUNBOOK.md)
+- [Operator quickstart](docs/mvp/OPERATOR_QUICKSTART.md)
+- [Troubleshooting](docs/mvp/TROUBLESHOOTING.md)
+- [CLI workflow](docs/mvp/CLI_WORKFLOW.md)
+
+Use these for technical details:
+
+- [MVP spec](docs/mvp/MVP_SPEC.md)
+- [Data architecture](docs/data/DATA_ARCHITECTURE.md)
+- [Model training workflow](docs/modeling/MODEL_TRAINING_WORKFLOW.md)
+- [Recommendation workflow](docs/modeling/RECOMMENDATION_WORKFLOW.md)
+- [Prospective validation workflow](docs/modeling/PROSPECTIVE_VALIDATION_WORKFLOW.md)
+
+Use these for tracking only:
+
+- [Progress tracking](docs/mvp/Progress_Tracking.md)
+- [ToDo backlog](docs/mvp/ToDo.md)
