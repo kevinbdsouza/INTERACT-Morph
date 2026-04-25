@@ -93,6 +93,99 @@ def parse_todo_task_map(lines: list[str]) -> dict[str, str]:
     return mapping
 
 
+def resolve_artifact_path(path_value: str) -> Path:
+    path = Path(path_value)
+    if path.is_absolute():
+        return path
+    return PROJECT_ROOT / path
+
+
+def summarize_evidence_payload(payload: Any) -> dict[str, Any]:
+    if not isinstance(payload, dict):
+        return {}
+
+    summary: dict[str, Any] = {}
+    for key in (
+        "name",
+        "created_at_utc",
+        "passed",
+        "ready",
+        "run_count",
+        "ready_run_count",
+        "error_count",
+        "warning_count",
+    ):
+        if key in payload:
+            summary[key] = payload[key]
+
+    recommendation = payload.get("run_id_mode_recommendation")
+    if isinstance(recommendation, dict) and recommendation.get("recommended"):
+        summary["recommended_run_id_mode"] = recommendation.get("recommended")
+
+    issue_counts = payload.get("issue_counts")
+    if isinstance(issue_counts, dict) and issue_counts:
+        summary["issue_counts"] = issue_counts
+
+    next_actions = payload.get("next_actions")
+    if isinstance(next_actions, list):
+        summary["next_action_count"] = len(next_actions)
+        summary["next_actions"] = [
+            {
+                "priority": action.get("priority"),
+                "type": action.get("type"),
+            }
+            for action in next_actions[:3]
+            if isinstance(action, dict)
+        ]
+
+    checks = payload.get("checks")
+    if isinstance(checks, list):
+        failed = [
+            str(check.get("name", "unknown"))
+            for check in checks
+            if isinstance(check, dict) and not bool(check.get("passed"))
+        ]
+        summary["check_count"] = len(checks)
+        summary["failed_checks"] = failed
+
+    return summary
+
+
+def build_evidence_snapshot(config: dict[str, Any]) -> list[dict[str, Any]]:
+    handoff_cfg = config.get("handoff", {})
+    if not isinstance(handoff_cfg, dict):
+        return []
+
+    evidence_cfg = handoff_cfg.get("evidence_artifacts", [])
+    if not isinstance(evidence_cfg, list):
+        return []
+
+    snapshot: list[dict[str, Any]] = []
+    for item in evidence_cfg:
+        if not isinstance(item, dict):
+            continue
+        label = str(item.get("label", "Evidence artifact"))
+        configured_path = str(item.get("path", "")).strip()
+        if not configured_path:
+            continue
+
+        resolved_path = resolve_artifact_path(configured_path)
+        entry: dict[str, Any] = {
+            "label": label,
+            "path": configured_path,
+            "exists": resolved_path.exists(),
+            "summary": {},
+        }
+        if resolved_path.exists() and resolved_path.suffix.lower() == ".json":
+            try:
+                entry["summary"] = summarize_evidence_payload(load_json_or_yaml(resolved_path))
+            except Exception as exc:
+                entry["summary"] = {"read_error": str(exc)}
+        snapshot.append(entry)
+
+    return snapshot
+
+
 def build_handoff_payload(
     *,
     config: dict[str, Any],
@@ -134,6 +227,8 @@ def build_handoff_payload(
     if not isinstance(checklist, list):
         checklist = []
 
+    evidence_snapshot = build_evidence_snapshot(config)
+
     return {
         "task_id": "MVP-038",
         "name": str(config.get("name", "family_a_mvp_governance_v1")),
@@ -147,6 +242,7 @@ def build_handoff_payload(
         ),
         "agenda": [str(item) for item in agenda],
         "required_artifacts": [str(item) for item in required_artifacts],
+        "evidence_snapshot": evidence_snapshot,
         "checklist": [str(item) for item in checklist],
         "in_progress_tasks_snapshot": selected_tasks,
     }
@@ -441,6 +537,23 @@ def main() -> int:
     handoff_lines.append("")
     for item in handoff.get("required_artifacts", []):
         handoff_lines.append(f"- [ ] {item}")
+    handoff_lines.append("")
+    handoff_lines.append("## Evidence Snapshot")
+    handoff_lines.append("")
+    evidence_snapshot = handoff.get("evidence_snapshot", [])
+    if evidence_snapshot:
+        handoff_lines.append("| Artifact | Path | Exists | Summary |")
+        handoff_lines.append("|---|---|---|---|")
+        for item in evidence_snapshot:
+            summary = item.get("summary", {})
+            summary_text = ", ".join(
+                f"{key}={value}" for key, value in summary.items() if value not in (None, "", [])
+            )
+            handoff_lines.append(
+                f"| {item.get('label', '')} | `{item.get('path', '')}` | {item.get('exists', False)} | {summary_text} |"
+            )
+    else:
+        handoff_lines.append("- No evidence artifacts configured.")
     handoff_lines.append("")
     handoff_lines.append("## Checklist")
     handoff_lines.append("")

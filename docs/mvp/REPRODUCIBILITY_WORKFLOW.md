@@ -3,6 +3,7 @@
 ## Goals
 - Capture environment dependency lock snapshot for each run cycle.
 - Verify deterministic model train/eval artifacts under repeated identical runs.
+- Keep a local smoke-test harness for CLI orchestration and lockfile utility behavior.
 
 ## 1) Export Environment Lockfile
 ```bash
@@ -38,3 +39,23 @@ The report includes:
 - canonical content hashes for run A and run B
 
 Recommendations should only be published when `passed=true`.
+
+## 3) Local Smoke Tests
+Run the bundled check before changing CLI wiring, pipeline defaults, or lockfile parsing:
+```bash
+interact-capsules smoke-check
+```
+
+Equivalent individual checks:
+```bash
+python3 -m unittest discover -s tests
+python3 -m compileall src scripts tests
+python3 src/interact_capsules/cli.py --help
+```
+
+Current smoke coverage includes:
+- CLI command registration across active MVP tasks.
+- `pipeline` orchestration order and fail-fast behavior.
+- `feature-qa` required input guard.
+- Lockfile requirement parsing, optional dependency selection, and missing group errors.
+- Smoke-check command/report wiring.

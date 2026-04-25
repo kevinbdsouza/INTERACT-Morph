@@ -8,8 +8,25 @@ Operational run sequence for Family A recommendation cycles once dataset artifac
 ```bash
 interact-capsules repro-lock
 ```
-2. Confirm split + model config paths are correct for this cycle.
-3. Confirm candidate sweep artifact exists and is current.
+2. Run the local smoke bundle and archive the JSON report:
+```bash
+interact-capsules smoke-check
+```
+3. Before the first production ingest, check raw handoff readiness:
+```bash
+interact-capsules handoff-check \
+  --source-dir data/raw \
+  --family A
+```
+Use the generated report's `next_actions` field to decide whether to fix source issues, rerun the preflight, or execute the exact `pipeline` command with the recommended `--run-id-mode`.
+To capture code-health and raw-handoff readiness in one evidence file, run:
+```bash
+interact-capsules smoke-check \
+  --handoff-source-dir data/raw \
+  --handoff-output data/canonical/family_a/manifests/reports/data_handoff_check.json
+```
+4. Confirm split + model config paths are correct for this cycle.
+5. Confirm candidate sweep artifact exists and is current.
 
 ## Run Sequence
 1. Train or fine-tune model:
@@ -47,9 +64,13 @@ interact-capsules repro-lock
 - `campaign_analysis.json`
 - `failure_mode_analysis.json`
 - `determinism_report.json`
+- `smoke_check_report.json`
+- `data_handoff_check.json` for first production ingest cycles
 - `family_a_mvp.{handoff,go_no_go,roadmap}.{json,md}`
 
 ## Decision Gates
+- If smoke-check fails: fix parser/test/syntax failures before running production pipeline commands.
+- If handoff-check fails: fix source metadata/video/schema issues shown in `issue_counts` and `issue_examples`, then rerun the preflight before `pipeline`.
 - If deterministic check fails: do not publish recommendations.
 - If guardrail rejections dominate accepted results: review recommendation config weights and thresholds.
 - If calibration report quality regresses: revisit split quality and feature extraction quality before running campaigns.

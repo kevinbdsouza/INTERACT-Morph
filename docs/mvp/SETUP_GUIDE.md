@@ -21,9 +21,17 @@ pip install -e ".[validation]"
 interact-capsules --help
 ```
 
-Expected: command groups including `pipeline`, `model-train`, `recommend`, `recommend-ui`, `repro-lock`, and `repro-check`.
+Expected: command groups including `handoff-check`, `pipeline`, `model-train`, `recommend`, `recommend-ui`, `repro-lock`, and `repro-check`.
 
-## 4) Export Lockfile Snapshot
+## 4) Run Local Smoke Checks
+```bash
+python3 -m unittest discover -s tests
+python3 -m compileall src scripts tests
+```
+
+Expected: tests pass and all Python modules compile.
+
+## 5) Export Lockfile Snapshot
 Run once per environment update:
 ```bash
 interact-capsules repro-lock
@@ -32,7 +40,7 @@ interact-capsules repro-lock
 Output:
 - `locks/environment.lock.txt`
 
-## 5) Recommended Directory Baseline
+## 6) Recommended Directory Baseline
 - Canonical experimental dataset root: `data/canonical/family_a`
 - Simulation corpus root: `data/simulation/family_a/corpus`
 - Model artifacts: `data/canonical/family_a/manifests/models`

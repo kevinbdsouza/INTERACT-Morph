@@ -1,0 +1,903 @@
+{
+  "name": "family_a_recommendation_v1",
+  "created_at_utc": "2026-04-25T12:45:11.480831+00:00",
+  "model_id": "family_a_placeholder_v1_multimodal",
+  "inputs": {
+    "model_artifact": "data/canonical/family_a/manifests/models/family_a_placeholder_v1_multimodal.model.json",
+    "candidate_jsonl": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/simulation_index.jsonl",
+    "recommendation_config": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/configs/modeling/family_a_recommendation_v1.json",
+    "calibration_artifact": "data/canonical/family_a/manifests/models/family_a_placeholder_v1_multimodal.calibration.json"
+  },
+  "summary": {
+    "candidate_count": 120,
+    "accepted_count": 120,
+    "rejected_count": 0,
+    "ranking_method": "ei",
+    "top_k": 10,
+    "incumbent_objective": 0.899999990003066,
+    "guardrails_enabled": true
+  },
+  "recommendations": [
+    {
+      "candidate_id": "SIM_A_000097",
+      "ranking_score": 0.0041434913157937635,
+      "objective": {
+        "mean_objective": 0.8721768022091005,
+        "success_probability_weighted": 0.54999999999945,
+        "geometry_weighted": 0.35,
+        "uncertainty_penalty_weighted": 0.027823197790349488,
+        "weights": {
+          "success_probability": 0.55,
+          "geometry_target": 0.35,
+          "uncertainty_penalty": 0.1
+        },
+        "geometry_score": 1.0,
+        "geometry_breakdown": {
+          "shell_thickness_mean_um": {
+            "prediction": 199.6518622625013,
+            "score": 1.0
+          },
+          "capsule_eccentricity": {
+            "prediction": 0.14901165503584507,
+            "score": 1.0
+          }
+        }
+      },
+      "acquisition": {
+        "method": "ei",
+        "ei": 0.0041434913157937635,
+        "ucb": 0.9834695933704984,
+        "incumbent_objective": 0.899999990003066
+      },
+      "predictions": {
+        "success_label": "false",
+        "success_distance": 8.711560724267386,
+        "success_margin": 0.1648448936971949,
+        "success_probability": {
+          "uncalibrated_probability": 0.4588818459411369,
+          "temperature_scaled_probability": 0.03567776389451045,
+          "calibrated_probability": 0.999999999999
+        },
+        "regime_label": "trapping",
+        "regime_distance": 8.711560724267386,
+        "regime_margin": 0.1648448936971949,
+        "regime_top1_correctness_probability": {
+          "uncalibrated_probability": 0.5411181540588631,
+          "temperature_scaled_probability": 0.5411181540588631,
+          "calibrated_probability": 0.5411181540588631
+        },
+        "regression": {
+          "shell_thickness_mean_um": 199.6518622625013,
+          "capsule_eccentricity": 0.14901165503584507
+        }
+      },
+      "uncertainty_proxy": 0.27823197790349485,
+      "guardrails": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 1.8645560871426747,
+        "extrapolated_features": []
+      },
+      "imputed_feature_names": [
+        "penetration_depth_max_mm",
+        "neck_radius_min_mm",
+        "closure_time_ms",
+        "detachment_time_ms"
+      ],
+      "candidate": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 2.8,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1000.0,
+          "core_viscosity_pa_s": 0.01,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 16.0,
+          "ohnesorge": 0.06666666666666667,
+          "bond": 1.4709975
+        }
+      },
+      "rank": 1
+    },
+    {
+      "candidate_id": "SIM_A_000010",
+      "ranking_score": 0.003943273832484503,
+      "objective": {
+        "mean_objective": 0.8731120397906447,
+        "success_probability_weighted": 0.54999999999945,
+        "geometry_weighted": 0.35,
+        "uncertainty_penalty_weighted": 0.026887960208805385,
+        "weights": {
+          "success_probability": 0.55,
+          "geometry_target": 0.35,
+          "uncertainty_penalty": 0.1
+        },
+        "geometry_score": 1.0,
+        "geometry_breakdown": {
+          "shell_thickness_mean_um": {
+            "prediction": 234.55635149073075,
+            "score": 1.0
+          },
+          "capsule_eccentricity": {
+            "prediction": 0.13004733482673486,
+            "score": 1.0
+          }
+        }
+      },
+      "acquisition": {
+        "method": "ei",
+        "ei": 0.003943273832484503,
+        "ucb": 0.9806638806258662,
+        "incumbent_objective": 0.899999990003066
+      },
+      "predictions": {
+        "success_label": "false",
+        "success_distance": 6.325539383724215,
+        "success_margin": 0.2943104239302077,
+        "success_probability": {
+          "uncalibrated_probability": 0.42694893293849684,
+          "temperature_scaled_probability": 0.0027697945916411964,
+          "calibrated_probability": 0.999999999999
+        },
+        "regime_label": "trapping",
+        "regime_distance": 6.325539383724215,
+        "regime_margin": 0.2943104239302077,
+        "regime_top1_correctness_probability": {
+          "uncalibrated_probability": 0.5730510670615032,
+          "temperature_scaled_probability": 0.5730510670615032,
+          "calibrated_probability": 0.5730510670615032
+        },
+        "regression": {
+          "shell_thickness_mean_um": 234.55635149073075,
+          "capsule_eccentricity": 0.13004733482673486
+        }
+      },
+      "uncertainty_proxy": 0.26887960208805384,
+      "guardrails": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 1.8348981549935452,
+        "extrapolated_features": []
+      },
+      "imputed_feature_names": [
+        "penetration_depth_max_mm",
+        "neck_radius_min_mm",
+        "closure_time_ms",
+        "detachment_time_ms"
+      ],
+      "candidate": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 2.2,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1000.0,
+          "core_viscosity_pa_s": 0.001,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 16.0,
+          "ohnesorge": 0.006666666666666667,
+          "bond": 1.4709975
+        }
+      },
+      "rank": 2
+    },
+    {
+      "candidate_id": "SIM_A_000106",
+      "ranking_score": 0.003874812359925892,
+      "objective": {
+        "mean_objective": 0.8734326603908944,
+        "success_probability_weighted": 0.54999999999945,
+        "geometry_weighted": 0.35,
+        "uncertainty_penalty_weighted": 0.026567339608555625,
+        "weights": {
+          "success_probability": 0.55,
+          "geometry_target": 0.35,
+          "uncertainty_penalty": 0.1
+        },
+        "geometry_score": 1.0,
+        "geometry_breakdown": {
+          "shell_thickness_mean_um": {
+            "prediction": 199.60434163624586,
+            "score": 1.0
+          },
+          "capsule_eccentricity": {
+            "prediction": 0.14745889811661667,
+            "score": 1.0
+          }
+        }
+      },
+      "acquisition": {
+        "method": "ei",
+        "ei": 0.003874812359925892,
+        "ucb": 0.9797020188251169,
+        "incumbent_objective": 0.899999990003066
+      },
+      "predictions": {
+        "success_label": "false",
+        "success_distance": 9.799786157383434,
+        "success_margin": 0.14776129192143372,
+        "success_probability": {
+          "uncalibrated_probability": 0.46312674166729256,
+          "temperature_scaled_probability": 0.049490104207536294,
+          "calibrated_probability": 0.999999999999
+        },
+        "regime_label": "trapping",
+        "regime_distance": 9.799786157383434,
+        "regime_margin": 0.14776129192143372,
+        "regime_top1_correctness_probability": {
+          "uncalibrated_probability": 0.5368732583327075,
+          "temperature_scaled_probability": 0.5368732583327075,
+          "calibrated_probability": 0.5368732583327075
+        },
+        "regression": {
+          "shell_thickness_mean_um": 199.60434163624586,
+          "capsule_eccentricity": 0.14745889811661667
+        }
+      },
+      "uncertainty_proxy": 0.26567339608555623,
+      "guardrails": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 1.7304804775109777,
+        "extrapolated_features": []
+      },
+      "imputed_feature_names": [
+        "penetration_depth_max_mm",
+        "neck_radius_min_mm",
+        "closure_time_ms",
+        "detachment_time_ms"
+      ],
+      "candidate": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 2.8,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1100.0,
+          "core_viscosity_pa_s": 0.01,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 17.6,
+          "ohnesorge": 0.06356417261637283,
+          "bond": 1.61809725
+        }
+      },
+      "rank": 3
+    },
+    {
+      "candidate_id": "SIM_A_000091",
+      "ranking_score": 0.003865093638100012,
+      "objective": {
+        "mean_objective": 0.8734782113862821,
+        "success_probability_weighted": 0.54999999999945,
+        "geometry_weighted": 0.35,
+        "uncertainty_penalty_weighted": 0.026521788613167868,
+        "weights": {
+          "success_probability": 0.55,
+          "geometry_target": 0.35,
+          "uncertainty_penalty": 0.1
+        },
+        "geometry_score": 1.0,
+        "geometry_breakdown": {
+          "shell_thickness_mean_um": {
+            "prediction": 233.1082772907569,
+            "score": 1.0
+          },
+          "capsule_eccentricity": {
+            "prediction": 0.14607130959423006,
+            "score": 1.0
+          }
+        }
+      },
+      "acquisition": {
+        "method": "ei",
+        "ei": 0.003865093638100012,
+        "ucb": 0.9795653658389536,
+        "incumbent_objective": 0.899999990003066
+      },
+      "predictions": {
+        "success_label": "false",
+        "success_distance": 8.038125504897591,
+        "success_margin": 0.3695889347510164,
+        "success_probability": {
+          "uncalibrated_probability": 0.408640353156621,
+          "temperature_scaled_probability": 0.0006159191802342955,
+          "calibrated_probability": 0.999999999999
+        },
+        "regime_label": "trapping",
+        "regime_distance": 8.038125504897591,
+        "regime_margin": 0.3695889347510164,
+        "regime_top1_correctness_probability": {
+          "uncalibrated_probability": 0.5913596468433789,
+          "temperature_scaled_probability": 0.5913596468433789,
+          "calibrated_probability": 0.5913596468433789
+        },
+        "regression": {
+          "shell_thickness_mean_um": 233.1082772907569,
+          "capsule_eccentricity": 0.14607130959423006
+        }
+      },
+      "uncertainty_proxy": 0.2652178861316787,
+      "guardrails": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 1.8348981549935452,
+        "extrapolated_features": []
+      },
+      "imputed_feature_names": [
+        "penetration_depth_max_mm",
+        "neck_radius_min_mm",
+        "closure_time_ms",
+        "detachment_time_ms"
+      ],
+      "candidate": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 2.8,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1000.0,
+          "core_viscosity_pa_s": 0.001,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 16.0,
+          "ohnesorge": 0.006666666666666667,
+          "bond": 1.4709975
+        }
+      },
+      "rank": 4
+    },
+    {
+      "candidate_id": "SIM_A_000094",
+      "ranking_score": 0.0037516045688041847,
+      "objective": {
+        "mean_objective": 0.8740108136816623,
+        "success_probability_weighted": 0.54999999999945,
+        "geometry_weighted": 0.35,
+        "uncertainty_penalty_weighted": 0.025989186317787672,
+        "weights": {
+          "success_probability": 0.55,
+          "geometry_target": 0.35,
+          "uncertainty_penalty": 0.1
+        },
+        "geometry_score": 1.0,
+        "geometry_breakdown": {
+          "shell_thickness_mean_um": {
+            "prediction": 233.47028147558737,
+            "score": 1.0
+          },
+          "capsule_eccentricity": {
+            "prediction": 0.146114310771214,
+            "score": 1.0
+          }
+        }
+      },
+      "acquisition": {
+        "method": "ei",
+        "ei": 0.0037516045688041847,
+        "ucb": 0.9779675589528131,
+        "incumbent_objective": 0.899999990003066
+      },
+      "predictions": {
+        "success_label": "false",
+        "success_distance": 7.239980059718576,
+        "success_margin": 0.3240902589612782,
+        "success_probability": {
+          "uncalibrated_probability": 0.4196792451099793,
+          "temperature_scaled_probability": 0.0015287038602956732,
+          "calibrated_probability": 0.999999999999
+        },
+        "regime_label": "trapping",
+        "regime_distance": 7.239980059718576,
+        "regime_margin": 0.3240902589612782,
+        "regime_top1_correctness_probability": {
+          "uncalibrated_probability": 0.5803207548900208,
+          "temperature_scaled_probability": 0.5803207548900208,
+          "calibrated_probability": 0.5803207548900208
+        },
+        "regression": {
+          "shell_thickness_mean_um": 233.47028147558737,
+          "capsule_eccentricity": 0.146114310771214
+        }
+      },
+      "uncertainty_proxy": 0.2598918631778767,
+      "guardrails": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 1.759560141548809,
+        "extrapolated_features": []
+      },
+      "imputed_feature_names": [
+        "penetration_depth_max_mm",
+        "neck_radius_min_mm",
+        "closure_time_ms",
+        "detachment_time_ms"
+      ],
+      "candidate": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 2.8,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1000.0,
+          "core_viscosity_pa_s": 0.003,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 16.0,
+          "ohnesorge": 0.02,
+          "bond": 1.4709975
+        }
+      },
+      "rank": 5
+    },
+    {
+      "candidate_id": "SIM_A_000100",
+      "ranking_score": 0.003068122914927941,
+      "objective": {
+        "mean_objective": 0.8772498235861803,
+        "success_probability_weighted": 0.54999999999945,
+        "geometry_weighted": 0.35,
+        "uncertainty_penalty_weighted": 0.022750176413269735,
+        "weights": {
+          "success_probability": 0.55,
+          "geometry_target": 0.35,
+          "uncertainty_penalty": 0.1
+        },
+        "geometry_score": 1.0,
+        "geometry_breakdown": {
+          "shell_thickness_mean_um": {
+            "prediction": 199.3069930653968,
+            "score": 1.0
+          },
+          "capsule_eccentricity": {
+            "prediction": 0.14440729738746164,
+            "score": 1.0
+          }
+        }
+      },
+      "acquisition": {
+        "method": "ei",
+        "ei": 0.003068122914927941,
+        "ucb": 0.9682505292392592,
+        "incumbent_objective": 0.899999990003066
+      },
+      "predictions": {
+        "success_label": "false",
+        "success_distance": 9.126350938013639,
+        "success_margin": 0.3525053329752552,
+        "success_probability": {
+          "uncalibrated_probability": 0.41277501649058024,
+          "temperature_scaled_probability": 0.0008665648588780323,
+          "calibrated_probability": 0.999999999999
+        },
+        "regime_label": "trapping",
+        "regime_distance": 9.126350938013639,
+        "regime_margin": 0.3525053329752552,
+        "regime_top1_correctness_probability": {
+          "uncalibrated_probability": 0.5872249835094197,
+          "temperature_scaled_probability": 0.5872249835094197,
+          "calibrated_probability": 0.5872249835094197
+        },
+        "regression": {
+          "shell_thickness_mean_um": 199.3069930653968,
+          "capsule_eccentricity": 0.14440729738746164
+        }
+      },
+      "uncertainty_proxy": 0.22750176413269732,
+      "guardrails": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 1.4494676083358127,
+        "extrapolated_features": []
+      },
+      "imputed_feature_names": [
+        "penetration_depth_max_mm",
+        "neck_radius_min_mm",
+        "closure_time_ms",
+        "detachment_time_ms"
+      ],
+      "candidate": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 2.8,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1100.0,
+          "core_viscosity_pa_s": 0.001,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 17.6,
+          "ohnesorge": 0.006356417261637283,
+          "bond": 1.61809725
+        }
+      },
+      "rank": 6
+    },
+    {
+      "candidate_id": "SIM_A_000103",
+      "ranking_score": 0.0029128599661443376,
+      "objective": {
+        "mean_objective": 0.8779947595133024,
+        "success_probability_weighted": 0.54999999999945,
+        "geometry_weighted": 0.35,
+        "uncertainty_penalty_weighted": 0.022005240486147604,
+        "weights": {
+          "success_probability": 0.55,
+          "geometry_target": 0.35,
+          "uncertainty_penalty": 0.1
+        },
+        "geometry_score": 1.0,
+        "geometry_breakdown": {
+          "shell_thickness_mean_um": {
+            "prediction": 199.32766977991594,
+            "score": 1.0
+          },
+          "capsule_eccentricity": {
+            "prediction": 0.14489382877021534,
+            "score": 1.0
+          }
+        }
+      },
+      "acquisition": {
+        "method": "ei",
+        "ei": 0.0029128599661443376,
+        "ucb": 0.9660157214578928,
+        "incumbent_objective": 0.899999990003066
+      },
+      "predictions": {
+        "success_label": "false",
+        "success_distance": 8.328205492834623,
+        "success_margin": 0.3070066571855179,
+        "success_probability": {
+          "uncalibrated_probability": 0.42384554753985915,
+          "temperature_scaled_probability": 0.0021500042447710104,
+          "calibrated_probability": 0.999999999999
+        },
+        "regime_label": "trapping",
+        "regime_distance": 8.328205492834623,
+        "regime_margin": 0.3070066571855179,
+        "regime_top1_correctness_probability": {
+          "uncalibrated_probability": 0.5761544524601409,
+          "temperature_scaled_probability": 0.5761544524601409,
+          "calibrated_probability": 0.5761544524601409
+        },
+        "regression": {
+          "shell_thickness_mean_um": 199.32766977991594,
+          "capsule_eccentricity": 0.14489382877021534
+        }
+      },
+      "uncertainty_proxy": 0.22005240486147604,
+      "guardrails": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 1.352832953525042,
+        "extrapolated_features": []
+      },
+      "imputed_feature_names": [
+        "penetration_depth_max_mm",
+        "neck_radius_min_mm",
+        "closure_time_ms",
+        "detachment_time_ms"
+      ],
+      "candidate": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 2.8,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1100.0,
+          "core_viscosity_pa_s": 0.003,
+          "interfacial_tension_n_m": 0.015
+        },
+        "dimensionless": {
+          "weber": 17.6,
+          "ohnesorge": 0.019069251784911846,
+          "bond": 1.61809725
+        }
+      },
+      "rank": 7
+    },
+    {
+      "candidate_id": "SIM_A_000012",
+      "ranking_score": 0.0026370563226008137,
+      "objective": {
+        "mean_objective": 0.8793286889674378,
+        "success_probability_weighted": 0.54999999999945,
+        "geometry_weighted": 0.35,
+        "uncertainty_penalty_weighted": 0.020671311032012266,
+        "weights": {
+          "success_probability": 0.55,
+          "geometry_target": 0.35,
+          "uncertainty_penalty": 0.1
+        },
+        "geometry_score": 1.0,
+        "geometry_breakdown": {
+          "shell_thickness_mean_um": {
+            "prediction": 199.99999999999994,
+            "score": 1.0
+          },
+          "capsule_eccentricity": {
+            "prediction": 0.1293660931705008,
+            "score": 1.0
+          }
+        }
+      },
+      "acquisition": {
+        "method": "ei",
+        "ei": 0.0026370563226008137,
+        "ucb": 0.9620139330954869,
+        "incumbent_objective": 0.899999990003066
+      },
+      "predictions": {
+        "success_label": "false",
+        "success_distance": 3.9275844878499235,
+        "success_margin": 9.028583223472328,
+        "success_probability": {
+          "uncalibrated_probability": 0.00011991790808565315,
+          "temperature_scaled_probability": 1e-12,
+          "calibrated_probability": 0.999999999999
+        },
+        "regime_label": "trapping",
+        "regime_distance": 3.9275844878499235,
+        "regime_margin": 9.028583223472328,
+        "regime_top1_correctness_probability": {
+          "uncalibrated_probability": 0.9998800820919143,
+          "temperature_scaled_probability": 0.9998800820919143,
+          "calibrated_probability": 0.9998800820919143
+        },
+        "regression": {
+          "shell_thickness_mean_um": 199.99999999999994,
+          "capsule_eccentricity": 0.1293660931705008
+        }
+      },
+      "uncertainty_proxy": 0.20671311032012266,
+      "guardrails": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 2.0668912673750555,
+        "extrapolated_features": []
+      },
+      "imputed_feature_names": [
+        "penetration_depth_max_mm",
+        "neck_radius_min_mm",
+        "closure_time_ms",
+        "detachment_time_ms"
+      ],
+      "candidate": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 2.2,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1000.0,
+          "core_viscosity_pa_s": 0.001,
+          "interfacial_tension_n_m": 0.05
+        },
+        "dimensionless": {
+          "weber": 4.8,
+          "ohnesorge": 0.003651483716701108,
+          "bond": 0.44129925
+        }
+      },
+      "rank": 8
+    },
+    {
+      "candidate_id": "SIM_A_000093",
+      "ranking_score": 0.0026370205700056108,
+      "objective": {
+        "mean_objective": 0.8793288628647108,
+        "success_probability_weighted": 0.54999999999945,
+        "geometry_weighted": 0.35,
+        "uncertainty_penalty_weighted": 0.02067113713473918,
+        "weights": {
+          "success_probability": 0.55,
+          "geometry_target": 0.35,
+          "uncertainty_penalty": 0.1
+        },
+        "geometry_score": 1.0,
+        "geometry_breakdown": {
+          "shell_thickness_mean_um": {
+            "prediction": 199.99999999999994,
+            "score": 1.0
+          },
+          "capsule_eccentricity": {
+            "prediction": 0.14536609317050084,
+            "score": 1.0
+          }
+        }
+      },
+      "acquisition": {
+        "method": "ei",
+        "ei": 0.0026370205700056108,
+        "ucb": 0.9620134114036675,
+        "incumbent_objective": 0.899999990003066
+      },
+      "predictions": {
+        "success_label": "false",
+        "success_distance": 5.640170609023301,
+        "success_margin": 9.103861734293133,
+        "success_probability": {
+          "uncalibrated_probability": 0.00011122304443130895,
+          "temperature_scaled_probability": 1e-12,
+          "calibrated_probability": 0.999999999999
+        },
+        "regime_label": "trapping",
+        "regime_distance": 5.640170609023301,
+        "regime_margin": 9.103861734293133,
+        "regime_top1_correctness_probability": {
+          "uncalibrated_probability": 0.9998887769555687,
+          "temperature_scaled_probability": 0.9998887769555687,
+          "calibrated_probability": 0.9998887769555687
+        },
+        "regression": {
+          "shell_thickness_mean_um": 199.99999999999994,
+          "capsule_eccentricity": 0.14536609317050084
+        }
+      },
+      "uncertainty_proxy": 0.2067113713473918,
+      "guardrails": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 2.0668912673750555,
+        "extrapolated_features": []
+      },
+      "imputed_feature_names": [
+        "penetration_depth_max_mm",
+        "neck_radius_min_mm",
+        "closure_time_ms",
+        "detachment_time_ms"
+      ],
+      "candidate": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 2.8,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1000.0,
+          "core_viscosity_pa_s": 0.001,
+          "interfacial_tension_n_m": 0.05
+        },
+        "dimensionless": {
+          "weber": 4.8,
+          "ohnesorge": 0.003651483716701108,
+          "bond": 0.44129925
+        }
+      },
+      "rank": 9
+    },
+    {
+      "candidate_id": "SIM_A_000015",
+      "ranking_score": 0.002500611895069234,
+      "objective": {
+        "mean_objective": 0.879994389843618,
+        "success_probability_weighted": 0.54999999999945,
+        "geometry_weighted": 0.35,
+        "uncertainty_penalty_weighted": 0.020005610155832056,
+        "weights": {
+          "success_probability": 0.55,
+          "geometry_target": 0.35,
+          "uncertainty_penalty": 0.1
+        },
+        "geometry_score": 1.0,
+        "geometry_breakdown": {
+          "shell_thickness_mean_um": {
+            "prediction": 236.59329270206314,
+            "score": 1.0
+          },
+          "capsule_eccentricity": {
+            "prediction": 0.12958226425886896,
+            "score": 1.0
+          }
+        }
+      },
+      "acquisition": {
+        "method": "ei",
+        "ei": 0.002500611895069234,
+        "ucb": 0.9600168304669462,
+        "incumbent_objective": 0.899999990003066
+      },
+      "predictions": {
+        "success_label": "false",
+        "success_distance": 3.129439042670908,
+        "success_margin": 8.983084547682589,
+        "success_probability": {
+          "uncalibrated_probability": 0.00012549934043569377,
+          "temperature_scaled_probability": 1e-12,
+          "calibrated_probability": 0.999999999999
+        },
+        "regime_label": "trapping",
+        "regime_distance": 3.129439042670908,
+        "regime_margin": 8.983084547682589,
+        "regime_top1_correctness_probability": {
+          "uncalibrated_probability": 0.9998745006595643,
+          "temperature_scaled_probability": 0.9998745006595643,
+          "calibrated_probability": 0.9998745006595643
+        },
+        "regression": {
+          "shell_thickness_mean_um": 236.59329270206314,
+          "capsule_eccentricity": 0.12958226425886896
+        }
+      },
+      "uncertainty_proxy": 0.20005610155832054,
+      "guardrails": {
+        "accepted": true,
+        "reasons": [],
+        "nearest_train_distance": 2.0003100168923345,
+        "extrapolated_features": []
+      },
+      "imputed_feature_names": [
+        "penetration_depth_max_mm",
+        "neck_radius_min_mm",
+        "closure_time_ms",
+        "detachment_time_ms"
+      ],
+      "candidate": {
+        "family": "A",
+        "sweep_name": "family_a_axisymmetric_doe_v1",
+        "control_parameters": {
+          "impact_velocity_m_s": 0.4,
+          "droplet_diameter_mm": 1.5,
+          "shell_outer_diameter_mm": 2.2,
+          "interfacial_layer_thickness_mm": 0.2
+        },
+        "fluid_system": {
+          "core_density_kg_m3": 1000.0,
+          "core_viscosity_pa_s": 0.003,
+          "interfacial_tension_n_m": 0.05
+        },
+        "dimensionless": {
+          "weber": 4.8,
+          "ohnesorge": 0.010954451150103323,
+          "bond": 0.44129925
+        }
+      },
+      "rank": 10
+    }
+  ],
+  "rejected_candidates": []
+}

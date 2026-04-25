@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>INTERACT-Capsules Placeholder Recommendation Review</title>
+  <style>
+    :root {
+      --bg: #f3f4ef;
+      --panel: #fbfbf7;
+      --ink: #101410;
+      --muted: #4e5b4e;
+      --border: #d1d6c9;
+      --accent: #1f6f5f;
+      --warn: #9f5300;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 15% -10%, #dbe7d4 0%, transparent 60%),
+        radial-gradient(1100px 500px at 95% -20%, #d7ece6 0%, transparent 58%),
+        var(--bg);
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 18px 44px;
+    }
+    h1 { margin: 0; font-size: 1.7rem; }
+    .sub { margin-top: 6px; color: var(--muted); }
+    .cards {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+    .card label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .card strong { display: block; margin-top: 3px; font-size: 1.18rem; }
+    .controls {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: end;
+    }
+    .controls .field {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      min-width: 220px;
+    }
+    .field label { display: block; font-size: 0.82rem; color: var(--muted); margin-bottom: 5px; }
+    .field input {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 8px;
+      padding: 8px 9px;
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: block;
+      max-height: 520px;
+      overflow: auto;
+    }
+    thead {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #e9eee4;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px 10px;
+      border-bottom: 1px solid #e2e6da;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+    tbody tr:nth-child(even) { background: #f7f8f3; }
+    .muted { color: var(--muted); }
+    .section-title {
+      margin: 22px 0 8px;
+      font-size: 1.15rem;
+    }
+    .warn { color: var(--warn); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>INTERACT-Capsules Placeholder Recommendation Review</h1>
+    <p class="sub">Interactive review view for recommendation ranking and guardrail filtering.</p>
+
+    <section class="cards" id="summary-cards"></section>
+
+    <section class="controls">
+      <div class="field">
+        <label for="min-success">Min Success Probability</label>
+        <input id="min-success" type="number" min="0" max="1" step="0.01" placeholder="0.00">
+      </div>
+      <div class="field">
+        <label for="max-uncertainty">Max Uncertainty Proxy</label>
+        <input id="max-uncertainty" type="number" min="0" step="0.01" placeholder="no max">
+      </div>
+      <div class="field">
+        <label for="search-id">Candidate ID Contains</label>
+        <input id="search-id" type="text" placeholder="e.g. SIM_A_0012">
+      </div>
+    </section>
+
+    <h2 class="section-title">Accepted Recommendations</h2>
+    <p class="muted" id="accepted-count"></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th><th>Candidate</th><th>Score</th><th>Success P</th><th>Objective</th>
+          <th>Geometry</th><th>Uncertainty</th><th>Regime</th><th>Velocity (m/s)</th>
+          <th>Drop Dia (mm)</th><th>Shell Dia (mm)</th><th>Notes</th>
+        </tr>
+      </thead>
+      <tbody id="accepted-body"></tbody>
+    </table>
+
+    <h2 class="section-title warn">Rejected Candidates</h2>
+    <p class="muted" id="rejected-count"></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Candidate</th><th>Score</th><th>Success P</th><th>Uncertainty</th><th>Rejection Reasons</th>
+        </tr>
+      </thead>
+      <tbody id="rejected-body"></tbody>
+    </table>
+  </main>
+
+  <script id="payload" type="application/json">{"title":"INTERACT-Capsules Placeholder Recommendation Review","summary":{"candidate_count":120,"accepted_count":120,"rejected_count":0,"ranking_method":"ei","top_k":10,"incumbent_objective":0.899999990003066,"guardrails_enabled":true,"model_id":"family_a_placeholder_v1_multimodal"},"accepted":[{"rank":1,"candidate_id":"SIM_A_000097","ranking_score":0.0041,"mean_objective":0.8722,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.2782,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":2.8,"guardrail_reasons":""},{"rank":2,"candidate_id":"SIM_A_000010","ranking_score":0.0039,"mean_objective":0.8731,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.2689,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":2.2,"guardrail_reasons":""},{"rank":3,"candidate_id":"SIM_A_000106","ranking_score":0.0039,"mean_objective":0.8734,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.2657,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":2.8,"guardrail_reasons":""},{"rank":4,"candidate_id":"SIM_A_000091","ranking_score":0.0039,"mean_objective":0.8735,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.2652,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":2.8,"guardrail_reasons":""},{"rank":5,"candidate_id":"SIM_A_000094","ranking_score":0.0038,"mean_objective":0.874,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.2599,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":2.8,"guardrail_reasons":""},{"rank":6,"candidate_id":"SIM_A_000100","ranking_score":0.0031,"mean_objective":0.8772,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.2275,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":2.8,"guardrail_reasons":""},{"rank":7,"candidate_id":"SIM_A_000103","ranking_score":0.0029,"mean_objective":0.878,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.2201,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":2.8,"guardrail_reasons":""},{"rank":8,"candidate_id":"SIM_A_000012","ranking_score":0.0026,"mean_objective":0.8793,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.2067,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":2.2,"guardrail_reasons":""},{"rank":9,"candidate_id":"SIM_A_000093","ranking_score":0.0026,"mean_objective":0.8793,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.2067,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":2.8,"guardrail_reasons":""},{"rank":10,"candidate_id":"SIM_A_000015","ranking_score":0.0025,"mean_objective":0.88,"success_probability":1.0,"geometry_score":1.0,"uncertainty_proxy":0.2001,"predicted_regime":"trapping","impact_velocity_m_s":0.4,"droplet_diameter_mm":1.5,"shell_outer_diameter_mm":2.2,"guardrail_reasons":""}],"rejected":[]}</script>
+  <script>
+    const payload = JSON.parse(document.getElementById("payload").textContent);
+
+    const summaryCards = document.getElementById("summary-cards");
+    const acceptedBody = document.getElementById("accepted-body");
+    const rejectedBody = document.getElementById("rejected-body");
+    const acceptedCount = document.getElementById("accepted-count");
+    const rejectedCount = document.getElementById("rejected-count");
+    const minSuccessInput = document.getElementById("min-success");
+    const maxUncertaintyInput = document.getElementById("max-uncertainty");
+    const searchIdInput = document.getElementById("search-id");
+
+    const summary = payload.summary || {};
+    const summaryItems = [
+      ["Model", summary.model_id || "n/a"],
+      ["Candidates", summary.candidate_count ?? "n/a"],
+      ["Accepted", summary.accepted_count ?? "n/a"],
+      ["Rejected", summary.rejected_count ?? "n/a"],
+      ["Method", summary.ranking_method || "n/a"],
+      ["Top K", summary.top_k ?? "n/a"],
+    ];
+    summaryItems.forEach(([label, value]) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `<label>${label}</label><strong>${value}</strong>`;
+      summaryCards.appendChild(card);
+    });
+
+    function fmt(value) {
+      return value === null || value === undefined || Number.isNaN(value) ? "n/a" : String(value);
+    }
+
+    function renderAccepted() {
+      acceptedBody.innerHTML = "";
+      const minSuccess = parseFloat(minSuccessInput.value);
+      const maxUncertainty = parseFloat(maxUncertaintyInput.value);
+      const query = (searchIdInput.value || "").trim().toLowerCase();
+
+      const rows = (payload.accepted || []).filter((row) => {
+        const passSuccess = Number.isNaN(minSuccess) || (row.success_probability ?? -1) >= minSuccess;
+        const passUncertainty = Number.isNaN(maxUncertainty) || (row.uncertainty_proxy ?? 1e9) <= maxUncertainty;
+        const passQuery = !query || String(row.candidate_id || "").toLowerCase().includes(query);
+        return passSuccess && passUncertainty && passQuery;
+      });
+
+      rows.forEach((row) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${fmt(row.rank)}</td>
+          <td>${fmt(row.candidate_id)}</td>
+          <td>${fmt(row.ranking_score)}</td>
+          <td>${fmt(row.success_probability)}</td>
+          <td>${fmt(row.mean_objective)}</td>
+          <td>${fmt(row.geometry_score)}</td>
+          <td>${fmt(row.uncertainty_proxy)}</td>
+          <td>${fmt(row.predicted_regime)}</td>
+          <td>${fmt(row.impact_velocity_m_s)}</td>
+          <td>${fmt(row.droplet_diameter_mm)}</td>
+          <td>${fmt(row.shell_outer_diameter_mm)}</td>
+          <td>${fmt(row.guardrail_reasons)}</td>
+        `;
+        acceptedBody.appendChild(tr);
+      });
+      acceptedCount.textContent = `${rows.length} shown / ${(payload.accepted || []).length} total accepted`;
+    }
+
+    function renderRejected() {
+      rejectedBody.innerHTML = "";
+      (payload.rejected || []).forEach((row) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${fmt(row.candidate_id)}</td>
+          <td>${fmt(row.ranking_score)}</td>
+          <td>${fmt(row.success_probability)}</td>
+          <td>${fmt(row.uncertainty_proxy)}</td>
+          <td>${fmt(row.reasons)}</td>
+        `;
+        rejectedBody.appendChild(tr);
+      });
+      rejectedCount.textContent = `${(payload.rejected || []).length} rejected rows rendered`;
+    }
+
+    [minSuccessInput, maxUncertaintyInput, searchIdInput].forEach((el) => {
+      el.addEventListener("input", renderAccepted);
+    });
+
+    renderAccepted();
+    renderRejected();
+  </script>
+</body>
+</html>

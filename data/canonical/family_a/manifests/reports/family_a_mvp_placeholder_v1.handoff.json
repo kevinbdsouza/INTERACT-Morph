@@ -1,0 +1,275 @@
+{
+  "task_id": "MVP-038",
+  "name": "family_a_mvp_governance_v1",
+  "created_at_utc": "2026-04-25T12:46:33.309794+00:00",
+  "session_title": "INTERACT-Capsules Family A Internal Handoff",
+  "objective": "Run an internal walkthrough with operators and reviewers to verify end-to-end workflow usability before external handoff.",
+  "agenda": [
+    "Artifact readiness review (model, calibration, recommendations, execution templates)",
+    "Live CLI walkthrough from recommendation generation to campaign analysis",
+    "Operator Q&A and risk/assumption review",
+    "Action assignment and signoff checklist"
+  ],
+  "required_artifacts": [
+    "Latest model card and calibration report",
+    "Recommendation report + UI export",
+    "Execution template and campaign logs",
+    "Campaign analysis and failure-mode analysis reports",
+    "Determinism report and environment lock snapshot",
+    "Local smoke-check evidence report",
+    "Raw handoff readiness report"
+  ],
+  "evidence_snapshot": [
+    {
+      "label": "Local smoke-check evidence",
+      "path": "data/canonical/family_a/manifests/reports/smoke_check_report.json",
+      "exists": true,
+      "summary": {
+        "name": "mvp_local_smoke_checks",
+        "created_at_utc": "2026-04-24T21:08:11.938083+00:00",
+        "passed": true,
+        "check_count": 3,
+        "failed_checks": []
+      }
+    },
+    {
+      "label": "Raw handoff readiness smoke evidence",
+      "path": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/data_handoff_check_smoke_v1.json",
+      "exists": true,
+      "summary": {
+        "name": "family_a_data_handoff_check",
+        "created_at_utc": "2026-04-24T21:07:54.516221+00:00",
+        "ready": true,
+        "run_count": 120,
+        "ready_run_count": 120,
+        "error_count": 0,
+        "warning_count": 0,
+        "recommended_run_id_mode": "preserve",
+        "next_action_count": 2,
+        "next_actions": [
+          {
+            "priority": "P0",
+            "type": "run_pipeline"
+          },
+          {
+            "priority": "P1",
+            "type": "attach_governance_evidence"
+          }
+        ]
+      }
+    },
+    {
+      "label": "Placeholder handoff readiness evidence",
+      "path": "data/canonical/family_a/manifests/reports/data_handoff_check_placeholder_v1.json",
+      "exists": true,
+      "summary": {
+        "name": "family_a_data_handoff_check",
+        "created_at_utc": "2026-04-25T12:41:51.048504+00:00",
+        "ready": true,
+        "run_count": 120,
+        "ready_run_count": 120,
+        "error_count": 0,
+        "warning_count": 0,
+        "recommended_run_id_mode": "preserve",
+        "next_action_count": 2,
+        "next_actions": [
+          {
+            "priority": "P0",
+            "type": "run_pipeline"
+          },
+          {
+            "priority": "P1",
+            "type": "attach_governance_evidence"
+          }
+        ]
+      }
+    },
+    {
+      "label": "Placeholder smoke-check bundle",
+      "path": "data/canonical/family_a/manifests/reports/smoke_check_report_placeholder_v1.json",
+      "exists": true,
+      "summary": {
+        "name": "mvp_local_smoke_checks",
+        "created_at_utc": "2026-04-25T12:41:51.055938+00:00",
+        "passed": true,
+        "check_count": 4,
+        "failed_checks": []
+      }
+    },
+    {
+      "label": "Placeholder split artifact",
+      "path": "data/canonical/family_a/manifests/splits/family_a_placeholder_v1.json",
+      "exists": true,
+      "summary": {
+        "created_at_utc": "2026-04-25T12:41:39.575048+00:00"
+      }
+    },
+    {
+      "label": "Placeholder baseline report",
+      "path": "data/canonical/family_a/manifests/reports/baseline_family_a_placeholder_v1.json",
+      "exists": true,
+      "summary": {}
+    },
+    {
+      "label": "Placeholder dataset snapshot",
+      "path": "data/canonical/snapshots/family_a_placeholder_v1.json",
+      "exists": true,
+      "summary": {
+        "created_at_utc": "2026-04-25T12:41:39.748722+00:00",
+        "run_count": 120
+      }
+    },
+    {
+      "label": "Placeholder multimodal eval",
+      "path": "data/canonical/family_a/manifests/models/family_a_placeholder_v1_multimodal.eval.json",
+      "exists": true,
+      "summary": {
+        "created_at_utc": "2026-04-25T12:44:48.742894+00:00"
+      }
+    },
+    {
+      "label": "Placeholder calibration report",
+      "path": "data/canonical/family_a/manifests/models/family_a_placeholder_v1_multimodal.calibration.json",
+      "exists": true,
+      "summary": {
+        "name": "family_a_uncertainty_calibration_v1",
+        "created_at_utc": "2026-04-25T12:44:56.971468+00:00"
+      }
+    },
+    {
+      "label": "Placeholder model card",
+      "path": "data/canonical/family_a/manifests/model_cards/family_a_placeholder_v1_multimodal.md",
+      "exists": true,
+      "summary": {}
+    },
+    {
+      "label": "Placeholder recommendation report",
+      "path": "data/canonical/family_a/manifests/models/family_a_placeholder_v1_multimodal.recommendations.json",
+      "exists": true,
+      "summary": {
+        "name": "family_a_recommendation_v1",
+        "created_at_utc": "2026-04-25T12:45:11.480831+00:00"
+      }
+    },
+    {
+      "label": "Placeholder recommendation UI",
+      "path": "data/canonical/family_a/manifests/reports/family_a_placeholder_v1_recommendations_ui.html",
+      "exists": true,
+      "summary": {}
+    },
+    {
+      "label": "Deterministic training smoke evidence",
+      "path": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/determinism_report_smoke_v1.json",
+      "exists": true,
+      "summary": {
+        "name": "mvp_036_deterministic_training_check",
+        "created_at_utc": "2026-04-18T04:34:15.501100+00:00",
+        "passed": true
+      }
+    }
+  ],
+  "checklist": [
+    "Nominate owner + backup operator for every critical workflow stage",
+    "Capture unresolved usability issues and classify by severity",
+    "Record decision on readiness for independent lab operation",
+    "Schedule follow-up remediation sprint for unresolved blockers"
+  ],
+  "in_progress_tasks_snapshot": [
+    {
+      "task_id": "MVP-004",
+      "task_name": "Build raw data inventory",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-19",
+      "notes": "Inventory now emits `source_run_id` + deterministic `canonical_run_id`; placeholder strict `handoff-check` passed on 120/120 synthetic Family A runs (`data_handoff_check_placeholder_v1.json`, recommended `preserve`); awaiting real data run"
+    },
+    {
+      "task_id": "MVP-005",
+      "task_name": "Build ingestion pipeline",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-20",
+      "notes": "Ingestion supports `--run-id-mode`, writes `manifests/run_id_map.jsonl`, hardens missing/partial `asset_paths`, and placeholder pipeline ingested 120/120 runs with `--run-id-mode preserve`; awaiting production raw data"
+    },
+    {
+      "task_id": "MVP-006",
+      "task_name": "Implement data validation checks",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-20",
+      "notes": "Validation now checks canonical run-ID shape and run directory/metadata ID consistency; placeholder canonical dataset validated 120/120 runs with labels + derived features required"
+    },
+    {
+      "task_id": "MVP-007",
+      "task_name": "Implement dataset versioning",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-21",
+      "notes": "`scripts/snapshot_dataset.py` built and smoke-tested; placeholder snapshot generated at `data/canonical/snapshots/family_a_placeholder_v1.json`"
+    },
+    {
+      "task_id": "MVP-008",
+      "task_name": "Define train/val/test policy",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-21",
+      "notes": "Split script now enforces config fractions, respects `require_video`, validates `group_by_field`, records dataset-manifest fingerprint, and generated placeholder split counts train=83/val=18/test=19"
+    },
+    {
+      "task_id": "MVP-009",
+      "task_name": "Build baseline heuristic benchmark",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-21",
+      "notes": "`scripts/baseline_regime_map.py` + heuristic config built; placeholder baseline report generated (`regime_macro_f1=1.0`, synthetic-only)"
+    },
+    {
+      "task_id": "MVP-011",
+      "task_name": "Train/validate interface segmentation model",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-30",
+      "notes": "Added `scripts/train_interface_segmentation.py`, config `configs/modeling/family_a_segmentation_v1.json`, CLI `interact-capsules segment-train`, and smoke QC artifact `smoke_family_a_segmentation_v1.qc.json`"
+    },
+    {
+      "task_id": "MVP-012",
+      "task_name": "Build contour and trajectory extractor",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-05-01",
+      "notes": "Added `scripts/extract_contours_trajectories.py`, config `configs/modeling/family_a_contour_extraction_v1.json`, CLI `interact-capsules extract-trajectories`, and smoke extraction report (`runs_written=3`)"
+    },
+    {
+      "task_id": "MVP-013",
+      "task_name": "Build feature QA dashboards",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-05-01",
+      "notes": "Added `scripts/build_feature_qa_dashboard.py`, config `configs/modeling/family_a_feature_qa_v1.json`, CLI `interact-capsules feature-qa`, and smoke QA report (`runs_scanned=3`, `runs_with_issues=0`)"
+    },
+    {
+      "task_id": "MVP-014",
+      "task_name": "Active error-correction loop for labels",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-05-03",
+      "notes": "Added `scripts/build_label_correction_queue.py`, config `configs/modeling/family_a_label_correction_v1.json`, docs `docs/modeling/LABEL_CORRECTION_WORKFLOW.md`, and CLI `interact-capsules label-correction`; smoke queue artifact generated"
+    },
+    {
+      "task_id": "MVP-015",
+      "task_name": "Stand up axisymmetric simulation workflow",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-23",
+      "notes": "Axisymmetric sweep planner now wired into executable corpus generation workflow (`scripts/plan_axisymmetric_sweep.py`)"
+    },
+    {
+      "task_id": "MVP-016",
+      "task_name": "Define simulation parameter ranges",
+      "owner": "Codex",
+      "status": "In Progress",
+      "due_date": "2026-04-23",
+      "notes": "DOE range config now exercised by planner plus surrogate execution path (`configs/simulations/family_a_axisymmetric_doe.json`)"
+    }
+  ]
+}

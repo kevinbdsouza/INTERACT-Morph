@@ -1,0 +1,208 @@
+{
+  "report": {
+    "baseline": "family_a_dimensionless_baseline_v1",
+    "run_count": 19,
+    "regime_macro_f1": 1.0,
+    "success_accuracy": 1.0,
+    "true_regime_distribution": {
+      "trapping": 10,
+      "stable_wrapping": 9
+    },
+    "pred_regime_distribution": {
+      "trapping": 10,
+      "stable_wrapping": 9
+    }
+  },
+  "predictions": [
+    {
+      "run_id": "A_SIM_A_000003",
+      "pred_regime": "trapping",
+      "pred_success": false,
+      "true_regime": "trapping",
+      "true_success": false,
+      "weber": 4.319999999999999,
+      "ohnesorge": 0.003849001794597505,
+      "bond": 0.39716932499999996
+    },
+    {
+      "run_id": "A_SIM_A_000009",
+      "pred_regime": "trapping",
+      "pred_success": false,
+      "true_regime": "trapping",
+      "true_success": false,
+      "weber": 4.319999999999999,
+      "ohnesorge": 0.03849001794597505,
+      "bond": 0.39716932499999996
+    },
+    {
+      "run_id": "A_SIM_A_000010",
+      "pred_regime": "stable_wrapping",
+      "pred_success": true,
+      "true_regime": "stable_wrapping",
+      "true_success": true,
+      "weber": 16.0,
+      "ohnesorge": 0.006666666666666667,
+      "bond": 1.4709975
+    },
+    {
+      "run_id": "A_SIM_A_000016",
+      "pred_regime": "stable_wrapping",
+      "pred_success": true,
+      "true_regime": "stable_wrapping",
+      "true_success": true,
+      "weber": 16.0,
+      "ohnesorge": 0.06666666666666667,
+      "bond": 1.4709975
+    },
+    {
+      "run_id": "A_SIM_A_000030",
+      "pred_regime": "trapping",
+      "pred_success": false,
+      "true_regime": "trapping",
+      "true_success": false,
+      "weber": 4.319999999999999,
+      "ohnesorge": 0.003849001794597505,
+      "bond": 0.39716932499999996
+    },
+    {
+      "run_id": "A_SIM_A_000036",
+      "pred_regime": "trapping",
+      "pred_success": false,
+      "true_regime": "trapping",
+      "true_success": false,
+      "weber": 4.319999999999999,
+      "ohnesorge": 0.03849001794597505,
+      "bond": 0.39716932499999996
+    },
+    {
+      "run_id": "A_SIM_A_000037",
+      "pred_regime": "stable_wrapping",
+      "pred_success": true,
+      "true_regime": "stable_wrapping",
+      "true_success": true,
+      "weber": 16.0,
+      "ohnesorge": 0.006666666666666667,
+      "bond": 1.4709975
+    },
+    {
+      "run_id": "A_SIM_A_000043",
+      "pred_regime": "stable_wrapping",
+      "pred_success": true,
+      "true_regime": "stable_wrapping",
+      "true_success": true,
+      "weber": 16.0,
+      "ohnesorge": 0.06666666666666667,
+      "bond": 1.4709975
+    },
+    {
+      "run_id": "A_SIM_A_000057",
+      "pred_regime": "trapping",
+      "pred_success": false,
+      "true_regime": "trapping",
+      "true_success": false,
+      "weber": 4.319999999999999,
+      "ohnesorge": 0.003849001794597505,
+      "bond": 0.39716932499999996
+    },
+    {
+      "run_id": "A_SIM_A_000063",
+      "pred_regime": "trapping",
+      "pred_success": false,
+      "true_regime": "trapping",
+      "true_success": false,
+      "weber": 4.319999999999999,
+      "ohnesorge": 0.03849001794597505,
+      "bond": 0.39716932499999996
+    },
+    {
+      "run_id": "A_SIM_A_000064",
+      "pred_regime": "stable_wrapping",
+      "pred_success": true,
+      "true_regime": "stable_wrapping",
+      "true_success": true,
+      "weber": 16.0,
+      "ohnesorge": 0.006666666666666667,
+      "bond": 1.4709975
+    },
+    {
+      "run_id": "A_SIM_A_000070",
+      "pred_regime": "stable_wrapping",
+      "pred_success": true,
+      "true_regime": "stable_wrapping",
+      "true_success": true,
+      "weber": 16.0,
+      "ohnesorge": 0.06666666666666667,
+      "bond": 1.4709975
+    },
+    {
+      "run_id": "A_SIM_A_000084",
+      "pred_regime": "trapping",
+      "pred_success": false,
+      "true_regime": "trapping",
+      "true_success": false,
+      "weber": 4.319999999999999,
+      "ohnesorge": 0.003849001794597505,
+      "bond": 0.39716932499999996
+    },
+    {
+      "run_id": "A_SIM_A_000090",
+      "pred_regime": "trapping",
+      "pred_success": false,
+      "true_regime": "trapping",
+      "true_success": false,
+      "weber": 4.319999999999999,
+      "ohnesorge": 0.03849001794597505,
+      "bond": 0.39716932499999996
+    },
+    {
+      "run_id": "A_SIM_A_000091",
+      "pred_regime": "stable_wrapping",
+      "pred_success": true,
+      "true_regime": "stable_wrapping",
+      "true_success": true,
+      "weber": 16.0,
+      "ohnesorge": 0.006666666666666667,
+      "bond": 1.4709975
+    },
+    {
+      "run_id": "A_SIM_A_000097",
+      "pred_regime": "stable_wrapping",
+      "pred_success": true,
+      "true_regime": "stable_wrapping",
+      "true_success": true,
+      "weber": 16.0,
+      "ohnesorge": 0.06666666666666667,
+      "bond": 1.4709975
+    },
+    {
+      "run_id": "A_SIM_A_000111",
+      "pred_regime": "trapping",
+      "pred_success": false,
+      "true_regime": "trapping",
+      "true_success": false,
+      "weber": 4.319999999999999,
+      "ohnesorge": 0.003849001794597505,
+      "bond": 0.39716932499999996
+    },
+    {
+      "run_id": "A_SIM_A_000117",
+      "pred_regime": "trapping",
+      "pred_success": false,
+      "true_regime": "trapping",
+      "true_success": false,
+      "weber": 4.319999999999999,
+      "ohnesorge": 0.03849001794597505,
+      "bond": 0.39716932499999996
+    },
+    {
+      "run_id": "A_SIM_A_000118",
+      "pred_regime": "stable_wrapping",
+      "pred_success": true,
+      "true_regime": "stable_wrapping",
+      "true_success": true,
+      "weber": 16.0,
+      "ohnesorge": 0.006666666666666667,
+      "bond": 1.4709975
+    }
+  ]
+}

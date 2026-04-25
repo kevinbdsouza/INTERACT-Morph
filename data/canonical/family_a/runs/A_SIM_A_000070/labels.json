@@ -1,0 +1,18 @@
+{
+  "run_id": "A_SIM_A_000070",
+  "encapsulation_success": true,
+  "regime_label": "stable_wrapping",
+  "failure_mode": "none",
+  "events_ms": {
+    "lamella_onset_ms": 1.933333,
+    "first_contact_ms": 2.733333,
+    "neck_formation_ms": 3.753333,
+    "closure_time_ms": 7.047619,
+    "detachment_time_ms": 9.107619,
+    "rupture_time_ms": null
+  },
+  "confidence": "simulated",
+  "annotator": "axisymmetric_surrogate_solver",
+  "annotation_timestamp": "2026-04-18T02:30:27.348589+00:00",
+  "notes": "Auto-generated synthetic label for SIM_A_000070"
+}

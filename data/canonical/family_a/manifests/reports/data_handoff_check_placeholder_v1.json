@@ -1,0 +1,2559 @@
+{
+  "name": "family_a_data_handoff_check",
+  "created_at_utc": "2026-04-25T12:41:51.048504+00:00",
+  "source_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs",
+  "family": "A",
+  "schema": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/schemas/run_metadata.schema.json",
+  "require_labels": true,
+  "require_derived": true,
+  "run_count": 120,
+  "ready_run_count": 120,
+  "error_count": 0,
+  "warning_count": 0,
+  "ready": true,
+  "top_level_errors": [],
+  "issue_counts": {},
+  "warning_counts": {},
+  "issue_examples": {},
+  "run_id_mode_recommendation": {
+    "recommended": "preserve",
+    "reason": "All metadata run IDs are present, unique, and canonical for the requested family.",
+    "preserve_issue_counts": {},
+    "canonical_collision_count": 0
+  },
+  "next_actions": [
+    {
+      "priority": "P0",
+      "type": "run_pipeline",
+      "description": "Run the first canonical pipeline using the recommended run-ID mode.",
+      "command": "interact-capsules pipeline --source-dir data/simulation/family_a/corpus/smoke_model_train_v1/runs --dataset-root data/canonical/family_a --run-id-mode preserve --require-labels --require-derived"
+    },
+    {
+      "priority": "P1",
+      "type": "attach_governance_evidence",
+      "description": "Attach the handoff report and generated pipeline artifacts to the governance evidence list before operator review."
+    }
+  ],
+  "runs": [
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000001",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000001/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000001/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000001",
+        "projected_run_id": "A_SIM_A_000001",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000001",
+        "projected_run_id": "A_SIM_A_000001",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000002",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000002/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000002/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000002",
+        "projected_run_id": "A_SIM_A_000002",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000002",
+        "projected_run_id": "A_SIM_A_000002",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000003",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000003/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000003/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000003",
+        "projected_run_id": "A_SIM_A_000003",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000003",
+        "projected_run_id": "A_SIM_A_000003",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000004",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000004/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000004/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000004",
+        "projected_run_id": "A_SIM_A_000004",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000004",
+        "projected_run_id": "A_SIM_A_000004",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000005",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000005/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000005/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000005",
+        "projected_run_id": "A_SIM_A_000005",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000005",
+        "projected_run_id": "A_SIM_A_000005",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000006",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000006/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000006/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000006",
+        "projected_run_id": "A_SIM_A_000006",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000006",
+        "projected_run_id": "A_SIM_A_000006",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000007",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000007/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000007/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000007",
+        "projected_run_id": "A_SIM_A_000007",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000007",
+        "projected_run_id": "A_SIM_A_000007",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000008",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000008/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000008/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000008",
+        "projected_run_id": "A_SIM_A_000008",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000008",
+        "projected_run_id": "A_SIM_A_000008",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000009",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000009/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000009/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000009",
+        "projected_run_id": "A_SIM_A_000009",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000009",
+        "projected_run_id": "A_SIM_A_000009",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000010",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000010/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000010/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000010",
+        "projected_run_id": "A_SIM_A_000010",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000010",
+        "projected_run_id": "A_SIM_A_000010",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000011",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000011/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000011/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000011",
+        "projected_run_id": "A_SIM_A_000011",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000011",
+        "projected_run_id": "A_SIM_A_000011",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000012",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000012/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000012/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000012",
+        "projected_run_id": "A_SIM_A_000012",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000012",
+        "projected_run_id": "A_SIM_A_000012",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000013",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000013/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000013/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000013",
+        "projected_run_id": "A_SIM_A_000013",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000013",
+        "projected_run_id": "A_SIM_A_000013",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000014",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000014/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000014/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000014",
+        "projected_run_id": "A_SIM_A_000014",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000014",
+        "projected_run_id": "A_SIM_A_000014",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000015",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000015/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000015/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000015",
+        "projected_run_id": "A_SIM_A_000015",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000015",
+        "projected_run_id": "A_SIM_A_000015",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000016",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000016/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000016/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000016",
+        "projected_run_id": "A_SIM_A_000016",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000016",
+        "projected_run_id": "A_SIM_A_000016",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000017",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000017/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000017/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000017",
+        "projected_run_id": "A_SIM_A_000017",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000017",
+        "projected_run_id": "A_SIM_A_000017",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000018",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000018/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000018/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000018",
+        "projected_run_id": "A_SIM_A_000018",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000018",
+        "projected_run_id": "A_SIM_A_000018",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000019",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000019/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000019/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000019",
+        "projected_run_id": "A_SIM_A_000019",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000019",
+        "projected_run_id": "A_SIM_A_000019",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000020",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000020/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000020/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000020",
+        "projected_run_id": "A_SIM_A_000020",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000020",
+        "projected_run_id": "A_SIM_A_000020",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000021",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000021/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000021/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000021",
+        "projected_run_id": "A_SIM_A_000021",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000021",
+        "projected_run_id": "A_SIM_A_000021",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000022",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000022/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000022/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000022",
+        "projected_run_id": "A_SIM_A_000022",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000022",
+        "projected_run_id": "A_SIM_A_000022",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000023",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000023/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000023/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000023",
+        "projected_run_id": "A_SIM_A_000023",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000023",
+        "projected_run_id": "A_SIM_A_000023",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000024",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000024/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000024/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000024",
+        "projected_run_id": "A_SIM_A_000024",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000024",
+        "projected_run_id": "A_SIM_A_000024",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000025",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000025/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000025/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000025",
+        "projected_run_id": "A_SIM_A_000025",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000025",
+        "projected_run_id": "A_SIM_A_000025",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000026",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000026/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000026/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000026",
+        "projected_run_id": "A_SIM_A_000026",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000026",
+        "projected_run_id": "A_SIM_A_000026",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000027",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000027/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000027/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000027",
+        "projected_run_id": "A_SIM_A_000027",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000027",
+        "projected_run_id": "A_SIM_A_000027",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000028",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000028/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000028/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000028",
+        "projected_run_id": "A_SIM_A_000028",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000028",
+        "projected_run_id": "A_SIM_A_000028",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000029",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000029/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000029/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000029",
+        "projected_run_id": "A_SIM_A_000029",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000029",
+        "projected_run_id": "A_SIM_A_000029",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000030",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000030/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000030/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000030",
+        "projected_run_id": "A_SIM_A_000030",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000030",
+        "projected_run_id": "A_SIM_A_000030",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000031",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000031/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000031/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000031",
+        "projected_run_id": "A_SIM_A_000031",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000031",
+        "projected_run_id": "A_SIM_A_000031",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000032",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000032/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000032/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000032",
+        "projected_run_id": "A_SIM_A_000032",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000032",
+        "projected_run_id": "A_SIM_A_000032",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000033",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000033/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000033/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000033",
+        "projected_run_id": "A_SIM_A_000033",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000033",
+        "projected_run_id": "A_SIM_A_000033",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000034",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000034/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000034/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000034",
+        "projected_run_id": "A_SIM_A_000034",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000034",
+        "projected_run_id": "A_SIM_A_000034",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000035",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000035/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000035/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000035",
+        "projected_run_id": "A_SIM_A_000035",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000035",
+        "projected_run_id": "A_SIM_A_000035",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000036",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000036/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000036/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000036",
+        "projected_run_id": "A_SIM_A_000036",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000036",
+        "projected_run_id": "A_SIM_A_000036",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000037",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000037/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000037/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000037",
+        "projected_run_id": "A_SIM_A_000037",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000037",
+        "projected_run_id": "A_SIM_A_000037",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000038",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000038/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000038/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000038",
+        "projected_run_id": "A_SIM_A_000038",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000038",
+        "projected_run_id": "A_SIM_A_000038",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000039",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000039/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000039/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000039",
+        "projected_run_id": "A_SIM_A_000039",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000039",
+        "projected_run_id": "A_SIM_A_000039",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000040",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000040/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000040/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000040",
+        "projected_run_id": "A_SIM_A_000040",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000040",
+        "projected_run_id": "A_SIM_A_000040",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000041",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000041/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000041/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000041",
+        "projected_run_id": "A_SIM_A_000041",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000041",
+        "projected_run_id": "A_SIM_A_000041",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000042",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000042/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000042/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000042",
+        "projected_run_id": "A_SIM_A_000042",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000042",
+        "projected_run_id": "A_SIM_A_000042",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000043",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000043/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000043/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000043",
+        "projected_run_id": "A_SIM_A_000043",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000043",
+        "projected_run_id": "A_SIM_A_000043",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000044",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000044/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000044/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000044",
+        "projected_run_id": "A_SIM_A_000044",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000044",
+        "projected_run_id": "A_SIM_A_000044",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000045",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000045/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000045/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000045",
+        "projected_run_id": "A_SIM_A_000045",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000045",
+        "projected_run_id": "A_SIM_A_000045",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000046",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000046/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000046/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000046",
+        "projected_run_id": "A_SIM_A_000046",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000046",
+        "projected_run_id": "A_SIM_A_000046",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000047",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000047/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000047/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000047",
+        "projected_run_id": "A_SIM_A_000047",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000047",
+        "projected_run_id": "A_SIM_A_000047",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000048",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000048/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000048/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000048",
+        "projected_run_id": "A_SIM_A_000048",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000048",
+        "projected_run_id": "A_SIM_A_000048",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000049",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000049/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000049/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000049",
+        "projected_run_id": "A_SIM_A_000049",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000049",
+        "projected_run_id": "A_SIM_A_000049",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000050",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000050/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000050/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000050",
+        "projected_run_id": "A_SIM_A_000050",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000050",
+        "projected_run_id": "A_SIM_A_000050",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000051",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000051/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000051/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000051",
+        "projected_run_id": "A_SIM_A_000051",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000051",
+        "projected_run_id": "A_SIM_A_000051",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000052",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000052/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000052/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000052",
+        "projected_run_id": "A_SIM_A_000052",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000052",
+        "projected_run_id": "A_SIM_A_000052",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000053",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000053/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000053/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000053",
+        "projected_run_id": "A_SIM_A_000053",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000053",
+        "projected_run_id": "A_SIM_A_000053",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000054",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000054/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000054/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000054",
+        "projected_run_id": "A_SIM_A_000054",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000054",
+        "projected_run_id": "A_SIM_A_000054",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000055",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000055/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000055/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000055",
+        "projected_run_id": "A_SIM_A_000055",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000055",
+        "projected_run_id": "A_SIM_A_000055",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000056",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000056/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000056/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000056",
+        "projected_run_id": "A_SIM_A_000056",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000056",
+        "projected_run_id": "A_SIM_A_000056",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000057",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000057/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000057/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000057",
+        "projected_run_id": "A_SIM_A_000057",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000057",
+        "projected_run_id": "A_SIM_A_000057",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000058",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000058/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000058/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000058",
+        "projected_run_id": "A_SIM_A_000058",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000058",
+        "projected_run_id": "A_SIM_A_000058",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000059",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000059/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000059/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000059",
+        "projected_run_id": "A_SIM_A_000059",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000059",
+        "projected_run_id": "A_SIM_A_000059",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000060",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000060/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000060/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000060",
+        "projected_run_id": "A_SIM_A_000060",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000060",
+        "projected_run_id": "A_SIM_A_000060",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000061",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000061/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000061/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000061",
+        "projected_run_id": "A_SIM_A_000061",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000061",
+        "projected_run_id": "A_SIM_A_000061",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000062",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000062/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000062/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000062",
+        "projected_run_id": "A_SIM_A_000062",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000062",
+        "projected_run_id": "A_SIM_A_000062",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000063",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000063/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000063/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000063",
+        "projected_run_id": "A_SIM_A_000063",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000063",
+        "projected_run_id": "A_SIM_A_000063",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000064",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000064/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000064/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000064",
+        "projected_run_id": "A_SIM_A_000064",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000064",
+        "projected_run_id": "A_SIM_A_000064",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000065",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000065/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000065/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000065",
+        "projected_run_id": "A_SIM_A_000065",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000065",
+        "projected_run_id": "A_SIM_A_000065",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000066",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000066/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000066/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000066",
+        "projected_run_id": "A_SIM_A_000066",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000066",
+        "projected_run_id": "A_SIM_A_000066",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000067",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000067/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000067/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000067",
+        "projected_run_id": "A_SIM_A_000067",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000067",
+        "projected_run_id": "A_SIM_A_000067",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000068",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000068/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000068/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000068",
+        "projected_run_id": "A_SIM_A_000068",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000068",
+        "projected_run_id": "A_SIM_A_000068",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000069",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000069/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000069/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000069",
+        "projected_run_id": "A_SIM_A_000069",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000069",
+        "projected_run_id": "A_SIM_A_000069",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000070",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000070/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000070/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000070",
+        "projected_run_id": "A_SIM_A_000070",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000070",
+        "projected_run_id": "A_SIM_A_000070",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000071",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000071/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000071/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000071",
+        "projected_run_id": "A_SIM_A_000071",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000071",
+        "projected_run_id": "A_SIM_A_000071",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000072",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000072/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000072/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000072",
+        "projected_run_id": "A_SIM_A_000072",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000072",
+        "projected_run_id": "A_SIM_A_000072",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000073",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000073/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000073/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000073",
+        "projected_run_id": "A_SIM_A_000073",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000073",
+        "projected_run_id": "A_SIM_A_000073",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000074",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000074/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000074/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000074",
+        "projected_run_id": "A_SIM_A_000074",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000074",
+        "projected_run_id": "A_SIM_A_000074",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000075",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000075/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000075/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000075",
+        "projected_run_id": "A_SIM_A_000075",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000075",
+        "projected_run_id": "A_SIM_A_000075",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000076",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000076/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000076/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000076",
+        "projected_run_id": "A_SIM_A_000076",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000076",
+        "projected_run_id": "A_SIM_A_000076",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000077",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000077/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000077/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000077",
+        "projected_run_id": "A_SIM_A_000077",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000077",
+        "projected_run_id": "A_SIM_A_000077",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000078",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000078/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000078/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000078",
+        "projected_run_id": "A_SIM_A_000078",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000078",
+        "projected_run_id": "A_SIM_A_000078",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000079",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000079/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000079/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000079",
+        "projected_run_id": "A_SIM_A_000079",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000079",
+        "projected_run_id": "A_SIM_A_000079",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000080",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000080/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000080/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000080",
+        "projected_run_id": "A_SIM_A_000080",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000080",
+        "projected_run_id": "A_SIM_A_000080",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000081",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000081/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000081/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000081",
+        "projected_run_id": "A_SIM_A_000081",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000081",
+        "projected_run_id": "A_SIM_A_000081",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000082",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000082/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000082/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000082",
+        "projected_run_id": "A_SIM_A_000082",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000082",
+        "projected_run_id": "A_SIM_A_000082",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000083",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000083/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000083/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000083",
+        "projected_run_id": "A_SIM_A_000083",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000083",
+        "projected_run_id": "A_SIM_A_000083",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000084",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000084/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000084/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000084",
+        "projected_run_id": "A_SIM_A_000084",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000084",
+        "projected_run_id": "A_SIM_A_000084",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000085",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000085/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000085/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000085",
+        "projected_run_id": "A_SIM_A_000085",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000085",
+        "projected_run_id": "A_SIM_A_000085",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000086",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000086/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000086/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000086",
+        "projected_run_id": "A_SIM_A_000086",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000086",
+        "projected_run_id": "A_SIM_A_000086",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000087",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000087/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000087/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000087",
+        "projected_run_id": "A_SIM_A_000087",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000087",
+        "projected_run_id": "A_SIM_A_000087",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000088",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000088/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000088/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000088",
+        "projected_run_id": "A_SIM_A_000088",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000088",
+        "projected_run_id": "A_SIM_A_000088",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000089",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000089/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000089/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000089",
+        "projected_run_id": "A_SIM_A_000089",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000089",
+        "projected_run_id": "A_SIM_A_000089",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000090",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000090/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000090/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000090",
+        "projected_run_id": "A_SIM_A_000090",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000090",
+        "projected_run_id": "A_SIM_A_000090",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000091",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000091/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000091/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000091",
+        "projected_run_id": "A_SIM_A_000091",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000091",
+        "projected_run_id": "A_SIM_A_000091",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000092",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000092/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000092/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000092",
+        "projected_run_id": "A_SIM_A_000092",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000092",
+        "projected_run_id": "A_SIM_A_000092",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000093",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000093/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000093/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000093",
+        "projected_run_id": "A_SIM_A_000093",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000093",
+        "projected_run_id": "A_SIM_A_000093",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000094",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000094/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000094/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000094",
+        "projected_run_id": "A_SIM_A_000094",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000094",
+        "projected_run_id": "A_SIM_A_000094",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000095",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000095/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000095/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000095",
+        "projected_run_id": "A_SIM_A_000095",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000095",
+        "projected_run_id": "A_SIM_A_000095",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000096",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000096/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000096/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000096",
+        "projected_run_id": "A_SIM_A_000096",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000096",
+        "projected_run_id": "A_SIM_A_000096",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000097",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000097/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000097/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000097",
+        "projected_run_id": "A_SIM_A_000097",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000097",
+        "projected_run_id": "A_SIM_A_000097",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000098",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000098/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000098/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000098",
+        "projected_run_id": "A_SIM_A_000098",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000098",
+        "projected_run_id": "A_SIM_A_000098",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000099",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000099/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000099/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000099",
+        "projected_run_id": "A_SIM_A_000099",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000099",
+        "projected_run_id": "A_SIM_A_000099",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000100",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000100/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000100/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000100",
+        "projected_run_id": "A_SIM_A_000100",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000100",
+        "projected_run_id": "A_SIM_A_000100",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000101",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000101/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000101/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000101",
+        "projected_run_id": "A_SIM_A_000101",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000101",
+        "projected_run_id": "A_SIM_A_000101",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000102",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000102/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000102/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000102",
+        "projected_run_id": "A_SIM_A_000102",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000102",
+        "projected_run_id": "A_SIM_A_000102",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000103",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000103/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000103/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000103",
+        "projected_run_id": "A_SIM_A_000103",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000103",
+        "projected_run_id": "A_SIM_A_000103",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000104",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000104/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000104/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000104",
+        "projected_run_id": "A_SIM_A_000104",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000104",
+        "projected_run_id": "A_SIM_A_000104",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000105",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000105/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000105/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000105",
+        "projected_run_id": "A_SIM_A_000105",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000105",
+        "projected_run_id": "A_SIM_A_000105",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000106",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000106/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000106/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000106",
+        "projected_run_id": "A_SIM_A_000106",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000106",
+        "projected_run_id": "A_SIM_A_000106",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000107",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000107/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000107/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000107",
+        "projected_run_id": "A_SIM_A_000107",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000107",
+        "projected_run_id": "A_SIM_A_000107",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000108",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000108/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000108/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000108",
+        "projected_run_id": "A_SIM_A_000108",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000108",
+        "projected_run_id": "A_SIM_A_000108",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000109",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000109/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000109/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000109",
+        "projected_run_id": "A_SIM_A_000109",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000109",
+        "projected_run_id": "A_SIM_A_000109",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000110",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000110/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000110/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000110",
+        "projected_run_id": "A_SIM_A_000110",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000110",
+        "projected_run_id": "A_SIM_A_000110",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000111",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000111/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000111/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000111",
+        "projected_run_id": "A_SIM_A_000111",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000111",
+        "projected_run_id": "A_SIM_A_000111",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000112",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000112/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000112/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000112",
+        "projected_run_id": "A_SIM_A_000112",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000112",
+        "projected_run_id": "A_SIM_A_000112",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000113",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000113/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000113/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000113",
+        "projected_run_id": "A_SIM_A_000113",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000113",
+        "projected_run_id": "A_SIM_A_000113",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000114",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000114/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000114/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000114",
+        "projected_run_id": "A_SIM_A_000114",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000114",
+        "projected_run_id": "A_SIM_A_000114",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000115",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000115/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000115/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000115",
+        "projected_run_id": "A_SIM_A_000115",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000115",
+        "projected_run_id": "A_SIM_A_000115",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000116",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000116/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000116/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000116",
+        "projected_run_id": "A_SIM_A_000116",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000116",
+        "projected_run_id": "A_SIM_A_000116",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000117",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000117/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000117/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000117",
+        "projected_run_id": "A_SIM_A_000117",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000117",
+        "projected_run_id": "A_SIM_A_000117",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000118",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000118/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000118/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000118",
+        "projected_run_id": "A_SIM_A_000118",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000118",
+        "projected_run_id": "A_SIM_A_000118",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000119",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000119/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000119/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000119",
+        "projected_run_id": "A_SIM_A_000119",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000119",
+        "projected_run_id": "A_SIM_A_000119",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    },
+    {
+      "run_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000120",
+      "metadata_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000120/metadata.json",
+      "video_file": "data/simulation/family_a/corpus/smoke_model_train_v1/runs/A_SIM_A_000120/video.mp4",
+      "has_labels": true,
+      "has_derived_features": true,
+      "canonicalize": {
+        "source_run_id": "SIM_A_000120",
+        "projected_run_id": "A_SIM_A_000120",
+        "collision_resolved": false
+      },
+      "preserve": {
+        "source_run_id": "SIM_A_000120",
+        "projected_run_id": "A_SIM_A_000120",
+        "collision_resolved": false,
+        "issues": []
+      },
+      "warnings": [],
+      "errors": [],
+      "ready": true
+    }
+  ]
+}

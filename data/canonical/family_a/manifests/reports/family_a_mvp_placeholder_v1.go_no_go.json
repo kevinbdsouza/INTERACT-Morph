@@ -1,0 +1,41 @@
+{
+  "task_id": "MVP-039",
+  "name": "family_a_mvp_governance_v1",
+  "created_at_utc": "2026-04-25T12:46:33.309794+00:00",
+  "decision": "NO_GO",
+  "gate_checks": [
+    {
+      "gate": "G1 Data + Baseline Ready",
+      "expected": "Done",
+      "actual": "Not Started",
+      "passed": false
+    },
+    {
+      "gate": "G2 Model Usable",
+      "expected": "Done",
+      "actual": "Not Started",
+      "passed": false
+    },
+    {
+      "gate": "G3 Planning Value",
+      "expected": "Done",
+      "actual": "Not Started",
+      "passed": false
+    },
+    {
+      "gate": "G4 Tool Usable",
+      "expected": "Done",
+      "actual": "Not Started",
+      "passed": false
+    }
+  ],
+  "risk_snapshot": {
+    "blocked_tasks": 0,
+    "at_risk_tasks": 0,
+    "active_blockers": 1
+  },
+  "decision_reasons": [
+    "4 required gate(s) not yet satisfied.",
+    "Active blockers 1 exceeds configured maximum 0."
+  ]
+}

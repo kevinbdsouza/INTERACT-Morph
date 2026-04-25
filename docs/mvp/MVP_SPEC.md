@@ -40,4 +40,4 @@ Deliver an internal, experimentalist-facing tool for **Family A** (baseline and 
 - External/public platform release
 
 ## Traceability
-This document maps directly to `ToDo.md` tasks MVP-001 through MVP-010 (and supports later gates).
+This document maps directly to `docs/mvp/ToDo.md` tasks MVP-001 through MVP-010 (and supports later gates).

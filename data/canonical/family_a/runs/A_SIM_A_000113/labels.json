@@ -1,0 +1,18 @@
+{
+  "run_id": "A_SIM_A_000113",
+  "encapsulation_success": false,
+  "regime_label": "trapping",
+  "failure_mode": "trapping",
+  "events_ms": {
+    "lamella_onset_ms": 1.933333,
+    "first_contact_ms": 2.733333,
+    "neck_formation_ms": 3.660166,
+    "closure_time_ms": 6.89234,
+    "detachment_time_ms": 8.905757,
+    "rupture_time_ms": null
+  },
+  "confidence": "simulated",
+  "annotator": "axisymmetric_surrogate_solver",
+  "annotation_timestamp": "2026-04-18T02:30:27.418677+00:00",
+  "notes": "Auto-generated synthetic label for SIM_A_000113"
+}

@@ -20,7 +20,63 @@
       "Recommendation report + UI export",
       "Execution template and campaign logs",
       "Campaign analysis and failure-mode analysis reports",
-      "Determinism report and environment lock snapshot"
+      "Determinism report and environment lock snapshot",
+      "Local smoke-check evidence report",
+      "Raw handoff readiness report"
+    ],
+    "evidence_artifacts": [
+      {
+        "label": "Local smoke-check evidence",
+        "path": "data/canonical/family_a/manifests/reports/smoke_check_report.json"
+      },
+      {
+        "label": "Raw handoff readiness smoke evidence",
+        "path": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/data_handoff_check_smoke_v1.json"
+      },
+      {
+        "label": "Placeholder handoff readiness evidence",
+        "path": "data/canonical/family_a/manifests/reports/data_handoff_check_placeholder_v1.json"
+      },
+      {
+        "label": "Placeholder smoke-check bundle",
+        "path": "data/canonical/family_a/manifests/reports/smoke_check_report_placeholder_v1.json"
+      },
+      {
+        "label": "Placeholder split artifact",
+        "path": "data/canonical/family_a/manifests/splits/family_a_placeholder_v1.json"
+      },
+      {
+        "label": "Placeholder baseline report",
+        "path": "data/canonical/family_a/manifests/reports/baseline_family_a_placeholder_v1.json"
+      },
+      {
+        "label": "Placeholder dataset snapshot",
+        "path": "data/canonical/snapshots/family_a_placeholder_v1.json"
+      },
+      {
+        "label": "Placeholder multimodal eval",
+        "path": "data/canonical/family_a/manifests/models/family_a_placeholder_v1_multimodal.eval.json"
+      },
+      {
+        "label": "Placeholder calibration report",
+        "path": "data/canonical/family_a/manifests/models/family_a_placeholder_v1_multimodal.calibration.json"
+      },
+      {
+        "label": "Placeholder model card",
+        "path": "data/canonical/family_a/manifests/model_cards/family_a_placeholder_v1_multimodal.md"
+      },
+      {
+        "label": "Placeholder recommendation report",
+        "path": "data/canonical/family_a/manifests/models/family_a_placeholder_v1_multimodal.recommendations.json"
+      },
+      {
+        "label": "Placeholder recommendation UI",
+        "path": "data/canonical/family_a/manifests/reports/family_a_placeholder_v1_recommendations_ui.html"
+      },
+      {
+        "label": "Deterministic training smoke evidence",
+        "path": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/determinism_report_smoke_v1.json"
+      }
     ],
     "checklist": [
       "Nominate owner + backup operator for every critical workflow stage",

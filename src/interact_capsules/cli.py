@@ -77,6 +77,12 @@ DEFAULT_REPRO_LOCKFILE = PROJECT_ROOT / "locks" / "environment.lock.txt"
 DEFAULT_REPRO_CHECK_REPORT = (
     PROJECT_ROOT / "data" / "canonical" / "family_a" / "manifests" / "reports" / "determinism_report.json"
 )
+DEFAULT_SMOKE_CHECK_REPORT = (
+    PROJECT_ROOT / "data" / "canonical" / "family_a" / "manifests" / "reports" / "smoke_check_report.json"
+)
+DEFAULT_HANDOFF_CHECK_REPORT = (
+    PROJECT_ROOT / "data" / "canonical" / "family_a" / "manifests" / "reports" / "data_handoff_check.json"
+)
 
 
 def _run_script(script_name: str, script_args: list[str]) -> int:
@@ -103,6 +109,24 @@ def _cmd_inventory(args: argparse.Namespace) -> int:
             args.family,
         ],
     )
+
+
+def _cmd_handoff_check(args: argparse.Namespace) -> int:
+    script_args = [
+        "--source-dir",
+        str(args.source_dir),
+        "--output",
+        str(args.output),
+        "--schema",
+        str(args.schema),
+        "--family",
+        args.family,
+    ]
+    if args.require_labels:
+        script_args.append("--require-labels")
+    if args.require_derived:
+        script_args.append("--require-derived")
+    return _run_script("check_data_handoff.py", script_args)
 
 
 def _cmd_ingest(args: argparse.Namespace) -> int:
@@ -464,6 +488,30 @@ def _cmd_repro_check(args: argparse.Namespace) -> int:
     return _run_script("check_deterministic_training.py", script_args)
 
 
+def _cmd_smoke_check(args: argparse.Namespace) -> int:
+    script_args = ["--output", str(args.output)]
+    if args.skip_compile:
+        script_args.append("--skip-compile")
+    if args.handoff_source_dir is not None:
+        script_args.extend(
+            [
+                "--handoff-source-dir",
+                str(args.handoff_source_dir),
+                "--handoff-output",
+                str(args.handoff_output),
+                "--handoff-schema",
+                str(args.handoff_schema),
+                "--handoff-family",
+                args.handoff_family,
+            ]
+        )
+        if args.handoff_require_labels:
+            script_args.append("--handoff-require-labels")
+        if args.handoff_require_derived:
+            script_args.append("--handoff-require-derived")
+    return _run_script("run_smoke_checks.py", script_args)
+
+
 def _cmd_segment_train(args: argparse.Namespace) -> int:
     script_args = [
         "--dataset-root",
@@ -649,6 +697,18 @@ def build_parser() -> argparse.ArgumentParser:
     inventory.add_argument("--family", default="A", choices=["A", "B", "C"])
     inventory.set_defaults(func=_cmd_inventory)
 
+    handoff_check = subparsers.add_parser(
+        "handoff-check",
+        help="MVP-004/005/006: Check raw handoff readiness before canonical ingest.",
+    )
+    handoff_check.add_argument("--source-dir", required=True, type=Path)
+    handoff_check.add_argument("--output", default=DEFAULT_HANDOFF_CHECK_REPORT, type=Path)
+    handoff_check.add_argument("--schema", default=DEFAULT_RUN_SCHEMA, type=Path)
+    handoff_check.add_argument("--family", default="A", choices=["A", "B", "C"])
+    handoff_check.add_argument("--require-labels", action="store_true")
+    handoff_check.add_argument("--require-derived", action="store_true")
+    handoff_check.set_defaults(func=_cmd_handoff_check)
+
     ingest = subparsers.add_parser("ingest", help="MVP-005: Ingest raw runs into canonical layout.")
     ingest.add_argument("--source-dir", required=True, type=Path)
     ingest.add_argument("--dest-root", required=True, type=Path)
@@ -831,8 +891,12 @@ def build_parser() -> argparse.ArgumentParser:
         "mvp-governance",
         help="MVP-038/039/040: Build internal handoff pack, go/no-go memo, and post-MVP roadmap draft.",
     )
-    mvp_governance.add_argument("--progress-tracker", default=PROJECT_ROOT.parent / "Progress_Tracking.md", type=Path)
-    mvp_governance.add_argument("--todo", default=PROJECT_ROOT.parent / "ToDo.md", type=Path)
+    mvp_governance.add_argument(
+        "--progress-tracker",
+        default=PROJECT_ROOT / "docs" / "mvp" / "Progress_Tracking.md",
+        type=Path,
+    )
+    mvp_governance.add_argument("--todo", default=PROJECT_ROOT / "docs" / "mvp" / "ToDo.md", type=Path)
     mvp_governance.add_argument("--config", default=DEFAULT_GOVERNANCE_CONFIG, type=Path)
     mvp_governance.add_argument("--output-dir", default=DEFAULT_GOVERNANCE_OUTPUT_DIR, type=Path)
     mvp_governance.add_argument("--prefix", default="family_a_mvp")
@@ -862,6 +926,20 @@ def build_parser() -> argparse.ArgumentParser:
     repro_check.add_argument("--artifact-dir", default=None, type=Path)
     repro_check.add_argument("--keep-artifacts", action="store_true")
     repro_check.set_defaults(func=_cmd_repro_check)
+
+    smoke_check = subparsers.add_parser(
+        "smoke-check",
+        help="MVP-028/029/036/037: Run local parser, syntax, and smoke-test verification bundle.",
+    )
+    smoke_check.add_argument("--output", default=DEFAULT_SMOKE_CHECK_REPORT, type=Path)
+    smoke_check.add_argument("--skip-compile", action="store_true")
+    smoke_check.add_argument("--handoff-source-dir", default=None, type=Path)
+    smoke_check.add_argument("--handoff-output", default=DEFAULT_HANDOFF_CHECK_REPORT, type=Path)
+    smoke_check.add_argument("--handoff-schema", default=DEFAULT_RUN_SCHEMA, type=Path)
+    smoke_check.add_argument("--handoff-family", default="A", choices=["A", "B", "C"])
+    smoke_check.add_argument("--handoff-require-labels", action="store_true")
+    smoke_check.add_argument("--handoff-require-derived", action="store_true")
+    smoke_check.set_defaults(func=_cmd_smoke_check)
 
     segment_train = subparsers.add_parser(
         "segment-train",

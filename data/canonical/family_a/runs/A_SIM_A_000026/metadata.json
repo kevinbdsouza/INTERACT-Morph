@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "A_SIM_A_000026",
+  "source_run_id": "SIM_A_000026",
+  "family": "A",
+  "capture_timestamp": "2026-04-18T02:30:27.279228+00:00",
+  "fluid_combination_id": "SIM_CORE1100_MU10000_SIGMA30",
+  "operator": "axisymmetric_surrogate_solver",
+  "source": {
+    "lab": "in-silico",
+    "apparatus": "family_a_axisymmetric_surrogate_v1",
+    "camera_model": "synthetic_placeholder"
+  },
+  "fluid_system": {
+    "core": {
+      "material_id": "core_rho1100_mu10000",
+      "density_kg_m3": 1100.0,
+      "viscosity_pa_s": 0.01
+    },
+    "shell": {
+      "material_id": "shell_surrogate",
+      "density_kg_m3": 1155.0,
+      "viscosity_pa_s": 0.018000000000000002
+    },
+    "interfacial_layer": {
+      "material_id": "layer_surrogate",
+      "thickness_mm": 0.2,
+      "density_kg_m3": 1127.5,
+      "viscosity_pa_s": 0.014000000000000002
+    },
+    "interfacial_tension_n_m": 0.03
+  },
+  "control_parameters": {
+    "impact_velocity_m_s": 0.4,
+    "droplet_diameter_mm": 1.5,
+    "shell_outer_diameter_mm": 2.2,
+    "ambient_temperature_c": 25.0
+  },
+  "outcomes": {
+    "encapsulation_success": false,
+    "regime_label": "trapping",
+    "failure_mode": "trapping",
+    "shell_thickness_mean_um": 200.0,
+    "capsule_eccentricity": 0.134742,
+    "notes": "Synthetic outcome generated from SIM_A_000026"
+  },
+  "quality_flags": {
+    "video_complete": true,
+    "annotation_complete": true,
+    "sensors_calibrated": true
+  },
+  "asset_paths": {
+    "video_relpath": "video.mp4",
+    "labels_relpath": "labels.json",
+    "derived_features_relpath": "derived_features.json"
+  },
+  "tags": [
+    "synthetic",
+    "simulation",
+    "axisymmetric",
+    "family_a_axisymmetric_doe_v1"
+  ]
+}
