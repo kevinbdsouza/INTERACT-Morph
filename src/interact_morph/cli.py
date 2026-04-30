@@ -83,6 +83,9 @@ DEFAULT_SMOKE_CHECK_REPORT = (
 DEFAULT_HANDOFF_CHECK_REPORT = (
     PROJECT_ROOT / "data" / "canonical" / "family_a" / "manifests" / "reports" / "data_handoff_check.json"
 )
+DEFAULT_DATASET_CARD_OUTPUT = (
+    PROJECT_ROOT / "data" / "canonical" / "family_a" / "manifests" / "reports" / "dataset_card.md"
+)
 
 
 def _run_script(script_name: str, script_args: list[str]) -> int:
@@ -207,6 +210,24 @@ def _cmd_snapshot(args: argparse.Namespace) -> int:
             str(args.output_dir),
         ],
     )
+
+
+def _cmd_dataset_card(args: argparse.Namespace) -> int:
+    script_args = [
+        "--dataset-root",
+        str(args.dataset_root),
+        "--output",
+        str(args.output),
+        "--title",
+        args.title,
+        "--max-gaps",
+        str(args.max_gaps),
+    ]
+    if args.split is not None:
+        script_args.extend(["--split", str(args.split)])
+    if args.json_output is not None:
+        script_args.extend(["--json-output", str(args.json_output)])
+    return _run_script("build_dataset_card.py", script_args)
 
 
 def _cmd_sim_plan(args: argparse.Namespace) -> int:
@@ -599,6 +620,9 @@ def _cmd_pipeline(args: argparse.Namespace) -> int:
     baseline_output = args.baseline_output or (
         args.dataset_root / "manifests" / "reports" / f"baseline_{args.snapshot_name}.json"
     )
+    dataset_card_output = args.dataset_card_output or (
+        args.dataset_root / "manifests" / "reports" / f"dataset_card_{args.snapshot_name}.md"
+    )
 
     ingest_args = [
         "--source-dir",
@@ -669,6 +693,18 @@ def _cmd_pipeline(args: argparse.Namespace) -> int:
                 str(args.snapshot_output_dir),
             ],
         ),
+        (
+            "dataset-card",
+            "build_dataset_card.py",
+            [
+                "--dataset-root",
+                str(args.dataset_root),
+                "--split",
+                str(split_output),
+                "--output",
+                str(dataset_card_output),
+            ],
+        ),
     ]
 
     for step_name, script_name, script_args in steps:
@@ -681,6 +717,7 @@ def _cmd_pipeline(args: argparse.Namespace) -> int:
     print("\nPipeline completed successfully.")
     print(f"Split artifact: {split_output}")
     print(f"Baseline report: {baseline_output}")
+    print(f"Dataset card: {dataset_card_output}")
     return 0
 
 
@@ -746,6 +783,18 @@ def build_parser() -> argparse.ArgumentParser:
     snapshot.add_argument("--name", required=True)
     snapshot.add_argument("--output-dir", default=DEFAULT_SNAPSHOT_DIR, type=Path)
     snapshot.set_defaults(func=_cmd_snapshot)
+
+    dataset_card = subparsers.add_parser(
+        "dataset-card",
+        help="MVP-007/G1: Generate dataset card markdown from canonical manifests.",
+    )
+    dataset_card.add_argument("--dataset-root", required=True, type=Path)
+    dataset_card.add_argument("--output", default=DEFAULT_DATASET_CARD_OUTPUT, type=Path)
+    dataset_card.add_argument("--split", default=None, type=Path)
+    dataset_card.add_argument("--json-output", default=None, type=Path)
+    dataset_card.add_argument("--title", default="INTERACT-Morph Dataset Card")
+    dataset_card.add_argument("--max-gaps", default=12, type=int)
+    dataset_card.set_defaults(func=_cmd_dataset_card)
 
     sim_plan = subparsers.add_parser("sim-plan", help="MVP-015/016: Plan axisymmetric simulation sweep.")
     sim_plan.add_argument("--config", default=DEFAULT_SWEEP_CONFIG, type=Path)
@@ -1005,6 +1054,7 @@ def build_parser() -> argparse.ArgumentParser:
     pipeline.add_argument("--split-output", type=Path, default=None)
     pipeline.add_argument("--baseline-config", default=DEFAULT_BASELINE_CONFIG, type=Path)
     pipeline.add_argument("--baseline-output", type=Path, default=None)
+    pipeline.add_argument("--dataset-card-output", type=Path, default=None)
     pipeline.add_argument("--snapshot-name", default="family_a_v1")
     pipeline.add_argument("--snapshot-output-dir", default=DEFAULT_SNAPSHOT_DIR, type=Path)
     pipeline.add_argument("--require-labels", action="store_true")

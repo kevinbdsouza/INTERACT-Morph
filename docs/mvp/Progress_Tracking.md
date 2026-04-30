@@ -35,7 +35,7 @@
 | MVP-004 | Codex | In Progress | 2026-04-17 | TBD | Inventory tooling exists and smoke data passed; awaiting real conventional, loop-assisted, and selected multilayer archive |
 | MVP-005 | Codex | In Progress | 2026-04-17 | TBD | Ingestion supports canonical/source ID mapping; production run pending |
 | MVP-006 | Codex | In Progress | 2026-04-17 | TBD | Validation checks exist; production-specific route/confinement consistency checks still need real data |
-| MVP-007 | Codex | In Progress | 2026-04-17 | TBD | Snapshot tooling exists; production dataset card evidence pending |
+| MVP-007 | Codex | In Progress | 2026-04-17 | TBD | Snapshot tooling and `dataset-card` generator exist; production dataset card evidence pending |
 | MVP-008 | Codex | In Progress | 2026-04-17 | TBD | Split generation exists; revised held-out material/window/route policy needs production review |
 | MVP-009 | Codex | In Progress | 2026-04-17 | TBD | Baseline benchmark scaffold exists; revised thermodynamic/regime-map comparison must be run on production data |
 | MVP-010 | Codex | Done | 2026-04-17 | 2026-04-18 | Annotation guideline exists; revise as needed for crown, air, volume, loop failure, and layer sequence labels |

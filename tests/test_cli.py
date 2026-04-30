@@ -30,6 +30,7 @@ class CliParserTests(unittest.TestCase):
             "split",
             "baseline",
             "snapshot",
+            "dataset-card",
             "sim-plan",
             "sim-generate",
             "sim-realism",
@@ -133,6 +134,7 @@ class CliParserTests(unittest.TestCase):
                 "create_split.py",
                 "baseline_regime_map.py",
                 "snapshot_dataset.py",
+                "build_dataset_card.py",
             ],
         )
 
@@ -145,6 +147,10 @@ class CliParserTests(unittest.TestCase):
         expected_split = "data/canonical/family_a/manifests/splits/family_a_v1.json"
         self.assertIn(expected_split, split_args)
         self.assertIn(expected_split, baseline_args)
+
+        dataset_card_args = calls[5][1]
+        self.assertIn(expected_split, dataset_card_args)
+        self.assertIn("data/canonical/family_a/manifests/reports/dataset_card_family_a_v1.md", dataset_card_args)
 
     def test_pipeline_stops_on_first_failed_step(self) -> None:
         calls: list[str] = []
@@ -167,6 +173,48 @@ class CliParserTests(unittest.TestCase):
 
         self.assertEqual(rc, 7)
         self.assertEqual(calls, ["ingest_runs.py", "validate_dataset.py"])
+
+    def test_dataset_card_forwards_optional_outputs(self) -> None:
+        parser = cli.build_parser()
+        args = parser.parse_args(
+            [
+                "dataset-card",
+                "--dataset-root",
+                "data/canonical/family_a",
+                "--output",
+                "reports/dataset_card.md",
+                "--split",
+                "manifests/splits/family_a_v1.json",
+                "--json-output",
+                "reports/dataset_card.json",
+                "--title",
+                "Family A Dataset Card",
+                "--max-gaps",
+                "3",
+            ]
+        )
+
+        with patch.object(cli, "_run_script", return_value=0) as run_script:
+            rc = cli._cmd_dataset_card(args)
+
+        self.assertEqual(rc, 0)
+        run_script.assert_called_once_with(
+            "build_dataset_card.py",
+            [
+                "--dataset-root",
+                "data/canonical/family_a",
+                "--output",
+                "reports/dataset_card.md",
+                "--title",
+                "Family A Dataset Card",
+                "--max-gaps",
+                "3",
+                "--split",
+                "manifests/splits/family_a_v1.json",
+                "--json-output",
+                "reports/dataset_card.json",
+            ],
+        )
 
     def test_mvp_governance_defaults_use_repo_docs(self) -> None:
         parser = cli.build_parser()

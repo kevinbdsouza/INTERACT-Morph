@@ -1,0 +1,252 @@
+{
+  "title": "INTERACT-Morph Family A Placeholder Dataset Card",
+  "generated_at_utc": "2026-04-30T17:50:58.411409+00:00",
+  "dataset_root": "data/canonical/family_a",
+  "manifest": {
+    "created_at_utc": "2026-04-25T12:41:39.236062+00:00",
+    "family": "A",
+    "run_id_mode": "preserve",
+    "schema": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Morph/schemas/run_metadata.schema.json",
+    "source_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs",
+    "run_count": 120,
+    "error_count": 0,
+    "run_index_sha256": "d28f47e8b9b48f46a95e53fcd70084b97d31c33ea65aeef0d94608e9ea031fcc",
+    "run_id_map_sha256": "4a1cd72d6036099f99cf5236836d4c6bdda5fd18662991a73d52fbdb26d19fac"
+  },
+  "run_count": 120,
+  "families": {
+    "A": 120
+  },
+  "fluid_combination_count": 27,
+  "regime_distribution": {
+    "stable_wrapping": 40,
+    "trapping": 80
+  },
+  "encapsulation_success_distribution": {
+    "False": 80,
+    "True": 40
+  },
+  "route_type_distribution": {},
+  "confinement_type_distribution": {},
+  "quality_flags": {
+    "video_complete": {
+      "true": 120,
+      "false": 0,
+      "missing": 0
+    },
+    "annotation_complete": {
+      "true": 120,
+      "false": 0,
+      "missing": 0
+    },
+    "sensors_calibrated": {
+      "true": 120,
+      "false": 0,
+      "missing": 0
+    }
+  },
+  "morphology_coverage": {
+    "shell_thickness_mean_um": {
+      "present": 120,
+      "missing": 0
+    },
+    "shell_thickness_nonuniformity": {
+      "present": 0,
+      "missing": 120
+    },
+    "crown_index": {
+      "present": 0,
+      "missing": 120
+    },
+    "trapped_air_fraction": {
+      "present": 0,
+      "missing": 120
+    },
+    "encapsulated_volume_ul": {
+      "present": 0,
+      "missing": 120
+    },
+    "core_offset": {
+      "present": 0,
+      "missing": 120
+    },
+    "layer_sequence": {
+      "present": 0,
+      "missing": 120
+    }
+  },
+  "split": {
+    "path": "data/canonical/family_a/manifests/splits/family_a_placeholder_v1.json",
+    "split_name": "family_a_v1",
+    "seed": 42,
+    "group_by": "fluid_combination_id",
+    "counts": {
+      "train": 83,
+      "val": 18,
+      "test": 19
+    },
+    "group_counts": {
+      "train": 19,
+      "val": 4,
+      "test": 4
+    }
+  },
+  "known_gaps_sample": [
+    {
+      "run_id": "A_SIM_A_000001",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    },
+    {
+      "run_id": "A_SIM_A_000002",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    },
+    {
+      "run_id": "A_SIM_A_000003",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    },
+    {
+      "run_id": "A_SIM_A_000004",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    },
+    {
+      "run_id": "A_SIM_A_000005",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    },
+    {
+      "run_id": "A_SIM_A_000006",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    },
+    {
+      "run_id": "A_SIM_A_000007",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    },
+    {
+      "run_id": "A_SIM_A_000008",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    },
+    {
+      "run_id": "A_SIM_A_000009",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    },
+    {
+      "run_id": "A_SIM_A_000010",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    },
+    {
+      "run_id": "A_SIM_A_000011",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    },
+    {
+      "run_id": "A_SIM_A_000012",
+      "gaps": [
+        "missing_outcome:shell_thickness_nonuniformity",
+        "missing_outcome:crown_index",
+        "missing_outcome:trapped_air_fraction",
+        "missing_outcome:encapsulated_volume_ul",
+        "missing_outcome:core_offset",
+        "missing_outcome:layer_sequence",
+        "missing_control_parameters.route_type",
+        "missing_control_parameters.confinement_type"
+      ]
+    }
+  ]
+}

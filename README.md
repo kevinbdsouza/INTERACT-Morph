@@ -63,6 +63,7 @@ interact-morph ingest
 interact-morph validate
 interact-morph split
 interact-morph snapshot
+interact-morph dataset-card
 interact-morph pipeline
 ```
 
