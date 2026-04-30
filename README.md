@@ -40,7 +40,7 @@ Primary controllable inputs:
 
 ## Implemented Capabilities
 
-The current codebase already contains executable scaffolding for the full lab workflow:
+The current codebase contains executable scaffolding for the workflow:
 
 - Raw handoff checks, inventory, ingestion, validation, split generation, dataset snapshots, and baseline benchmarking
 - Interface segmentation starter model, contour/trajectory extraction, feature QA, and label-correction queues
@@ -51,55 +51,6 @@ The current codebase already contains executable scaffolding for the full lab wo
 - Environment lockfiles, deterministic training checks, smoke-check bundles, and governance pack generation
 
 Most workflows have been smoke-tested on synthetic placeholder data. Production acceptance still depends on ingesting the real experimental archive and prospective campaign outcomes.
-
-## Command Surface
-
-Data and validation:
-
-```bash
-interact-morph handoff-check
-interact-morph inventory
-interact-morph ingest
-interact-morph validate
-interact-morph split
-interact-morph snapshot
-interact-morph dataset-card
-interact-morph pipeline
-```
-
-Video observables and labeling:
-
-```bash
-interact-morph segment-train
-interact-morph extract-trajectories
-interact-morph feature-qa
-interact-morph label-correction
-```
-
-Modeling and inverse design:
-
-```bash
-interact-morph baseline
-interact-morph model-train
-interact-morph model-finetune
-interact-morph model-calibrate
-interact-morph model-card
-interact-morph recommend
-interact-morph recommend-ui
-```
-
-Campaigns and governance:
-
-```bash
-interact-morph experiment-template
-interact-morph campaign-prepare
-interact-morph campaign-analyze
-interact-morph failure-analysis
-interact-morph repro-lock
-interact-morph repro-check
-interact-morph smoke-check
-interact-morph mvp-governance
-```
 
 ## Repository Layout
 
@@ -140,88 +91,6 @@ If the package is not installed yet:
 
 ```bash
 python3 src/interact_morph/cli.py --help
-```
-
-## Typical End-To-End Flow
-
-Check a raw experimental handoff:
-
-```bash
-interact-morph handoff-check \
-  --source-dir data/raw \
-  --family A \
-  --output data/canonical/family_a/manifests/reports/data_handoff_check.json \
-  --require-labels \
-  --require-derived
-```
-
-Run the canonical data pipeline:
-
-```bash
-interact-morph pipeline \
-  --source-dir data/raw \
-  --dataset-root data/canonical/family_a \
-  --family A \
-  --run-id-mode canonicalize \
-  --snapshot-name interact_morph_v1 \
-  --require-labels \
-  --require-derived
-```
-
-Train, calibrate, and document a model:
-
-```bash
-interact-morph model-train \
-  --dataset-root data/canonical/family_a \
-  --split data/canonical/family_a/manifests/splits/interact_morph_v1.json \
-  --output-dir data/canonical/family_a/manifests/models \
-  --model-id interact_morph_multimodal_v1
-
-interact-morph model-calibrate \
-  --predictions data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.predictions.jsonl \
-  --output data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.calibration.json \
-  --calibrated-predictions-output data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.calibrated_predictions.jsonl
-
-interact-morph model-card \
-  --model-artifact data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.model.json \
-  --eval-artifact data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.eval.json \
-  --calibration-artifact data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.calibration.json \
-  --output data/canonical/family_a/manifests/model_cards/interact_morph_multimodal_v1.md
-```
-
-Rank target-morphology candidates:
-
-```bash
-interact-morph recommend \
-  --model-artifact data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.model.json \
-  --calibration-artifact data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.calibration.json \
-  --candidates data/simulation/family_a/manifests/axisymmetric_sweep_v1.jsonl \
-  --output data/canonical/family_a/manifests/recommendations/interact_morph_multimodal_v1.recommendations.json
-
-interact-morph recommend-ui \
-  --recommendation-report data/canonical/family_a/manifests/recommendations/interact_morph_multimodal_v1.recommendations.json \
-  --output-html data/canonical/family_a/manifests/recommendations/interact_morph_multimodal_v1.recommendations.html
-```
-
-Prepare and analyze prospective campaigns:
-
-```bash
-interact-morph experiment-template \
-  --recommendation-report data/canonical/family_a/manifests/recommendations/interact_morph_multimodal_v1.recommendations.json \
-  --output data/canonical/family_a/manifests/reports/experiment_execution_template.json \
-  --markdown-output data/canonical/family_a/manifests/reports/experiment_execution_template.md
-
-interact-morph campaign-prepare \
-  --runs-input data/canonical/family_a/manifests/reports/experiment_execution_template.json \
-  --campaign-profile model_guided_primary \
-  --output data/canonical/family_a/manifests/reports/campaign_prepared_model_guided_primary.json \
-  --campaign-log-output data/canonical/family_a/manifests/reports/campaign_model_guided_primary.jsonl
-
-interact-morph campaign-analyze \
-  --model-guided-log data/canonical/family_a/manifests/reports/campaign_model_guided_primary.jsonl \
-  --baseline-log data/canonical/family_a/manifests/reports/campaign_baseline_primary.jsonl \
-  --output data/canonical/family_a/manifests/reports/campaign_analysis.json \
-  --markdown-output data/canonical/family_a/manifests/reports/campaign_analysis.md
 ```
 
 ## Data Contracts
