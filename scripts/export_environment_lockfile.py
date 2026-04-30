@@ -193,7 +193,7 @@ def main() -> int:
     resolved, missing = resolve_versions(selected_names)
 
     lines = [
-        "# INTERACT-Capsules environment lockfile (MVP-036)",
+        "# INTERACT-Morph environment lockfile (MVP-036)",
         f"# generated_at_utc={datetime.now(timezone.utc).isoformat()}",
         f"# python_version={sys.version.split()[0]}",
         f"# pyproject={args.pyproject}",

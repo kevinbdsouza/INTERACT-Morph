@@ -3,15 +3,15 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "interact-capsules"
+name = "interact-morph"
 version = "0.1.0"
-description = "INTERACT-Capsules data and modeling foundation"
+description = "INTERACT-Morph data and modeling foundation"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
 
 [project.scripts]
-interact-capsules = "interact_capsules.cli:main"
+interact-morph = "interact_morph.cli:main"
 
 [project.optional-dependencies]
 validation = [

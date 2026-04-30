@@ -15,6 +15,9 @@
 ## Feature Contract
 {{FEATURE_LIST}}
 
+## Output Contract
+{{OUTPUT_CONTRACT}}
+
 ## Success Head Metrics
 {{SUCCESS_METRICS_TABLE}}
 
@@ -40,4 +43,5 @@
 ## Known Limitations
 - This artifact is for internal Family A MVP usage only.
 - Smoke/surrogate results are not representative of production lab performance.
-- Recommendations should be guarded with validated-domain checks before lab execution.
+- Unsupported or high-risk domains must be rejected or manually reviewed before lab execution: unvalidated fluids, missing route/confinement metadata, invalid circular-loop volume windows, infeasible multilayer route order, poor imaging, and candidates outside the training feature envelope.
+- Morphology labels derived only from video proxies should be treated as lower confidence until checked against direct fluorescence, dyeing, microscopy, or operator-reviewed measurements.

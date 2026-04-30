@@ -7,7 +7,7 @@
 
 ## 1) Export Environment Lockfile
 ```bash
-interact-capsules repro-lock
+interact-morph repro-lock
 ```
 
 Default output:
@@ -15,12 +15,12 @@ Default output:
 
 Optional strict mode:
 ```bash
-interact-capsules repro-lock --strict
+interact-morph repro-lock --strict
 ```
 
 ## 2) Deterministic Training/Evaluation Check
 ```bash
-interact-capsules repro-check \
+interact-morph repro-check \
   --dataset-root data/simulation/family_a/corpus/smoke_model_train_v1 \
   --split data/simulation/family_a/corpus/smoke_model_train_v1/manifests/splits/smoke_v1.json \
   --config configs/modeling/family_a_multimodal_v1.json \
@@ -29,7 +29,7 @@ interact-capsules repro-check \
 
 Optional artifact retention:
 ```bash
-interact-capsules repro-check ... --keep-artifacts --artifact-dir /tmp/interact_determinism_debug
+interact-morph repro-check ... --keep-artifacts --artifact-dir /tmp/interact_determinism_debug
 ```
 
 ## Determinism Report Contract
@@ -43,14 +43,14 @@ Recommendations should only be published when `passed=true`.
 ## 3) Local Smoke Tests
 Run the bundled check before changing CLI wiring, pipeline defaults, or lockfile parsing:
 ```bash
-interact-capsules smoke-check
+interact-morph smoke-check
 ```
 
 Equivalent individual checks:
 ```bash
 python3 -m unittest discover -s tests
 python3 -m compileall src scripts tests
-python3 src/interact_capsules/cli.py --help
+python3 src/interact_morph/cli.py --help
 ```
 
 Current smoke coverage includes:

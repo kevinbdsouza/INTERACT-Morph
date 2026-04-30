@@ -3,8 +3,8 @@
 ## Scope
 - Family: `A` (MVP scope)
 - Created at (UTC): `2026-04-18T02:42:18.281050+00:00`
-- Dataset root: `INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1`
-- Split artifact: `INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/splits/smoke_v1.json`
+- Dataset root: `INTERACT-Morph/data/simulation/family_a/corpus/smoke_model_train_v1`
+- Split artifact: `INTERACT-Morph/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/splits/smoke_v1.json`
 
 ## Data Summary
 - Total runs: `120`
@@ -24,6 +24,14 @@
 - `neck_radius_min_mm`
 - `closure_time_ms`
 - `detachment_time_ms`
+
+## Output Contract
+- `success_probability`: calibrated probability for wrapped/stable encapsulation.
+- `regime_label`: penetration, trapping, confinement, overflow, invalid-route, or stable wrapping class.
+- Morphology regression targets:
+  - `capsule_eccentricity`
+  - `shell_thickness_mean_um`
+- Recommendation-time uncertainty fields: calibration metrics, abstention summaries, and nearest-evidence distance.
 
 ## Success Head Metrics
 | Split | Count | Accuracy | F1 | Macro-F1 |
@@ -55,11 +63,20 @@
 | test | 19 | 73.3472 | 90.7404 |
 
 ## Calibration Summary
-- Success head calibration:
+- Success probability:
   temperature: `0.0500`
   log-loss (uncalibrated -> final): `0.0101` -> `0.0000`
   brier (uncalibrated -> final): `0.0012` -> `0.0000`
   ECE (uncalibrated -> final): `0.0094` -> `0.0000`
+  conformal coverage target / empirical: `0.9000` / `1.0000`
+  abstention check: threshold `0.9000`, coverage `1.0000`, kept accuracy `1.0000`
+- Regime top-1 correctness:
+  temperature: `1.0000`
+  log-loss (uncalibrated -> final): `0.0101` -> `0.0101`
+  brier (uncalibrated -> final): `0.0012` -> `0.0012`
+  ECE (uncalibrated -> final): `0.0094` -> `0.0094`
+  conformal coverage target / empirical: `0.9000` / `0.9000`
+  abstention check: threshold `0.9000`, coverage `0.9667`, kept accuracy `1.0000`
 
 ## Data Loading Notes
 - No data-loading warnings were recorded.
@@ -67,11 +84,12 @@
 ## Traceability
 - Config SHA256: `5d6d5dc3e6614e0498b7b6a45b9b41ae0aca5b146fb6632122bfac275d72bcd7`
 - Split SHA256: `9bb9c75157b5637c475d5b02f17413be6494e9aa349f6f846edd4d278338c37a`
-- Model artifact: `INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.model.json`
-- Eval artifact: `INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.eval.json`
-- Calibration artifact: `INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.calibration.json`
+- Model artifact: `data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.model.json`
+- Eval artifact: `data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.eval.json`
+- Calibration artifact: `data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.calibration.json`
 
 ## Known Limitations
 - This artifact is for internal Family A MVP usage only.
 - Smoke/surrogate results are not representative of production lab performance.
-- Recommendations should be guarded with validated-domain checks before lab execution.
+- Unsupported or high-risk domains must be rejected or manually reviewed before lab execution: unvalidated fluids, missing route/confinement metadata, invalid circular-loop volume windows, infeasible multilayer route order, poor imaging, and candidates outside the training feature envelope.
+- Morphology labels derived only from video proxies should be treated as lower confidence until checked against direct fluorescence, dyeing, microscopy, or operator-reviewed measurements.

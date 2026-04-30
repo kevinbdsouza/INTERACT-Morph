@@ -1,4 +1,4 @@
-# INTERACT-Capsules MVP Setup Guide (MVP-037)
+# INTERACT-Morph MVP Setup Guide (MVP-037)
 
 ## Goal
 Provide a repeatable setup path so a lab operator can run the CLI workflow without repository-specific tribal knowledge.
@@ -18,7 +18,7 @@ pip install -e ".[validation]"
 
 ## 3) Verify CLI Install
 ```bash
-interact-capsules --help
+interact-morph --help
 ```
 
 Expected: command groups including `handoff-check`, `pipeline`, `model-train`, `recommend`, `recommend-ui`, `repro-lock`, and `repro-check`.
@@ -34,7 +34,7 @@ Expected: tests pass and all Python modules compile.
 ## 5) Export Lockfile Snapshot
 Run once per environment update:
 ```bash
-interact-capsules repro-lock
+interact-morph repro-lock
 ```
 
 Output:

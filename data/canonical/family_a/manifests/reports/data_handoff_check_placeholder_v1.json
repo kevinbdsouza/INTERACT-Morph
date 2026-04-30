@@ -3,7 +3,7 @@
   "created_at_utc": "2026-04-25T12:41:51.048504+00:00",
   "source_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs",
   "family": "A",
-  "schema": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/schemas/run_metadata.schema.json",
+  "schema": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Morph/schemas/run_metadata.schema.json",
   "require_labels": true,
   "require_derived": true,
   "run_count": 120,
@@ -26,7 +26,7 @@
       "priority": "P0",
       "type": "run_pipeline",
       "description": "Run the first canonical pipeline using the recommended run-ID mode.",
-      "command": "interact-capsules pipeline --source-dir data/simulation/family_a/corpus/smoke_model_train_v1/runs --dataset-root data/canonical/family_a --run-id-mode preserve --require-labels --require-derived"
+      "command": "interact-morph pipeline --source-dir data/simulation/family_a/corpus/smoke_model_train_v1/runs --dataset-root data/canonical/family_a --run-id-mode preserve --require-labels --require-derived"
     },
     {
       "priority": "P1",

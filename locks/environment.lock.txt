@@ -1,7 +1,7 @@
-# INTERACT-Capsules environment lockfile (MVP-036)
+# INTERACT-Morph environment lockfile (MVP-036)
 # generated_at_utc=2026-04-18T04:34:09.434716+00:00
 # python_version=3.9.0
-# pyproject=/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/pyproject.toml
+# pyproject=/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Morph/pyproject.toml
 # included_optional_groups=validation
 
 # No resolvable installed dependencies in selected groups.

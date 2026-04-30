@@ -14,7 +14,7 @@ import sys
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from interact_capsules.io_utils import dump_json, load_json, load_json_or_yaml
+from interact_morph.io_utils import dump_json, load_json, load_json_or_yaml
 
 
 def parse_args() -> argparse.Namespace:

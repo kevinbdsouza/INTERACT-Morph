@@ -2,7 +2,7 @@
   "task_id": "MVP-038",
   "name": "family_a_mvp_governance_v1",
   "created_at_utc": "2026-04-24T21:08:27.223573+00:00",
-  "session_title": "INTERACT-Capsules Family A Internal Handoff",
+  "session_title": "INTERACT-Morph Family A Internal Handoff",
   "objective": "Run an internal walkthrough with operators and reviewers to verify end-to-end workflow usability before external handoff.",
   "agenda": [
     "Artifact readiness review (model, calibration, recommendations, execution templates)",
@@ -130,7 +130,7 @@
       "owner": "Codex",
       "status": "In Progress",
       "due_date": "2026-04-30",
-      "notes": "Added `scripts/train_interface_segmentation.py`, config `configs/modeling/family_a_segmentation_v1.json`, CLI `interact-capsules segment-train`, and smoke QC artifact `smoke_family_a_segmentation_v1.qc.json`"
+      "notes": "Added `scripts/train_interface_segmentation.py`, config `configs/modeling/family_a_segmentation_v1.json`, CLI `interact-morph segment-train`, and smoke QC artifact `smoke_family_a_segmentation_v1.qc.json`"
     },
     {
       "task_id": "MVP-012",
@@ -138,7 +138,7 @@
       "owner": "Codex",
       "status": "In Progress",
       "due_date": "2026-05-01",
-      "notes": "Added `scripts/extract_contours_trajectories.py`, config `configs/modeling/family_a_contour_extraction_v1.json`, CLI `interact-capsules extract-trajectories`, and smoke extraction report (`runs_written=3`)"
+      "notes": "Added `scripts/extract_contours_trajectories.py`, config `configs/modeling/family_a_contour_extraction_v1.json`, CLI `interact-morph extract-trajectories`, and smoke extraction report (`runs_written=3`)"
     },
     {
       "task_id": "MVP-013",
@@ -146,7 +146,7 @@
       "owner": "Codex",
       "status": "In Progress",
       "due_date": "2026-05-01",
-      "notes": "Added `scripts/build_feature_qa_dashboard.py`, config `configs/modeling/family_a_feature_qa_v1.json`, CLI `interact-capsules feature-qa`, and smoke QA report (`runs_scanned=3`, `runs_with_issues=0`)"
+      "notes": "Added `scripts/build_feature_qa_dashboard.py`, config `configs/modeling/family_a_feature_qa_v1.json`, CLI `interact-morph feature-qa`, and smoke QA report (`runs_scanned=3`, `runs_with_issues=0`)"
     },
     {
       "task_id": "MVP-014",
@@ -154,7 +154,7 @@
       "owner": "Codex",
       "status": "In Progress",
       "due_date": "2026-05-03",
-      "notes": "Added `scripts/build_label_correction_queue.py`, config `configs/modeling/family_a_label_correction_v1.json`, docs `docs/modeling/LABEL_CORRECTION_WORKFLOW.md`, and CLI `interact-capsules label-correction`; smoke queue artifact generated"
+      "notes": "Added `scripts/build_label_correction_queue.py`, config `configs/modeling/family_a_label_correction_v1.json`, docs `docs/modeling/LABEL_CORRECTION_WORKFLOW.md`, and CLI `interact-morph label-correction`; smoke queue artifact generated"
     },
     {
       "task_id": "MVP-015",

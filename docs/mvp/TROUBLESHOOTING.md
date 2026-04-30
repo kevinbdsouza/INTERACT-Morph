@@ -1,8 +1,8 @@
-# INTERACT-Capsules MVP Troubleshooting (MVP-037)
+# INTERACT-Morph MVP Troubleshooting (MVP-037)
 
 ## Common Issues
 
-## `interact-capsules` not found
+## `interact-morph` not found
 - Cause: package not installed in active environment.
 - Fix:
 ```bash
@@ -22,7 +22,7 @@ pip install -e ".[validation]"
 - Fix:
 1. Inspect rejection reasons in `rejected_candidates`.
 2. Tune `guardrails` section in `configs/modeling/family_a_recommendation_v1.json`.
-3. Re-run `interact-capsules recommend`.
+3. Re-run `interact-morph recommend`.
 
 ## `recommend-ui` shows empty accepted table
 - Cause: filters set too strict or recommendation report has no accepted candidates.
@@ -36,6 +36,6 @@ pip install -e ".[validation]"
 1. Ensure same dataset root, split, config, and init model are used.
 2. Re-run with explicit artifact retention:
 ```bash
-interact-capsules repro-check ... --keep-artifacts --artifact-dir /tmp/interact_determinism_debug
+interact-morph repro-check ... --keep-artifacts --artifact-dir /tmp/interact_determinism_debug
 ```
 3. Diff `*_a.*` vs `*_b.*` artifacts in the saved directory.

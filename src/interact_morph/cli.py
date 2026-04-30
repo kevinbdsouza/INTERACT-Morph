@@ -686,8 +686,8 @@ def _cmd_pipeline(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="interact-capsules",
-        description="Unified CLI for INTERACT-Capsules MVP data/simulation workflows.",
+        prog="interact-morph",
+        description="Unified CLI for INTERACT-Morph MVP data/simulation workflows.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -835,7 +835,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     recommend_ui.add_argument("--recommendation-report", required=True, type=Path)
     recommend_ui.add_argument("--output-html", default=DEFAULT_RECOMMENDATION_UI_OUTPUT, type=Path)
-    recommend_ui.add_argument("--title", default="INTERACT-Capsules Recommendation Review")
+    recommend_ui.add_argument("--title", default="INTERACT-Morph Recommendation Review")
     recommend_ui.add_argument("--max-rejected", default=250, type=int)
     recommend_ui.set_defaults(func=_cmd_recommend_ui)
 

@@ -1,4 +1,4 @@
-"""INTERACT-Capsules utilities."""
+"""INTERACT-Morph utilities."""
 
 __all__ = [
     "cli",

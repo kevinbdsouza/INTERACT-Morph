@@ -14,7 +14,7 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from interact_capsules.io_utils import dump_json, load_json_or_yaml
+from interact_morph.io_utils import dump_json, load_json_or_yaml
 
 EPS = 1e-12
 
@@ -201,6 +201,108 @@ def build_metric_block(examples: list[dict[str, Any]], prob_key: str, num_bins: 
     return {
         "overall": compute(examples),
         "by_split": by_split,
+    }
+
+
+def quantile(values: list[float], q: float) -> float | None:
+    if not values:
+        return None
+    q_clamped = min(1.0, max(0.0, q))
+    sorted_values = sorted(values)
+    idx = int(math.ceil(q_clamped * len(sorted_values))) - 1
+    idx = min(len(sorted_values) - 1, max(0, idx))
+    return sorted_values[idx]
+
+
+def summarize_abstention(
+    examples: list[dict[str, Any]],
+    prob_key: str,
+    confidence_thresholds: list[float],
+) -> list[dict[str, Any]]:
+    summaries: list[dict[str, Any]] = []
+    if not examples:
+        return summaries
+
+    for threshold in confidence_thresholds:
+        kept: list[dict[str, Any]] = []
+        abstained = 0
+        for row in examples:
+            p = clamp_prob(float(row[prob_key]))
+            confidence = max(p, 1.0 - p)
+            if confidence >= threshold:
+                kept.append(row)
+            else:
+                abstained += 1
+
+        labels = [int(r["label"]) for r in kept]
+        probs = [float(r[prob_key]) for r in kept]
+        predicted = [1 if p >= 0.5 else 0 for p in probs]
+        accuracy = None
+        if labels:
+            accuracy = sum(1 for y, y_hat in zip(labels, predicted) if y == y_hat) / len(labels)
+
+        summaries.append(
+            {
+                "confidence_threshold": threshold,
+                "kept_count": len(kept),
+                "abstained_count": abstained,
+                "coverage": len(kept) / len(examples),
+                "accuracy_on_kept": accuracy,
+                "brier_on_kept": mean_brier(labels, probs) if labels else None,
+            }
+        )
+    return summaries
+
+
+def build_conformal_summary(
+    fit_rows: list[dict[str, Any]],
+    examples: list[dict[str, Any]],
+    prob_key: str,
+    coverage: float,
+) -> dict[str, Any]:
+    fit_scores: list[float] = []
+    for row in fit_rows:
+        p = clamp_prob(float(row[prob_key]))
+        label = int(row["label"])
+        fit_scores.append((1.0 - p) if label == 1 else p)
+
+    threshold = quantile(fit_scores, coverage)
+    if threshold is None:
+        return {
+            "method": "binary_split_conformal_probability_set",
+            "target_coverage": coverage,
+            "status": "no_fit_scores",
+            "nonconformity_threshold": None,
+        }
+
+    covered = 0
+    singleton = 0
+    empty = 0
+    set_sizes: list[int] = []
+    for row in examples:
+        p = clamp_prob(float(row[prob_key]))
+        prediction_set: list[int] = []
+        if p <= threshold:
+            prediction_set.append(0)
+        if (1.0 - p) <= threshold:
+            prediction_set.append(1)
+        set_sizes.append(len(prediction_set))
+        if int(row["label"]) in prediction_set:
+            covered += 1
+        if len(prediction_set) == 1:
+            singleton += 1
+        if len(prediction_set) == 0:
+            empty += 1
+
+    return {
+        "method": "binary_split_conformal_probability_set",
+        "target_coverage": coverage,
+        "status": "ok",
+        "nonconformity_threshold": threshold,
+        "empirical_coverage": covered / len(examples) if examples else None,
+        "singleton_rate": singleton / len(examples) if examples else None,
+        "empty_set_rate": empty / len(examples) if examples else None,
+        "mean_set_size": sum(set_sizes) / len(set_sizes) if set_sizes else None,
     }
 
 
@@ -488,6 +590,43 @@ def calibrate_probability_head(
     metrics_temp = build_metric_block(examples, prob_key="temperature_scaled_probability", num_bins=num_bins)
     metrics_final = build_metric_block(examples, prob_key="calibrated_probability", num_bins=num_bins)
 
+    abstention_cfg = head_cfg.get("abstention", {})
+    if not isinstance(abstention_cfg, dict):
+        abstention_cfg = {}
+    raw_thresholds = abstention_cfg.get("confidence_thresholds", [0.60, 0.70, 0.80, 0.90])
+    confidence_thresholds: list[float] = []
+    if isinstance(raw_thresholds, list):
+        for item in raw_thresholds:
+            threshold = to_float(item)
+            if threshold is not None and 0.5 <= threshold <= 1.0:
+                confidence_thresholds.append(threshold)
+    if not confidence_thresholds:
+        confidence_thresholds = [0.70, 0.80, 0.90]
+
+    conformal_cfg = head_cfg.get("conformal", {})
+    if not isinstance(conformal_cfg, dict):
+        conformal_cfg = {}
+    conformal_enabled = bool(conformal_cfg.get("enabled", True))
+    target_coverage = to_float(conformal_cfg.get("target_coverage"))
+    if target_coverage is None:
+        target_coverage = 0.90
+    target_coverage = min(0.99, max(0.50, target_coverage))
+    conformal_summary = (
+        build_conformal_summary(
+            fit_rows=fit_rows,
+            examples=examples,
+            prob_key="calibrated_probability",
+            coverage=target_coverage,
+        )
+        if conformal_enabled
+        else {
+            "method": "binary_split_conformal_probability_set",
+            "target_coverage": target_coverage,
+            "status": "disabled",
+            "nonconformity_threshold": None,
+        }
+    )
+
     run_probabilities: dict[tuple[str, str], dict[str, float]] = {}
     for r in examples:
         key = (str(r.get("run_id")), str(r.get("split")))
@@ -528,6 +667,15 @@ def calibrate_probability_head(
             "temperature_scaled": metrics_temp,
             "final": metrics_final,
         },
+        "abstention": {
+            "method": "max_probability_threshold",
+            "threshold_summaries": summarize_abstention(
+                examples=examples,
+                prob_key="calibrated_probability",
+                confidence_thresholds=confidence_thresholds,
+            ),
+        },
+        "conformal": conformal_summary,
     }
     return report, run_probabilities
 

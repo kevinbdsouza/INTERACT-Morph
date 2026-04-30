@@ -5,7 +5,7 @@ Produce calibrated uncertainty artifacts for classification heads from model pre
 
 ## CLI Command
 ```bash
-interact-capsules model-calibrate \
+interact-morph model-calibrate \
   --predictions data/canonical/family_a/manifests/models/<model_id>.predictions.jsonl \
   --config configs/modeling/family_a_uncertainty_calibration_v1.json \
   --output data/canonical/family_a/manifests/models/<model_id>.calibration.json

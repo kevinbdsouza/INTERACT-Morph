@@ -30,8 +30,8 @@
 | Task ID | Owner | Status | Start Date | Due Date | Notes |
 |---|---|---|---|---|---|
 | MVP-001 | Codex | Done | 2026-04-17 | 2026-04-30 | Revised `docs/mvp/MVP_SPEC.md` now reflects INTERACT-Morph morphology-first inverse design scope |
-| MVP-002 | Codex | Done | 2026-04-17 | 2026-04-18 | `schemas/run_metadata.schema.json` and data architecture docs exist; route/confinement fields may need tightening after production handoff |
-| MVP-003 | Codex | Done | 2026-04-17 | 2026-04-18 | `schemas/derived_features.schema.json` plus templates exist; morphology target fields should be reviewed against revised labels |
+| MVP-002 | Codex | Done | 2026-04-17 | 2026-04-30 | `schemas/run_metadata.schema.json` now covers route, confinement, loop geometry, host bath, core/shell/layer fluids, controls, outcomes, imaging, and quality flags |
+| MVP-003 | Codex | Done | 2026-04-17 | 2026-04-30 | `schemas/derived_features.schema.json` and templates now expose penetration, cavity radius, closure timing, shell thickness, trapped air, crown, volume, core offset, and layer sequence fields |
 | MVP-004 | Codex | In Progress | 2026-04-17 | TBD | Inventory tooling exists and smoke data passed; awaiting real conventional, loop-assisted, and selected multilayer archive |
 | MVP-005 | Codex | In Progress | 2026-04-17 | TBD | Ingestion supports canonical/source ID mapping; production run pending |
 | MVP-006 | Codex | In Progress | 2026-04-17 | TBD | Validation checks exist; production-specific route/confinement consistency checks still need real data |
@@ -51,26 +51,26 @@
 | MVP-020 | Codex | In Progress | 2026-04-18 | TBD | Training pipeline exists and is smoke-validated |
 | MVP-021 | Codex | In Progress | 2026-04-18 | TBD | Synthetic pretraining artifacts exist; should remain supporting evidence only |
 | MVP-022 | Codex | In Progress | 2026-04-18 | TBD | Fine-tuning support exists; production experimental run pending |
-| MVP-023 | Codex | In Progress | 2026-04-18 | TBD | Calibration scaffold exists; conformal/abstention reporting should be strengthened for revised scope |
-| MVP-024 | Codex | In Progress | 2026-04-18 | TBD | Model-card generation exists; revise card fields for morphology targets and unsupported domains |
-| MVP-025 | Codex | In Progress | 2026-04-18 | TBD | Recommendation objective exists; retune for target shell thickness, trapped air, crown, volume, and route feasibility |
+| MVP-023 | Codex | In Progress | 2026-04-18 | TBD | Calibration artifacts now include placeholder abstention summaries and split-conformal probability-set diagnostics; production reliability evidence pending |
+| MVP-024 | Codex | In Progress | 2026-04-18 | TBD | Model-card generation now renders output contract, morphology target heads, calibration/abstention/conformal summary, unsupported domains, and traceability |
+| MVP-025 | Codex | In Progress | 2026-04-18 | TBD | Recommendation objective retuned in config for shell thickness, trapped air, crown, encapsulated volume, eccentricity, and uncertainty penalty |
 | MVP-026 | Codex | In Progress | 2026-04-18 | TBD | EI/UCB acquisition scoring exists |
-| MVP-027 | Codex | In Progress | 2026-04-18 | TBD | Guardrails exist; add explicit invalid loop volume and infeasible multilayer route warnings |
-| MVP-028 | Codex | In Progress | 2026-04-17 | TBD | Stable CLI exists as `interact-capsules`; project-facing docs now note compatibility naming |
+| MVP-027 | Codex | In Progress | 2026-04-18 | TBD | Guardrails now emit explicit route, confinement, circular-loop volume-window, shell-volume, multilayer-sequence, confidence, extrapolation, and nearest-evidence diagnostics |
+| MVP-028 | Codex | Done | 2026-04-17 | 2026-04-30 | Stable CLI command surface is exposed as `interact-morph` across package metadata, parser help, docs, tests, and smoke workflows |
 | MVP-029 | Codex | In Progress | 2026-04-17 | TBD | End-to-end CLI pipeline and smoke-check workflow exist |
-| MVP-030 | Codex | In Progress | 2026-04-18 | TBD | HTML recommendation review UI exists; needs morphology-target display review on production artifacts |
+| MVP-030 | Codex | In Progress | 2026-04-18 | TBD | HTML recommendation review UI rebuilt from placeholder recommendations after objective/guardrail update; production display review pending |
 | MVP-031 | Codex | In Progress | 2026-04-18 | TBD | Experiment execution template scaffold exists |
 | MVP-032 | Lab/Codex | Not Started | TBD | TBD | First low-air or shell-thickness prospective campaign pending production model |
 | MVP-033 | Lab/Codex | Not Started | TBD | TBD | Crown-control or held-out robustness campaign pending first campaign |
 | MVP-034 | Codex | In Progress | 2026-04-18 | TBD | Campaign analysis scaffold exists; production campaign data pending |
 | MVP-035 | Codex | In Progress | 2026-04-18 | TBD | Failure analysis scaffold exists; production error taxonomy pending |
 | MVP-036 | Codex | In Progress | 2026-04-18 | TBD | Repro lock, deterministic check, and smoke-check workflows exist |
-| MVP-037 | Codex | In Progress | 2026-04-18 | TBD | Setup, runbook, quickstart, and troubleshooting docs exist; need INTERACT-Morph naming pass beyond core files |
+| MVP-037 | Codex | In Progress | 2026-04-18 | TBD | Setup, runbook, quickstart, and troubleshooting docs exist with INTERACT-Morph command naming; independent operator walkthrough still pending |
 | MVP-038 | Codex/Lab | In Progress | 2026-04-18 | TBD | Governance/handoff pack scaffold exists; independent lab walkthrough pending |
 | MVP-039 | Codex/Lab | In Progress | 2026-04-18 | TBD | Go/no-go generation scaffold exists; expected NO_GO until G1-G4 evidence is real |
 | MVP-040 | Codex/Lab | In Progress | 2026-04-18 | TBD | Follow-on roadmap scaffold exists |
 | MVP-041 | Codex | Done | 2026-04-30 | 2026-04-30 | Moved project folder to `INTERACT-Morph` and updated README, MVP spec, todo, and progress tracker to revised proposal scope |
-| MVP-042 | Codex | Not Started | TBD | TBD | Internal package/module/CLI rename from `interact_capsules`/`interact-capsules` to Morph naming remains open |
+| MVP-042 | Codex | Done | 2026-04-30 | 2026-04-30 | Internal package/module/CLI renamed to `interact_morph`/`interact-morph`; compatibility artifacts updated in docs, scripts, tests, schemas, and smoke reports |
 
 ## 5) KPI Dashboard
 
@@ -113,7 +113,7 @@
 | R2 | Simulation/surrogate evidence overstates production model quality | Medium | High | Open | Treat simulation as support only; report experimental held-out and prospective metrics separately | Codex |
 | R3 | Rare failure modes remain under-sampled | High | Medium | Open | Use active learning and targeted failure-mode campaigns | Lab/Codex |
 | R4 | Recommendation over-extrapolates outside validated material/confinement domain | Medium | High | Open | Domain guardrails, uncertainty thresholds, abstention, and nearest-evidence reporting | Codex |
-| R5 | Loop and multilayer constraints are underspecified in current schemas | Medium | Medium | Open | Review production metadata and add explicit route/geometry/sequence checks | Codex/Lab |
+| R5 | Loop and multilayer constraints need production validation | Medium | Medium | Open | Schema fields now exist for route, loop geometry, and layer sequence; tighten required fields after first production handoff | Codex/Lab |
 | R6 | Tooling remains developer-friendly but not lab-operator-friendly | Medium | High | Open | Operator walkthrough, quickstart cleanup, UI review, and governance evidence | Codex/Lab |
 
 ## 9) Blockers And Escalations
@@ -121,22 +121,23 @@
 | Date | Blocker | Affected Tasks | Owner | Escalation Needed | Resolution ETA |
 |---|---|---|---|---|---|
 | 2026-04-30 | Production morphology-resolved raw data handoff not yet available for first canonical pipeline run | MVP-004 to MVP-014; MVP-018; MVP-022 to MVP-027; MVP-032 to MVP-040 | Schmidt Interact / lab data owner | Confirm raw data location, metadata completeness, label/mask availability, and first `handoff-check` window | TBD |
-| 2026-04-30 | Internal package/CLI still uses capsules naming | MVP-028, MVP-037, MVP-042 | Codex | Decide whether compatibility command should remain or whether a breaking rename is acceptable | TBD |
 
 ## 10) Decisions Log
 
 | Date | Decision | Reason | Impacted Tasks | Owner |
 |---|---|---|---|---|
 | 2026-04-30 | Public project scope is INTERACT-Morph | Revised Schmidt Sciences proposal frames the project as morphology-first inverse design | MVP-001, MVP-041 | Codex |
-| 2026-04-30 | Keep current `interact-capsules` CLI command temporarily | Renaming the package and entrypoint requires coordinated code, tests, configs, and artifact path migration | MVP-028, MVP-042 | Codex |
+| 2026-04-30 | Use `interact-morph` as the public package and CLI command | Align implementation with the revised INTERACT-Morph scope and README command surface | MVP-028, MVP-042 | Codex |
 
 ## 11) Weekly Update Log
 
 ### 2026-04-30 (Week 02 Revision Checkpoint)
 
-- Completed: Moved the full project contents from `INTERACT-Capsules` into `INTERACT-Morph` and removed the old source folder.
 - Completed: Updated README, MVP spec, todo, and progress tracking files to match the revised INTERACT-Morph proposal: morphology-first inverse design, shell metrics, trapped air, crown, volume, loop-assisted confinement, limited multilayer route support, calibrated uncertainty, and prospective target-morphology campaigns.
+- Completed: Renamed the package and command surface to `interact_morph` / `interact-morph`.
+- Completed: Extended the metadata and derived-feature schemas/templates for route, confinement, loop geometry, host bath, trapped air, crown, volume, core offset, and layer sequence fields.
+- Completed: Advanced the next in-progress modeling/recommendation tasks with placeholder evidence: calibration now reports abstention and conformal diagnostics; model cards include output contract, unsupported domains, and calibration summaries; recommendation config/objective includes trapped air, crown, encapsulated volume, loop volume windows, and multilayer route guardrails.
+- Completed: Regenerated smoke placeholder calibration, calibrated predictions, model card, recommendation report, and recommendation UI from the updated code/config.
 - In progress: Existing implementation scaffolds remain intact for data ingestion, validation, segmentation, trajectory extraction, modeling, calibration, recommendation, campaign analysis, smoke checks, and governance.
-- At risk: Documentation outside the four requested files still contains older INTERACT-Capsules naming and Family A wording in several operator docs.
 - Blocked: Production experimental data, labels, masks, and prospective campaign outcomes are still required before G1-G4 can be closed.
 - Next-week plan: run `handoff-check` on the real raw data folder once available, revise schemas for route/confinement/layer-sequence metadata gaps, then re-run pipeline/baseline/model/recommendation artifacts under an `interact_morph_v1` dataset version.

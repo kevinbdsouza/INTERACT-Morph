@@ -13,7 +13,7 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from interact_capsules.io_utils import dump_json
+from interact_morph.io_utils import dump_json
 
 
 DEFAULT_OUTPUT = PROJECT_ROOT / "data" / "canonical" / "family_a" / "manifests" / "reports" / "smoke_check_report.json"
@@ -92,7 +92,7 @@ def build_checks(
         ),
         (
             "cli_help",
-            [sys.executable, "src/interact_capsules/cli.py", "--help"],
+            [sys.executable, "src/interact_morph/cli.py", "--help"],
         ),
     ]
     if not skip_compile:

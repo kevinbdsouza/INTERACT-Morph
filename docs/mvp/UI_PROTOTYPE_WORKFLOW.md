@@ -5,7 +5,7 @@ Provide a zero-dependency HTML interface that experimentalists can open locally 
 
 ## CLI Command
 ```bash
-interact-capsules recommend-ui \
+interact-morph recommend-ui \
   --recommendation-report data/canonical/family_a/manifests/recommendations/<model_id>.recommendations.json \
   --output-html data/canonical/family_a/manifests/recommendations/<model_id>.recommendations.html
 ```
@@ -25,4 +25,4 @@ python3 scripts/build_recommendation_ui.py \
 
 ## Notes
 - Output is standalone HTML (no server required).
-- Input is the recommendation JSON artifact from `interact-capsules recommend`.
+- Input is the recommendation JSON artifact from `interact-morph recommend`.

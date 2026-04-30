@@ -8,7 +8,7 @@ Rank next Family A experiments using:
 
 ## CLI Command
 ```bash
-interact-capsules recommend \
+interact-morph recommend \
   --model-artifact data/canonical/family_a/manifests/models/<model_id>.model.json \
   --candidates data/simulation/family_a/manifests/axisymmetric_sweep_v1.jsonl \
   --config configs/modeling/family_a_recommendation_v1.json \
@@ -40,7 +40,7 @@ python3 scripts/recommend_next_experiments.py \
   - uncertainty proxy details
   - guardrail diagnostics and rejected candidate reasons
 - Optional MVP-030 UI rendering:
-  - `interact-capsules recommend-ui --recommendation-report ... --output-html ...`
+  - `interact-morph recommend-ui --recommendation-report ... --output-html ...`
   - standalone HTML for operator review and filtering
 
 ## Notes

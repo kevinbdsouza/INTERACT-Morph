@@ -3,6 +3,15 @@
   "encapsulation_success": true,
   "regime_label": "stable_wrapping",
   "failure_mode": "none",
+  "morphology": {
+    "shell_thickness_mean_um": 120.0,
+    "shell_thickness_nonuniformity": 0.18,
+    "crown_index": 0.05,
+    "trapped_air_fraction": 0.02,
+    "encapsulated_volume_ul": 4.0,
+    "core_offset": 0.12,
+    "layer_sequence": ["shell"]
+  },
   "events_ms": {
     "lamella_onset_ms": 1.2,
     "first_contact_ms": 2.1,

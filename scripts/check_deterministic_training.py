@@ -17,7 +17,7 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from interact_capsules.io_utils import dump_json, load_json
+from interact_morph.io_utils import dump_json, load_json
 
 
 def parse_args() -> argparse.Namespace:

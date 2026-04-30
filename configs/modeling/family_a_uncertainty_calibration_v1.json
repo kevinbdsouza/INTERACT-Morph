@@ -12,6 +12,13 @@
     "isotonic": {
       "enabled": true,
       "min_fit_rows": 40
+    },
+    "abstention": {
+      "confidence_thresholds": [0.6, 0.7, 0.8, 0.9]
+    },
+    "conformal": {
+      "enabled": true,
+      "target_coverage": 0.9
     }
   },
   "regime_top1_correctness_probability": {
@@ -26,6 +33,13 @@
     "isotonic": {
       "enabled": true,
       "min_fit_rows": 40
+    },
+    "abstention": {
+      "confidence_thresholds": [0.6, 0.7, 0.8, 0.9]
+    },
+    "conformal": {
+      "enabled": true,
+      "target_coverage": 0.9
     }
   }
 }

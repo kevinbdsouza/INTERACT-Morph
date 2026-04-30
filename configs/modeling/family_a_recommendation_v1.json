@@ -12,6 +12,20 @@
         "target_max": 260.0,
         "soft_tolerance": 80.0
       },
+      "trapped_air_fraction": {
+        "target_max": 0.08,
+        "soft_tolerance": 0.12
+      },
+      "crown_index": {
+        "target_min": 0.15,
+        "target_max": 0.55,
+        "soft_tolerance": 0.20
+      },
+      "encapsulated_volume_ul": {
+        "target_min": 2.0,
+        "target_max": 12.0,
+        "soft_tolerance": 4.0
+      },
       "capsule_eccentricity": {
         "target_max": 0.20,
         "soft_tolerance": 0.20
@@ -42,6 +56,16 @@
     "max_nearest_train_distance": 4.5,
     "max_feature_extrapolation_z": 0.50,
     "max_extrapolated_features": 2,
-    "min_success_probability": 0.55
+    "min_success_probability": 0.55,
+    "allowed_route_types": ["single_layer", "multilayer"],
+    "allowed_confinement_types": ["conventional", "circular_loop_assisted"],
+    "shell_volume_min_ul": 0.5,
+    "shell_volume_max_ul": 25.0,
+    "loop_min_volume_ul": 1.0,
+    "loop_overflow_volume_ul": 18.0,
+    "allowed_multilayer_sequences": [
+      ["core", "shell"],
+      ["core", "inner_shell", "outer_shell"]
+    ]
   }
 }

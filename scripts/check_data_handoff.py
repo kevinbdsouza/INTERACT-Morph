@@ -14,14 +14,14 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from interact_capsules.io_utils import dump_json, load_json_or_yaml
-from interact_capsules.run_id_utils import (
+from interact_morph.io_utils import dump_json, load_json_or_yaml
+from interact_morph.run_id_utils import (
     canonicalize_run_id,
     ensure_unique_run_id,
     extract_source_run_id,
     is_canonical_run_id,
 )
-from interact_capsules.schema_utils import validate_with_schema
+from interact_morph.schema_utils import validate_with_schema
 
 
 DEFAULT_OUTPUT = (
@@ -322,7 +322,7 @@ def build_next_actions(
                 "description": "Rerun the non-mutating readiness check after source fixes.",
                 "command": format_command(
                     [
-                        "interact-capsules",
+                        "interact-morph",
                         "handoff-check",
                         "--source-dir",
                         source_dir,
@@ -337,7 +337,7 @@ def build_next_actions(
         if run_id_recommendation and run_id_recommendation.get("recommended"):
             mode = str(run_id_recommendation["recommended"])
         pipeline_command_parts: list[str | Path] = [
-            "interact-capsules",
+            "interact-morph",
             "pipeline",
             "--source-dir",
             source_dir,

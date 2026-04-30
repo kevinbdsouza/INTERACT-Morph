@@ -5,7 +5,7 @@ Start the experimental-transfer stage by warm-starting the multimodal predictor 
 
 ## CLI Command
 ```bash
-interact-capsules model-finetune \
+interact-morph model-finetune \
   --dataset-root data/canonical/family_a \
   --split data/canonical/family_a/manifests/splits/family_a_v1.json \
   --init-model data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.model.json \

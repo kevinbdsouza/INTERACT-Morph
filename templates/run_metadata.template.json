@@ -22,6 +22,11 @@
       "density_kg_m3": 1100.0,
       "viscosity_pa_s": 0.005
     },
+    "host_bath": {
+      "material_id": "host_material",
+      "density_kg_m3": 980.0,
+      "viscosity_pa_s": 0.002
+    },
     "interfacial_layer": {
       "material_id": "layer_material",
       "thickness_mm": 0.8,
@@ -34,6 +39,10 @@
     "impact_height_mm": 25.0,
     "droplet_diameter_mm": 2.0,
     "shell_outer_diameter_mm": 3.0,
+    "shell_volume_ul": 14.1,
+    "effective_interfacial_layer_thickness_mm": 0.8,
+    "route_type": "single_layer",
+    "confinement_type": "conventional",
     "ambient_temperature_c": 25.0
   },
   "outcomes": {
@@ -41,6 +50,12 @@
     "regime_label": "stable_wrapping",
     "failure_mode": "none",
     "shell_thickness_mean_um": 120.0,
+    "shell_thickness_nonuniformity": 0.18,
+    "crown_index": 0.05,
+    "trapped_air_fraction": 0.02,
+    "encapsulated_volume_ul": 4.0,
+    "core_offset": 0.12,
+    "layer_sequence": ["shell"],
     "capsule_eccentricity": 0.12,
     "notes": ""
   },

@@ -9,7 +9,7 @@ Generate an error taxonomy from model prediction artifacts to identify:
 
 ## CLI Command
 ```bash
-interact-capsules failure-analysis \
+interact-morph failure-analysis \
   --predictions data/canonical/family_a/manifests/models/<model_id>.predictions.jsonl \
   --config configs/validation/family_a_failure_mode_analysis_v1.json \
   --output data/canonical/family_a/manifests/reports/<model_id>.failure_analysis.json \

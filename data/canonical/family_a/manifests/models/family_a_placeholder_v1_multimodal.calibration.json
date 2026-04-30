@@ -4,7 +4,7 @@
   "created_at_utc": "2026-04-25T12:44:56.971468+00:00",
   "inputs": {
     "predictions_path": "data/canonical/family_a/manifests/models/family_a_placeholder_v1_multimodal.predictions.jsonl",
-    "config_path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/configs/modeling/family_a_uncertainty_calibration_v1.json",
+    "config_path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Morph/configs/modeling/family_a_uncertainty_calibration_v1.json",
     "prediction_count": 120
   },
   "outputs": {

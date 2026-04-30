@@ -6,7 +6,7 @@ Track campaign outcomes for model-guided and baseline search arms, then quantify
 ## Campaign Preparation (MVP-032/033)
 Prepare campaign plans and log templates before campaign execution:
 ```bash
-interact-capsules campaign-prepare \
+interact-morph campaign-prepare \
   --runs-input data/canonical/family_a/manifests/reports/campaign_model_guided.execution_template.json \
   --config configs/validation/family_a_prospective_campaign_v1.json \
   --analysis-config configs/validation/family_a_campaign_analysis_v1.json \
@@ -28,7 +28,7 @@ JSONL is recommended for append-only logging.
 
 ## CLI Command
 ```bash
-interact-capsules campaign-analyze \
+interact-morph campaign-analyze \
   --model-guided-log data/canonical/family_a/manifests/reports/campaign_model_guided.jsonl \
   --baseline-log data/canonical/family_a/manifests/reports/campaign_baseline.jsonl \
   --config configs/validation/family_a_campaign_analysis_v1.json \

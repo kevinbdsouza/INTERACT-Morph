@@ -14,7 +14,7 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from interact_capsules.io_utils import dump_json, load_json, load_json_or_yaml
+from interact_morph.io_utils import dump_json, load_json, load_json_or_yaml
 
 EPS = 1e-12
 
@@ -86,6 +86,14 @@ def safe_get(payload: dict[str, Any], path: str) -> Any:
     return current
 
 
+def first_present(payload: dict[str, Any], paths: list[str]) -> Any:
+    for path in paths:
+        value = safe_get(payload, path)
+        if value is not None:
+            return value
+    return None
+
+
 def to_float(value: Any) -> float | None:
     if isinstance(value, bool):
         return 1.0 if value else 0.0
@@ -102,6 +110,24 @@ def to_float(value: Any) -> float | None:
             return None
         return x if math.isfinite(x) else None
     return None
+
+
+def to_str(value: Any) -> str | None:
+    if isinstance(value, str):
+        text = value.strip()
+        return text or None
+    return None
+
+
+def to_string_list(value: Any) -> list[str]:
+    if not isinstance(value, list):
+        return []
+    items: list[str] = []
+    for item in value:
+        text = to_str(item)
+        if text is not None:
+            items.append(text)
+    return items
 
 
 def clamp_prob(p: float) -> float:
@@ -557,6 +583,7 @@ def infer_candidate_id(candidate: dict[str, Any], idx: int) -> str:
 
 
 def build_guardrail_result(
+    candidate: dict[str, Any],
     x: list[float],
     feature_names: list[str],
     feature_bounds: tuple[list[float], list[float]],
@@ -569,6 +596,16 @@ def build_guardrail_result(
     max_extrapolated_features = int(to_float(guardrail_cfg.get("max_extrapolated_features")) or 0)
     max_nearest_train_distance = to_float(guardrail_cfg.get("max_nearest_train_distance"))
     min_success_probability = to_float(guardrail_cfg.get("min_success_probability"))
+    allowed_route_types = to_string_list(guardrail_cfg.get("allowed_route_types"))
+    allowed_confinement_types = to_string_list(guardrail_cfg.get("allowed_confinement_types"))
+    allowed_multilayer_sequences = guardrail_cfg.get("allowed_multilayer_sequences", [])
+    if not isinstance(allowed_multilayer_sequences, list):
+        allowed_multilayer_sequences = []
+    allowed_sequence_keys = {
+        tuple(to_string_list(sequence))
+        for sequence in allowed_multilayer_sequences
+        if to_string_list(sequence)
+    }
 
     extrapolated_features: list[dict[str, Any]] = []
     for idx, value in enumerate(x):
@@ -612,11 +649,112 @@ def build_guardrail_result(
             f"success_probability<{min_success_probability}"
         )
 
+    route_type = to_str(
+        first_present(
+            candidate,
+            [
+                "control_parameters.route_type",
+                "metadata.control_parameters.route_type",
+                "route_type",
+            ],
+        )
+    )
+    confinement_type = to_str(
+        first_present(
+            candidate,
+            [
+                "control_parameters.confinement_type",
+                "metadata.control_parameters.confinement_type",
+                "confinement_type",
+            ],
+        )
+    )
+    shell_volume_ul = to_float(
+        first_present(
+            candidate,
+            [
+                "control_parameters.shell_volume_ul",
+                "metadata.control_parameters.shell_volume_ul",
+                "shell_volume_ul",
+            ],
+        )
+    )
+    loop_min_volume_ul = to_float(
+        first_present(
+            candidate,
+            [
+                "control_parameters.loop_geometry.minimum_volume_ul",
+                "metadata.control_parameters.loop_geometry.minimum_volume_ul",
+            ],
+        )
+    )
+    loop_overflow_volume_ul = to_float(
+        first_present(
+            candidate,
+            [
+                "control_parameters.loop_geometry.overflow_volume_ul",
+                "metadata.control_parameters.loop_geometry.overflow_volume_ul",
+            ],
+        )
+    )
+    if loop_min_volume_ul is None:
+        loop_min_volume_ul = to_float(guardrail_cfg.get("loop_min_volume_ul"))
+    if loop_overflow_volume_ul is None:
+        loop_overflow_volume_ul = to_float(guardrail_cfg.get("loop_overflow_volume_ul"))
+
+    if allowed_route_types and route_type is not None and route_type not in allowed_route_types:
+        reasons.append(f"route_type_not_allowed:{route_type}")
+    if allowed_confinement_types and confinement_type is not None and confinement_type not in allowed_confinement_types:
+        reasons.append(f"confinement_type_not_allowed:{confinement_type}")
+
+    if confinement_type == "circular_loop_assisted":
+        if shell_volume_ul is None:
+            reasons.append("loop_shell_volume_missing")
+        else:
+            if loop_min_volume_ul is not None and shell_volume_ul < loop_min_volume_ul:
+                reasons.append(f"loop_shell_volume<{loop_min_volume_ul}")
+            if loop_overflow_volume_ul is not None and shell_volume_ul > loop_overflow_volume_ul:
+                reasons.append(f"loop_shell_volume>{loop_overflow_volume_ul}")
+    elif confinement_type != "circular_loop_assisted" and shell_volume_ul is not None:
+        global_min_volume = to_float(guardrail_cfg.get("shell_volume_min_ul"))
+        global_max_volume = to_float(guardrail_cfg.get("shell_volume_max_ul"))
+        if global_min_volume is not None and shell_volume_ul < global_min_volume:
+            reasons.append(f"shell_volume<{global_min_volume}")
+        if global_max_volume is not None and shell_volume_ul > global_max_volume:
+            reasons.append(f"shell_volume>{global_max_volume}")
+
+    layer_sequence = to_string_list(
+        first_present(
+            candidate,
+            [
+                "outcomes.layer_sequence",
+                "derived.summary.layer_sequence",
+                "metadata.outcomes.layer_sequence",
+                "layer_sequence",
+            ],
+        )
+    )
+    if route_type == "multilayer":
+        if not layer_sequence:
+            reasons.append("multilayer_sequence_missing")
+        elif allowed_sequence_keys and tuple(layer_sequence) not in allowed_sequence_keys:
+            reasons.append("multilayer_sequence_not_allowed")
+    elif route_type == "single_layer" and len(layer_sequence) > 1:
+        reasons.append("single_layer_route_has_multilayer_sequence")
+
     return {
         "accepted": len(reasons) == 0,
         "reasons": reasons,
         "nearest_train_distance": nearest_distance,
         "extrapolated_features": extrapolated_features,
+        "route_type": route_type,
+        "confinement_type": confinement_type,
+        "shell_volume_ul": shell_volume_ul,
+        "loop_volume_window_ul": {
+            "minimum": loop_min_volume_ul,
+            "overflow": loop_overflow_volume_ul,
+        },
+        "layer_sequence": layer_sequence,
     }
 
 
@@ -909,6 +1047,7 @@ def main() -> int:
         ranking_score = ei_score if ranking_method == "ei" else ucb_score
 
         guardrail_result = build_guardrail_result(
+            candidate=candidate,
             x=x,
             feature_names=feature_names,
             feature_bounds=feature_bounds,

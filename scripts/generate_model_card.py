@@ -11,7 +11,7 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from interact_capsules.io_utils import load_json
+from interact_morph.io_utils import load_json
 
 DEFAULT_TEMPLATE = PROJECT_ROOT / "templates" / "model_card.template.md"
 
@@ -102,6 +102,33 @@ def render_regression_tables(evaluation: dict[str, Any]) -> str:
     return "\n\n".join(sections)
 
 
+def collect_regression_targets(evaluation: dict[str, Any]) -> list[str]:
+    target_names: set[str] = set()
+    for split_name in ("train", "val", "test"):
+        split_payload = evaluation.get(split_name, {})
+        if not isinstance(split_payload, dict):
+            continue
+        metrics = split_payload.get("regression_metrics", {})
+        if isinstance(metrics, dict):
+            target_names.update(str(name) for name in metrics.keys())
+    return sorted(target_names)
+
+
+def render_output_contract(evaluation: dict[str, Any]) -> str:
+    targets = collect_regression_targets(evaluation)
+    lines = [
+        "- `success_probability`: calibrated probability for wrapped/stable encapsulation.",
+        "- `regime_label`: penetration, trapping, confinement, overflow, invalid-route, or stable wrapping class.",
+    ]
+    if targets:
+        lines.append("- Morphology regression targets:")
+        lines.extend(f"  - `{target}`" for target in targets)
+    else:
+        lines.append("- Morphology regression targets: N/A")
+    lines.append("- Recommendation-time uncertainty fields: calibration metrics, abstention summaries, and nearest-evidence distance.")
+    return "\n".join(lines)
+
+
 def render_feature_list(feature_names: list[Any]) -> str:
     if not feature_names:
         return "- N/A"
@@ -116,28 +143,50 @@ def render_calibration_summary(calibration_payload: dict[str, Any] | None) -> st
     if not isinstance(heads, dict):
         return "Calibration artifact has no `heads` object."
 
-    success = heads.get("success_probability", {})
-    if not isinstance(success, dict):
-        success = {}
-    metrics = success.get("metrics", {}) if isinstance(success.get("metrics"), dict) else {}
-    final_block = metrics.get("final", {}) if isinstance(metrics.get("final"), dict) else {}
-    uncal_block = metrics.get("uncalibrated", {}) if isinstance(metrics.get("uncalibrated"), dict) else {}
+    lines: list[str] = []
+    for key, label in (
+        ("success_probability", "Success probability"),
+        ("regime_top1_correctness_probability", "Regime top-1 correctness"),
+    ):
+        head = heads.get(key, {})
+        if not isinstance(head, dict):
+            continue
+        metrics = head.get("metrics", {}) if isinstance(head.get("metrics"), dict) else {}
+        final_block = metrics.get("final", {}) if isinstance(metrics.get("final"), dict) else {}
+        uncal_block = metrics.get("uncalibrated", {}) if isinstance(metrics.get("uncalibrated"), dict) else {}
+        uncal_overall = uncal_block.get("overall", {}) if isinstance(uncal_block.get("overall"), dict) else {}
+        final_overall = final_block.get("overall", {}) if isinstance(final_block.get("overall"), dict) else {}
 
-    uncal_overall = uncal_block.get("overall", {}) if isinstance(uncal_block.get("overall"), dict) else {}
-    final_overall = final_block.get("overall", {}) if isinstance(final_block.get("overall"), dict) else {}
+        temperature = None
+        temp_block = head.get("temperature_scaling")
+        if isinstance(temp_block, dict):
+            temperature = temp_block.get("temperature")
 
-    temperature = None
-    temp_block = success.get("temperature_scaling")
-    if isinstance(temp_block, dict):
-        temperature = temp_block.get("temperature")
+        conformal = head.get("conformal", {}) if isinstance(head.get("conformal"), dict) else {}
+        abstention = head.get("abstention", {}) if isinstance(head.get("abstention"), dict) else {}
+        thresholds = abstention.get("threshold_summaries", [])
+        threshold_note = "N/A"
+        if isinstance(thresholds, list) and thresholds:
+            last = thresholds[-1] if isinstance(thresholds[-1], dict) else {}
+            threshold_note = (
+                f"threshold `{fmt(last.get('confidence_threshold'))}`, "
+                f"coverage `{fmt(last.get('coverage'))}`, "
+                f"kept accuracy `{fmt(last.get('accuracy_on_kept'))}`"
+            )
 
-    lines = [
-        "- Success head calibration:",
-        f"  temperature: `{fmt(temperature)}`",
-        f"  log-loss (uncalibrated -> final): `{fmt(uncal_overall.get('log_loss'))}` -> `{fmt(final_overall.get('log_loss'))}`",
-        f"  brier (uncalibrated -> final): `{fmt(uncal_overall.get('brier'))}` -> `{fmt(final_overall.get('brier'))}`",
-        f"  ECE (uncalibrated -> final): `{fmt(uncal_overall.get('ece'))}` -> `{fmt(final_overall.get('ece'))}`",
-    ]
+        lines.extend(
+            [
+                f"- {label}:",
+                f"  temperature: `{fmt(temperature)}`",
+                f"  log-loss (uncalibrated -> final): `{fmt(uncal_overall.get('log_loss'))}` -> `{fmt(final_overall.get('log_loss'))}`",
+                f"  brier (uncalibrated -> final): `{fmt(uncal_overall.get('brier'))}` -> `{fmt(final_overall.get('brier'))}`",
+                f"  ECE (uncalibrated -> final): `{fmt(uncal_overall.get('ece'))}` -> `{fmt(final_overall.get('ece'))}`",
+                f"  conformal coverage target / empirical: `{fmt(conformal.get('target_coverage'))}` / `{fmt(conformal.get('empirical_coverage'))}`",
+                f"  abstention check: {threshold_note}",
+            ]
+        )
+    if not lines:
+        return "Calibration artifact has no recognized probability heads."
     return "\n".join(lines)
 
 
@@ -178,6 +227,7 @@ def build_context(
         "{{RUN_COUNT_VAL}}": fmt(run_counts.get("val"), 0),
         "{{RUN_COUNT_TEST}}": fmt(run_counts.get("test"), 0),
         "{{FEATURE_LIST}}": render_feature_list(model_payload.get("feature_names", [])),
+        "{{OUTPUT_CONTRACT}}": render_output_contract(evaluation=evaluation),
         "{{SUCCESS_METRICS_TABLE}}": render_split_metric_table(
             evaluation=evaluation,
             task_key="success_metrics",

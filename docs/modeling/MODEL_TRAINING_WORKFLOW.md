@@ -5,7 +5,7 @@ Provide a config-driven, reproducible training/evaluation path for Family A mult
 
 ## CLI Command
 ```bash
-interact-capsules model-train \
+interact-morph model-train \
   --dataset-root data/canonical/family_a \
   --split data/canonical/family_a/manifests/splits/family_a_v1.json \
   --config configs/modeling/family_a_multimodal_v1.json \

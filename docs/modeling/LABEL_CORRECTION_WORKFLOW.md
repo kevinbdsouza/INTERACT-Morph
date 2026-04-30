@@ -5,7 +5,7 @@ Create a reproducible triage queue that merges segmentation QC, contour extracti
 
 ## CLI Command
 ```bash
-interact-capsules label-correction \
+interact-morph label-correction \
   --segmentation-qc data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_models/smoke_family_a_segmentation_v1.qc.json \
   --feature-qa data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/feature_qa_smoke_v1.json \
   --extraction-report data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/extraction_report.json \

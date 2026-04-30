@@ -5,7 +5,7 @@ Generate a standardized markdown model card for each trained model artifact.
 
 ## CLI Command
 ```bash
-interact-capsules model-card \
+interact-morph model-card \
   --model-artifact data/canonical/family_a/manifests/models/<model_id>.model.json \
   --eval-artifact data/canonical/family_a/manifests/models/<model_id>.eval.json \
   --calibration-artifact data/canonical/family_a/manifests/models/<model_id>.calibration.json \

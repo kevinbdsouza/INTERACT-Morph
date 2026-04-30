@@ -67,19 +67,19 @@
   "worst_runs": [
     {
       "run_id": "A_SIM_A_000001",
-      "path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/by_run/A_SIM_A_000001.derived_features.json",
+      "path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Morph/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/by_run/A_SIM_A_000001.derived_features.json",
       "issue_count": 0,
       "issues": []
     },
     {
       "run_id": "A_SIM_A_000002",
-      "path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/by_run/A_SIM_A_000002.derived_features.json",
+      "path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Morph/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/by_run/A_SIM_A_000002.derived_features.json",
       "issue_count": 0,
       "issues": []
     },
     {
       "run_id": "A_SIM_A_000003",
-      "path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/by_run/A_SIM_A_000003.derived_features.json",
+      "path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Morph/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/segmentation_features/by_run/A_SIM_A_000003.derived_features.json",
       "issue_count": 0,
       "issues": []
     }

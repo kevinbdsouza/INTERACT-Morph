@@ -7,7 +7,7 @@ Prepare campaign-ready run sheets and append-ready campaign logs for:
 
 ## CLI Command
 ```bash
-interact-capsules campaign-prepare \
+interact-morph campaign-prepare \
   --runs-input data/canonical/family_a/manifests/reports/campaign_model_guided.execution_template.json \
   --config configs/validation/family_a_prospective_campaign_v1.json \
   --analysis-config configs/validation/family_a_campaign_analysis_v1.json \

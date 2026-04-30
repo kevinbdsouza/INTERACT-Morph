@@ -2,11 +2,11 @@
 
 INTERACT-Morph is a data, video-processing, modeling, and inverse-recommendation toolkit for impact-driven liquid-liquid encapsulation. The revised scope is morphology-first: given a target liquid-shell morphology, the tool should recommend experimentally controllable operating conditions with uncertainty, nearby prior evidence, and failure-mode warnings.
 
-The 18-month Track II deliverable is a documented lab-facing software stack for AI-guided inverse morphology design in non-equilibrium four-fluid encapsulation systems.
+We are building a lab-facing software stack for AI-guided inverse morphology design in non-equilibrium four-fluid encapsulation systems.
 
 Implementation status, open work, and sprint notes live in [docs/mvp/Progress_Tracking.md](docs/mvp/Progress_Tracking.md), [docs/mvp/ToDo.md](docs/mvp/ToDo.md), and [docs/mvp/MVP_SPEC.md](docs/mvp/MVP_SPEC.md).
 
-## Revised Scope
+## Scope
 
 INTERACT-Morph focuses on the material state created by a core drop, shell-forming interfacial layer, host bath, and surrounding air during impact-driven wrapping. It treats morphology as the actionable design target rather than treating wrapped/unwrapped outcome as the endpoint.
 
@@ -54,52 +54,50 @@ Most workflows have been smoke-tested on synthetic placeholder data. Production 
 
 ## Command Surface
 
-The CLI entrypoint is currently still named `interact-capsules` for compatibility with the existing Python package. Renaming the package/command to `interact-morph` is tracked as a follow-up because it touches scripts, tests, configs, and generated artifacts.
-
 Data and validation:
 
 ```bash
-interact-capsules handoff-check
-interact-capsules inventory
-interact-capsules ingest
-interact-capsules validate
-interact-capsules split
-interact-capsules snapshot
-interact-capsules pipeline
+interact-morph handoff-check
+interact-morph inventory
+interact-morph ingest
+interact-morph validate
+interact-morph split
+interact-morph snapshot
+interact-morph pipeline
 ```
 
 Video observables and labeling:
 
 ```bash
-interact-capsules segment-train
-interact-capsules extract-trajectories
-interact-capsules feature-qa
-interact-capsules label-correction
+interact-morph segment-train
+interact-morph extract-trajectories
+interact-morph feature-qa
+interact-morph label-correction
 ```
 
 Modeling and inverse design:
 
 ```bash
-interact-capsules baseline
-interact-capsules model-train
-interact-capsules model-finetune
-interact-capsules model-calibrate
-interact-capsules model-card
-interact-capsules recommend
-interact-capsules recommend-ui
+interact-morph baseline
+interact-morph model-train
+interact-morph model-finetune
+interact-morph model-calibrate
+interact-morph model-card
+interact-morph recommend
+interact-morph recommend-ui
 ```
 
 Campaigns and governance:
 
 ```bash
-interact-capsules experiment-template
-interact-capsules campaign-prepare
-interact-capsules campaign-analyze
-interact-capsules failure-analysis
-interact-capsules repro-lock
-interact-capsules repro-check
-interact-capsules smoke-check
-interact-capsules mvp-governance
+interact-morph experiment-template
+interact-morph campaign-prepare
+interact-morph campaign-analyze
+interact-morph failure-analysis
+interact-morph repro-lock
+interact-morph repro-check
+interact-morph smoke-check
+interact-morph mvp-governance
 ```
 
 ## Repository Layout
@@ -134,13 +132,13 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -e .
 pip install -e ".[validation]"
-interact-capsules --help
+interact-morph --help
 ```
 
 If the package is not installed yet:
 
 ```bash
-python3 src/interact_capsules/cli.py --help
+python3 src/interact_morph/cli.py --help
 ```
 
 ## Typical End-To-End Flow
@@ -148,7 +146,7 @@ python3 src/interact_capsules/cli.py --help
 Check a raw experimental handoff:
 
 ```bash
-interact-capsules handoff-check \
+interact-morph handoff-check \
   --source-dir data/raw \
   --family A \
   --output data/canonical/family_a/manifests/reports/data_handoff_check.json \
@@ -159,7 +157,7 @@ interact-capsules handoff-check \
 Run the canonical data pipeline:
 
 ```bash
-interact-capsules pipeline \
+interact-morph pipeline \
   --source-dir data/raw \
   --dataset-root data/canonical/family_a \
   --family A \
@@ -172,18 +170,18 @@ interact-capsules pipeline \
 Train, calibrate, and document a model:
 
 ```bash
-interact-capsules model-train \
+interact-morph model-train \
   --dataset-root data/canonical/family_a \
   --split data/canonical/family_a/manifests/splits/interact_morph_v1.json \
   --output-dir data/canonical/family_a/manifests/models \
   --model-id interact_morph_multimodal_v1
 
-interact-capsules model-calibrate \
+interact-morph model-calibrate \
   --predictions data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.predictions.jsonl \
   --output data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.calibration.json \
   --calibrated-predictions-output data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.calibrated_predictions.jsonl
 
-interact-capsules model-card \
+interact-morph model-card \
   --model-artifact data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.model.json \
   --eval-artifact data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.eval.json \
   --calibration-artifact data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.calibration.json \
@@ -193,13 +191,13 @@ interact-capsules model-card \
 Rank target-morphology candidates:
 
 ```bash
-interact-capsules recommend \
+interact-morph recommend \
   --model-artifact data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.model.json \
   --calibration-artifact data/canonical/family_a/manifests/models/interact_morph_multimodal_v1.calibration.json \
   --candidates data/simulation/family_a/manifests/axisymmetric_sweep_v1.jsonl \
   --output data/canonical/family_a/manifests/recommendations/interact_morph_multimodal_v1.recommendations.json
 
-interact-capsules recommend-ui \
+interact-morph recommend-ui \
   --recommendation-report data/canonical/family_a/manifests/recommendations/interact_morph_multimodal_v1.recommendations.json \
   --output-html data/canonical/family_a/manifests/recommendations/interact_morph_multimodal_v1.recommendations.html
 ```
@@ -207,18 +205,18 @@ interact-capsules recommend-ui \
 Prepare and analyze prospective campaigns:
 
 ```bash
-interact-capsules experiment-template \
+interact-morph experiment-template \
   --recommendation-report data/canonical/family_a/manifests/recommendations/interact_morph_multimodal_v1.recommendations.json \
   --output data/canonical/family_a/manifests/reports/experiment_execution_template.json \
   --markdown-output data/canonical/family_a/manifests/reports/experiment_execution_template.md
 
-interact-capsules campaign-prepare \
+interact-morph campaign-prepare \
   --runs-input data/canonical/family_a/manifests/reports/experiment_execution_template.json \
   --campaign-profile model_guided_primary \
   --output data/canonical/family_a/manifests/reports/campaign_prepared_model_guided_primary.json \
   --campaign-log-output data/canonical/family_a/manifests/reports/campaign_model_guided_primary.jsonl
 
-interact-capsules campaign-analyze \
+interact-morph campaign-analyze \
   --model-guided-log data/canonical/family_a/manifests/reports/campaign_model_guided_primary.jsonl \
   --baseline-log data/canonical/family_a/manifests/reports/campaign_baseline_primary.jsonl \
   --output data/canonical/family_a/manifests/reports/campaign_analysis.json \
@@ -249,7 +247,7 @@ Template files:
 ```bash
 python3 -m unittest discover -s tests
 python3 -m compileall src scripts tests
-interact-capsules smoke-check \
+interact-morph smoke-check \
   --output data/canonical/family_a/manifests/reports/smoke_check_report.json
 ```
 

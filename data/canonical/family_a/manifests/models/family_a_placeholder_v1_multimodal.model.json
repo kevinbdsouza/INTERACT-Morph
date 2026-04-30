@@ -3,7 +3,7 @@
   "created_at_utc": "2026-04-25T12:44:48.742894+00:00",
   "dataset_root": "data/canonical/family_a",
   "split_path": "data/canonical/family_a/manifests/splits/family_a_placeholder_v1.json",
-  "config_path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/configs/modeling/family_a_multimodal_v1.json",
+  "config_path": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Morph/configs/modeling/family_a_multimodal_v1.json",
   "config_sha256": "5d6d5dc3e6614e0498b7b6a45b9b41ae0aca5b146fb6632122bfac275d72bcd7",
   "split_sha256": "5d9ee0aae15273475747b496e802c2b204652897c0ed57c85387b09021708194",
   "feature_names": [

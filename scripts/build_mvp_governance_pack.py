@@ -13,7 +13,7 @@ import sys
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from interact_capsules.io_utils import dump_json, load_json_or_yaml
+from interact_morph.io_utils import dump_json, load_json_or_yaml
 
 
 def parse_args() -> argparse.Namespace:
@@ -233,7 +233,7 @@ def build_handoff_payload(
         "task_id": "MVP-038",
         "name": str(config.get("name", "family_a_mvp_governance_v1")),
         "created_at_utc": generated_at_utc,
-        "session_title": str(handoff_cfg.get("session_title", "INTERACT-Capsules Internal Handoff")),
+        "session_title": str(handoff_cfg.get("session_title", "INTERACT-Morph Internal Handoff")),
         "objective": str(
             handoff_cfg.get(
                 "objective",

@@ -13,7 +13,7 @@ if str(SRC_DIR) not in sys.path:
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 
-from interact_capsules.io_utils import dump_json
+from interact_morph.io_utils import dump_json
 import build_mvp_governance_pack
 
 

@@ -1,7 +1,7 @@
 # Internal Handoff Session Pack (MVP-038)
 
 - Generated: `2026-04-18T05:10:54.198029+00:00`
-- Session title: `INTERACT-Capsules Family A Internal Handoff`
+- Session title: `INTERACT-Morph Family A Internal Handoff`
 
 ## Objective
 

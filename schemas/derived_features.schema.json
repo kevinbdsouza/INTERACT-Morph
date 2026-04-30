@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://interact-capsules/schemas/derived_features.schema.json",
-  "title": "INTERACT-Capsules Derived Features",
+  "$id": "https://interact-morph/schemas/derived_features.schema.json",
+  "title": "INTERACT-Morph Derived Features",
   "type": "object",
   "required": [
     "schema_version",
@@ -62,8 +62,18 @@
       "additionalProperties": false,
       "properties": {
         "penetration_depth_max_mm": { "type": "number", "minimum": 0 },
+        "cavity_radius_max_mm": { "type": "number", "minimum": 0 },
         "neck_radius_min_mm": { "type": "number", "minimum": 0 },
         "shell_thickness_mean_um": { "type": "number", "minimum": 0 },
+        "shell_thickness_nonuniformity": { "type": "number", "minimum": 0 },
+        "trapped_air_fraction": { "type": "number", "minimum": 0, "maximum": 1 },
+        "crown_index": { "type": "number", "minimum": 0 },
+        "encapsulated_volume_ul": { "type": "number", "minimum": 0 },
+        "core_offset": { "type": "number", "minimum": 0 },
+        "layer_sequence": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
         "capsule_eccentricity": { "type": "number", "minimum": 0, "maximum": 1 }
       }
     },
@@ -77,8 +87,10 @@
       "additionalProperties": false,
       "properties": {
         "penetration_depth_mm": { "$ref": "#/$defs/series" },
+        "cavity_radius_mm": { "$ref": "#/$defs/series" },
         "neck_radius_mm": { "$ref": "#/$defs/series" },
-        "shell_thickness_um": { "$ref": "#/$defs/series" }
+        "shell_thickness_um": { "$ref": "#/$defs/series" },
+        "core_offset_mm": { "$ref": "#/$defs/series" }
       }
     }
   },

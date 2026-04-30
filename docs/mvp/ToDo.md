@@ -115,7 +115,7 @@ Current status note (2026-04-30): DOE planning, synthetic corpus generation, and
 
 ### C. Modeling, Calibration, And Documentation
 
-Current status note (2026-04-30): Multimodal training, synthetic pretraining, fine-tuning, calibration, and model-card workflows exist and are smoke-validated. They must be re-run on real morphology-resolved experimental data before G2 can be claimed.
+Current status note (2026-04-30): Multimodal training, synthetic pretraining, fine-tuning, calibration, and model-card workflows exist and are smoke-validated. Calibration now includes placeholder abstention and conformal diagnostics, and model cards render morphology outputs plus unsupported domains. These must be re-run on real morphology-resolved experimental data before G2 can be claimed.
 
 - [ ] MVP-019
 - [ ] MVP-020
@@ -126,7 +126,7 @@ Current status note (2026-04-30): Multimodal training, synthetic pretraining, fi
 
 ### D. Inverse Recommendation Engine
 
-Current status note (2026-04-30): Recommendation objective, EI/UCB scoring, guardrail rejection, and HTML review UI scaffolds exist. The objective now needs target-morphology tuning for shell thickness, trapped air, crown, volume, confinement limits, and route feasibility.
+Current status note (2026-04-30): Recommendation objective, EI/UCB scoring, guardrail rejection, and HTML review UI scaffolds exist. Placeholder runs now exercise target-morphology scoring for shell thickness, trapped air, crown, volume, confinement limits, and route feasibility; production tuning remains pending.
 
 - [ ] MVP-025
 - [ ] MVP-026
@@ -135,15 +135,15 @@ Current status note (2026-04-30): Recommendation objective, EI/UCB scoring, guar
 
 ### E. Productization And Reproducibility
 
-Current status note (2026-04-30): CLI, smoke checks, lockfile, deterministic checks, setup/runbook/quickstart/troubleshooting docs, and governance pack scaffolds exist. Public docs now use INTERACT-Morph, while the internal command remains `interact-capsules` until MVP-042 is implemented.
+Current status note (2026-04-30): CLI, smoke checks, lockfile, deterministic checks, setup/runbook/quickstart/troubleshooting docs, and governance pack scaffolds exist. Public docs and implementation now use the `interact-morph` command and `interact_morph` package.
 
-- [ ] MVP-028
+- [x] MVP-028
 - [ ] MVP-029
 - [ ] MVP-036
 - [ ] MVP-037
 - [ ] MVP-038
 - [x] MVP-041
-- [ ] MVP-042
+- [x] MVP-042
 
 ### F. Prospective Validation And Governance
 

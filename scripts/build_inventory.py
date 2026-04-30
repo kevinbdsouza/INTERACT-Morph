@@ -12,8 +12,8 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from interact_capsules.io_utils import load_json_or_yaml
-from interact_capsules.run_id_utils import (
+from interact_morph.io_utils import load_json_or_yaml
+from interact_morph.run_id_utils import (
     canonicalize_run_id,
     ensure_unique_run_id,
     extract_source_run_id,

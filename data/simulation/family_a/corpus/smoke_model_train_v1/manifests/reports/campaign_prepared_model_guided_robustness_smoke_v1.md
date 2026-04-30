@@ -4,8 +4,8 @@
 - Profile: `model_guided_robustness`
 - Campaign ID: `C3_MODEL_GUIDED_HELDOUT_20260418`
 - Generated: `2026-04-18T05:10:54.198626+00:00`
-- Runs input: `INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/experiment_execution_template_smoke_v1.json`
-- Campaign log template: `INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_model_guided_robustness_smoke_v1.jsonl`
+- Runs input: `INTERACT-Morph/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/experiment_execution_template_smoke_v1.json`
+- Campaign log template: `INTERACT-Morph/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_model_guided_robustness_smoke_v1.jsonl`
 
 ## Selection Summary
 
@@ -23,6 +23,6 @@
 
 ## Acceptance Targets
 
-- Targets source: `/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/configs/validation/family_a_campaign_analysis_v1.json`
+- Targets source: `/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Morph/configs/validation/family_a_campaign_analysis_v1.json`
 - Reduction target vs baseline: `30%`
 - Allowed regimes: `stable_wrapping`

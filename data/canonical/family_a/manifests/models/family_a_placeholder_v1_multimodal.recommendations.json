@@ -5,7 +5,7 @@
   "inputs": {
     "model_artifact": "data/canonical/family_a/manifests/models/family_a_placeholder_v1_multimodal.model.json",
     "candidate_jsonl": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/simulation_index.jsonl",
-    "recommendation_config": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/configs/modeling/family_a_recommendation_v1.json",
+    "recommendation_config": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Morph/configs/modeling/family_a_recommendation_v1.json",
     "calibration_artifact": "data/canonical/family_a/manifests/models/family_a_placeholder_v1_multimodal.calibration.json"
   },
   "summary": {

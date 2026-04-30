@@ -10,7 +10,7 @@
   "campaign_profile": "baseline_robustness",
   "campaign_arm": "baseline",
   "description": "Held-out robustness arm for baseline/grid-style comparison in shifted ranges.",
-  "source_runs_input": "INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/experiment_execution_template_smoke_v1.json",
+  "source_runs_input": "INTERACT-Morph/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/experiment_execution_template_smoke_v1.json",
   "selection": {
     "strategy": "evenly_spaced_rank",
     "source_rows": 5,
@@ -119,7 +119,7 @@
     }
   ],
   "log_template": {
-    "campaign_log_output": "INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_baseline_robustness_smoke_v1.jsonl",
+    "campaign_log_output": "INTERACT-Morph/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/reports/campaign_baseline_robustness_smoke_v1.jsonl",
     "required_fields": [
       "run_id",
       "status",

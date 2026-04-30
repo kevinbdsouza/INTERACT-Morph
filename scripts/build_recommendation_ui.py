@@ -12,7 +12,7 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from interact_capsules.io_utils import load_json
+from interact_morph.io_utils import load_json
 
 
 def parse_args() -> argparse.Namespace:
@@ -26,7 +26,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-html", required=True, type=Path, help="Output HTML file path")
     parser.add_argument(
         "--title",
-        default="INTERACT-Capsules Recommendation Review",
+        default="INTERACT-Morph Recommendation Review",
         help="Page title override",
     )
     parser.add_argument(

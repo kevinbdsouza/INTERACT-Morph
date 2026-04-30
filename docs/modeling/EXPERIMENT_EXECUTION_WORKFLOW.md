@@ -9,7 +9,7 @@ Convert recommendation artifacts into an operator-ready execution template that 
 
 ## CLI Command
 ```bash
-interact-capsules experiment-template \
+interact-morph experiment-template \
   --recommendation-report data/canonical/family_a/manifests/recommendations/<model_id>.recommendations.json \
   --config configs/validation/family_a_experiment_execution_v1.json \
   --output data/canonical/family_a/manifests/reports/<campaign_id>.execution_template.json \

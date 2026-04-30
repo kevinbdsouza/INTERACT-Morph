@@ -8,7 +8,7 @@ Generate governance artifacts from tracker state:
 
 ## CLI Command
 ```bash
-interact-capsules mvp-governance \
+interact-morph mvp-governance \
   --progress-tracker docs/mvp/Progress_Tracking.md \
   --todo docs/mvp/ToDo.md \
   --config configs/mvp/family_a_mvp_governance_v1.json \

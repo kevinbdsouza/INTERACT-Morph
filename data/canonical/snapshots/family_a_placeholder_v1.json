@@ -6,7 +6,7 @@
     "created_at_utc": "2026-04-25T12:41:39.236062+00:00",
     "family": "A",
     "run_id_mode": "preserve",
-    "schema": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Capsules/schemas/run_metadata.schema.json",
+    "schema": "/Users/kevindsouza/Documents/Obsidian_Vault/Companies/SoleProp/Proposals/Schmidt_Interact/INTERACT-Morph/schemas/run_metadata.schema.json",
     "source_dir": "data/simulation/family_a/corpus/smoke_model_train_v1/runs",
     "run_count": 120,
     "error_count": 0,

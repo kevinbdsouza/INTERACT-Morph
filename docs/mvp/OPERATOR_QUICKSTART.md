@@ -1,4 +1,4 @@
-# INTERACT-Capsules Operator Quickstart (MVP-037)
+# INTERACT-Morph Operator Quickstart (MVP-037)
 
 ## Purpose
 Run one full recommendation cycle from prepared artifacts with minimal manual decisions.
@@ -6,7 +6,7 @@ Run one full recommendation cycle from prepared artifacts with minimal manual de
 ## Fast Path
 1. Generate recommendations:
 ```bash
-interact-capsules recommend \
+interact-morph recommend \
   --model-artifact data/canonical/family_a/manifests/models/<model_id>.model.json \
   --candidates data/simulation/family_a/manifests/axisymmetric_sweep_v1.jsonl \
   --config configs/modeling/family_a_recommendation_v1.json \
@@ -16,7 +16,7 @@ interact-capsules recommend \
 
 2. Build review UI:
 ```bash
-interact-capsules recommend-ui \
+interact-morph recommend-ui \
   --recommendation-report data/canonical/family_a/manifests/recommendations/<model_id>.recommendations.json \
   --output-html data/canonical/family_a/manifests/recommendations/<model_id>.recommendations.html
 ```
@@ -28,7 +28,7 @@ interact-capsules recommend-ui \
 
 ## If Training Is Needed First
 ```bash
-interact-capsules model-train \
+interact-morph model-train \
   --dataset-root data/canonical/family_a \
   --split data/canonical/family_a/manifests/splits/family_a_v1.json \
   --config configs/modeling/family_a_multimodal_v1.json \
@@ -37,7 +37,7 @@ interact-capsules model-train \
 
 ## Reproducibility Check Before Lab Review
 ```bash
-interact-capsules repro-check \
+interact-morph repro-check \
   --dataset-root data/simulation/family_a/corpus/smoke_model_train_v1 \
   --split data/simulation/family_a/corpus/smoke_model_train_v1/manifests/splits/smoke_v1.json \
   --config configs/modeling/family_a_multimodal_v1.json \

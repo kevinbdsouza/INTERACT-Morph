@@ -1,15 +1,15 @@
 {
   "name": "family_a_uncertainty_calibration_v1",
   "model_id": "smoke_family_a_multimodal_v1_pretrain",
-  "created_at_utc": "2026-04-18T02:42:23.843343+00:00",
+  "created_at_utc": "2026-04-30T16:42:46.927710+00:00",
   "inputs": {
-    "predictions_path": "INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.predictions.jsonl",
-    "config_path": "INTERACT-Capsules/configs/modeling/family_a_uncertainty_calibration_v1.json",
+    "predictions_path": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.predictions.jsonl",
+    "config_path": "configs/modeling/family_a_uncertainty_calibration_v1.json",
     "prediction_count": 120
   },
   "outputs": {
-    "calibration_report_path": "INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.calibration.json",
-    "calibrated_predictions_path": "INTERACT-Capsules/data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.calibration.calibrated_predictions.jsonl"
+    "calibration_report_path": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.calibration.json",
+    "calibrated_predictions_path": "data/simulation/family_a/corpus/smoke_model_train_v1/manifests/models/smoke_family_a_multimodal_v1_pretrain.calibration.calibrated_predictions.jsonl"
   },
   "heads": {
     "success_probability": {
@@ -1412,6 +1412,53 @@
             }
           }
         }
+      },
+      "abstention": {
+        "method": "max_probability_threshold",
+        "threshold_summaries": [
+          {
+            "confidence_threshold": 0.6,
+            "kept_count": 120,
+            "abstained_count": 0,
+            "coverage": 1.0,
+            "accuracy_on_kept": 1.0,
+            "brier_on_kept": 0.0
+          },
+          {
+            "confidence_threshold": 0.7,
+            "kept_count": 120,
+            "abstained_count": 0,
+            "coverage": 1.0,
+            "accuracy_on_kept": 1.0,
+            "brier_on_kept": 0.0
+          },
+          {
+            "confidence_threshold": 0.8,
+            "kept_count": 120,
+            "abstained_count": 0,
+            "coverage": 1.0,
+            "accuracy_on_kept": 1.0,
+            "brier_on_kept": 0.0
+          },
+          {
+            "confidence_threshold": 0.9,
+            "kept_count": 120,
+            "abstained_count": 0,
+            "coverage": 1.0,
+            "accuracy_on_kept": 1.0,
+            "brier_on_kept": 0.0
+          }
+        ]
+      },
+      "conformal": {
+        "method": "binary_split_conformal_probability_set",
+        "target_coverage": 0.9,
+        "status": "ok",
+        "nonconformity_threshold": 1e-12,
+        "empirical_coverage": 1.0,
+        "singleton_rate": 1.0,
+        "empty_set_rate": 0.0,
+        "mean_set_size": 1.0
       }
     },
     "regime_top1_correctness_probability": {
@@ -2641,6 +2688,53 @@
             }
           }
         }
+      },
+      "abstention": {
+        "method": "max_probability_threshold",
+        "threshold_summaries": [
+          {
+            "confidence_threshold": 0.6,
+            "kept_count": 120,
+            "abstained_count": 0,
+            "coverage": 1.0,
+            "accuracy_on_kept": 1.0,
+            "brier_on_kept": 0.0012298590208236796
+          },
+          {
+            "confidence_threshold": 0.7,
+            "kept_count": 120,
+            "abstained_count": 0,
+            "coverage": 1.0,
+            "accuracy_on_kept": 1.0,
+            "brier_on_kept": 0.0012298590208236796
+          },
+          {
+            "confidence_threshold": 0.8,
+            "kept_count": 120,
+            "abstained_count": 0,
+            "coverage": 1.0,
+            "accuracy_on_kept": 1.0,
+            "brier_on_kept": 0.0012298590208236796
+          },
+          {
+            "confidence_threshold": 0.9,
+            "kept_count": 116,
+            "abstained_count": 4,
+            "coverage": 0.9666666666666667,
+            "accuracy_on_kept": 1.0,
+            "brier_on_kept": 0.0001722837927141664
+          }
+        ]
+      },
+      "conformal": {
+        "method": "binary_split_conformal_probability_set",
+        "target_coverage": 0.9,
+        "status": "ok",
+        "nonconformity_threshold": 0.02095916786019647,
+        "empirical_coverage": 0.9,
+        "singleton_rate": 0.9,
+        "empty_set_rate": 0.1,
+        "mean_set_size": 0.9
       }
     }
   }
